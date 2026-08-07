@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="en" data-mbtss-nonce="nq8b0iib2c072n2p3avtdmr8obpwgsc6eiarc6lz9g"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              keyframes: {
+                scroll: {
+                  '0%': { transform: 'translateX(0)' },
+                  '100%': { transform: 'translateX(-50%)' },
+                }
+              },
+              animation: {
+                scroll: 'scroll 30s linear infinite',
+              },
+              "colors": {
+                      "on-primary-fixed-variant": "#2d4674",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "surface-container-high": "#e6e8ea",
+                      "inverse-primary": "#aec7fd",
+                      "tertiary-container": "#1e2e42",
+                      "on-tertiary-container": "#8596ae",
+                      "secondary-fixed-dim": "#ffb95f",
+                      "secondary": "#855300",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "on-surface": "#191c1e",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#653e00",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#44474f",
+                      "surface-container": "#eceef0",
+                      "on-primary-fixed": "#001a41",
+                      "primary-fixed-dim": "#aec7fd",
+                      "primary": "#0f2c59",
+                      "on-error": "#ffffff",
+                      "primary-container": "#0f2c59",
+                      "secondary-container": "#f59e0b",
+                      "on-secondary-fixed": "#2a1700",
+                      "outline-variant": "#c4c6d0",
+                      "error-container": "#ffdad6",
+                      "outline": "#747780",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#d8e2ff",
+                      "surface-container-low": "#f2f4f6",
+                      "on-primary-container": "#7c94c8",
+                      "surface-bright": "#f7f9fb",
+                      "secondary-fixed": "#ffddb8",
+                      "surface-dim": "#d8dadc",
+                      "tertiary-fixed": "#d3e4fe",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#08192c",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e0e3e5",
+                      "on-background": "#191c1e",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "surface-tint": "#465e8e",
+                      "background": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "on-secondary-container": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "4px",
+                      "lg": "40px",
+                      "md": "24px",
+                      "container-max": "1440px",
+                      "xs": "8px",
+                      "xl": "64px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "60px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"></head>
+      <body class="bg-surface font-body-md text-on-surface">
+        <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+                <div class="h-20 w-full px-lg flex items-center justify-between mx-auto max-w-container-max">
+                        <div class="flex items-center gap-sm">
+                                <img alt="BEST Logistics Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_KbCoSg6rrink2FKc9jgUN2qeb5-W2pZhM5-aFfirq8HJ-6DDLpc2BCkYpBBDdG7Dvne8dGQ6GQlLsNyOMvHXn4hFFp10P-LqFbZ4ZAoG6sqjztJx0f4y_vqnBNST7Io5bev4ysKYSNHA6d_0mkK9eR7ztyVrs9edpsCtmyMaPBC8o6Jqywe0icw3qg28Ci0Tsy0d1y0uHjGLVwIJWLvKrz7UOD7iq9KnI63cz67v9lDLHAuY_mL5mA">
+                                <span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Berkat Subuh Transpor</span>
+                        </div>
+                        <nav class="hidden lg:flex items-center gap-lg" data-active-classes="text-primary font-bold">
+                                <a aria-current="page" class="transition-colors text-primary font-bold" data-path="home" href="index.html">Home</a>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About Us</a>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Services</a>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="fleet" href="#">Fleet</a>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a>
+                        </nav>
+                        <div class="flex items-center gap-md">
+                                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full relative overflow-x-hidden">
+      <!-- Hero Section with Background & Scrim -->
+      <section class="relative w-full h-[600px] flex items-end pb-xl px-lg lg:px-lg -mt-20 pt-20">
+      <div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A sprawling, hyper-realistic, low-angle shot of a massive shipping port at dawn. Dozens of blue and amber shipping containers stacked perfectly, illuminated by a warm sunrise. A colossal cargo ship in the background, sleek semi-trucks on the dock. Dramatic atmospheric lighting, deep navy shadows, cinematic composition, highly detailed, photorealistic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKew8Im5CJ7Uxf1H7jzrDn9vqFJuEkGSlCa7BadNwvJb3YjmRHUFND7IcsESw9Cm2Sgg0ktpeEFJsCezW4n5RFR4xXsR2W--yAT_MYRO3aXtbJSDhddlKj_XEbQ32sAZwTSNsUSLWvKfD3Q00DvoXQ-TgsXKvnGoJ2rUiYFjI9xDsyGWUvDPZNlQTw_2LSenVyjoa2ymXNw2InW3PiS77iUnjS-vdOUeiubep8Mc4Mlo22ojI6iPo')"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+      <div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col lg:flex-row items-end justify-between gap-xl">
+      <div class="flex flex-col gap-md max-w-3xl">
+      <h1 class="font-display-lg text-display-lg text-on-primary">Solusi Logistik Terpadu,<br>Cepat &amp; Terpercaya</h1>
+      <p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl">
+                Integrated Air, Sea, Land Freight &amp; Customs Clearance across Indonesia.
+              </p>
+      </div>
+      <!-- Quick Action Card -->
+      <div class="bg-surface p-lg rounded-xl shadow-xl w-full lg:w-[400px] flex flex-col gap-sm flex-shrink-0 animate-[slideUp_0.8s_ease-out]">
+      <div class="flex items-center gap-xs mb-sm text-primary">
+      <span class="material-symbols-outlined text-[24px]">search</span>
+      <h2 class="font-headline-sm text-headline-sm">Cek Tarif / Search Rates</h2>
+      </div>
+      <div class="flex flex-col gap-sm">
+      <div class="flex flex-col relative">
+      <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_takeoff</span>
+      <input class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30" placeholder="Asal (Origin)" type="text">
+      </div>
+      <div class="flex flex-col relative">
+      <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_land</span>
+      <input class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30" placeholder="Tujuan (Destination)" type="text">
+      </div>
+      <a href="rates.html" class="w-full h-12 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary-container font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors shadow-md mt-xs flex items-center justify-center gap-xs">
+                  Cari Tarif <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- About Us & Credentials -->
+      <section class="w-full py-xl px-lg bg-surface">
+      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+      <div class="flex flex-col lg:flex-row gap-lg">
+      <div class="flex-1 flex flex-col gap-md">
+      <span class="font-label-md text-label-md text-primary uppercase tracking-wider">About Us</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Founded in 1999 by Bpk. Alfian.</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant">We have built a legacy of trust and efficiency in the logistics industry, dedicated to moving your business forward.</p>
+      <div class="flex flex-col sm:flex-row gap-md mt-sm">
+      <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
+      <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Vision</h3>
+      <p class="font-body-sm text-on-surface-variant">To be the most reliable and integrated logistics partner in Indonesia and beyond.</p>
+      </div>
+      <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
+      <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Mission</h3>
+      <p class="font-body-sm text-on-surface-variant">Delivering excellence through speed, safety, and comprehensive logistics solutions.</p>
+      </div>
+      </div>
+      </div>
+      <div class="flex-1 flex flex-col gap-sm">
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Our Certifications &amp; Awards</h3>
+      <div class="grid grid-cols-2 gap-sm">
+      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary-container">verified</span>
+      <span class="font-label-md text-on-surface">ISO 9001:2015</span>
+      </div>
+      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary-container">health_and_safety</span>
+      <span class="font-label-md text-on-surface">SMK3 Safety</span>
+      </div>
+      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary-container">security</span>
+      <span class="font-label-md text-on-surface">OHSAS 18001</span>
+      </div>
+      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary-container">emoji_events</span>
+      <span class="font-label-md text-on-surface">Sorong Customs Award Winner</span>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="mt-md bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20 flex flex-col md:flex-row gap-lg items-center">
+      <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0 border-4 border-surface">
+      <div class="w-full h-full bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span></div>
+      </div>
+      <div class="flex flex-col gap-sm">
+      <div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface">Bpk. Alfian</h3>
+      <span class="font-label-md text-primary uppercase tracking-wider">Founder &amp; Director</span>
+      </div>
+      <p class="font-body-md text-on-surface-variant italic">
+                  "With over 25 years of commitment to logistics excellence, PT Berkat Subuh Transpor continues to evolve. Our reputation is built on trust, efficiency, and a deep understanding of Indonesia's unique geographical challenges."
+              </p>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- Our Services -->
+      <section class="w-full bg-surface-container-lowest py-xl px-lg relative z-20">
+      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+      <div class="text-center">
+      <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Our Services</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Comprehensive Logistics Solutions</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">flight</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Air Cargo &amp; Express</h3>
+      <p class="font-body-sm text-on-surface-variant">IATA Accredited fast and reliable air freight services.</p>
+      </div>
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">sailing</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Sea Freight</h3>
+      <p class="font-body-sm text-on-surface-variant">FCL / LCL Domestic &amp; International shipping solutions.</p>
+      </div>
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">local_shipping</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Land Transport &amp; Last Mile</h3>
+      <p class="font-body-sm text-on-surface-variant">Efficient land transport and last mile trucking.</p>
+      </div>
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">warehouse</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Warehousing &amp; Storage</h3>
+      <p class="font-body-sm text-on-surface-variant">Comprehensive warehousing &amp; storage management.</p>
+      </div>
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">description</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Customs Declaration / PPJK</h3>
+      <p class="font-body-sm text-on-surface-variant">Import-Export Compliance and customs handling.</p>
+      </div>
+      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">precision_manufacturing</span></div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Special Project Cargo</h3>
+      <p class="font-body-sm text-on-surface-variant">Handling of heavy equipment and special project cargo.</p>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- Fleet Capability -->
+      <section class="w-full py-xl px-lg bg-surface">
+      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+      <div>
+      <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Fleet Capability</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Our Transport Assets</h2>
+      </div>
+      <div class="flex items-center gap-xs bg-surface-container-low px-sm py-xs rounded-full border border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary-container text-[20px]">verified</span>
+      <span class="font-label-md text-on-surface">SMK3 Safety Compliant</span>
+      </div>
+      </div>
+      <div class="w-full bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/20 overflow-hidden">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">directions_car</span>
+      <span class="font-headline-sm text-on-surface">30 Units</span>
+      <span class="font-body-sm text-on-surface-variant">Container Trucks</span>
+      </div>
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+      <span class="font-headline-sm text-on-surface">Wingbox</span>
+      </div>
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+      <span class="font-headline-sm text-on-surface">CDE</span>
+      </div>
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+      <span class="font-headline-sm text-on-surface">CDD</span>
+      </div>
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">airport_shuttle</span>
+      <span class="font-headline-sm text-on-surface">Small Box</span>
+      </div>
+      <div class="p-md text-center flex flex-col items-center justify-center">
+      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">ac_unit</span>
+      <span class="font-headline-sm text-on-surface text-center">Cold Chain Reefer</span>
+      </div>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- Network Highlight -->
+      <section class="w-full bg-primary text-on-primary py-xl px-lg">
+      <div class="max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-lg">
+      <div class="flex-1 flex flex-col gap-md">
+      <span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider">Network Highlight</span>
+      <h2 class="font-headline-lg text-headline-lg">Extensive Coverage</h2>
+      <p class="font-body-lg text-on-primary/80">Connecting major hubs and remote areas across Indonesia and the globe.</p>
+      <div class="flex flex-wrap gap-sm mt-sm">
+      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Jakarta</span>
+      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Surabaya</span>
+      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Medan</span>
+      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Makassar</span>
+      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Sorong</span>
+      <span class="px-sm py-xs bg-secondary-container text-primary font-bold rounded-full font-label-md">+ 16 Global Hubs</span>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- Featured Projects -->
+      <section class="w-full py-xl px-lg bg-surface"><div class="max-w-container-max mx-auto flex flex-col gap-lg"><div class="text-center"><span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Featured Projects</span><h2 class="font-headline-lg text-headline-lg text-on-surface">Proven Track Record</h2></div><div class="grid grid-cols-1 md:grid-cols-2 gap-md"><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/8 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Global Events</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Formula 1 McLaren Car Logistics</h3><p class="font-label-md text-primary">Client: Puma Indonesia</p></div><p class="font-body-sm text-on-surface-variant">Simultaneous Global Reveal in Las Vegas, London, Bahrain &amp; Jakarta.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/5 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Sports Logistics</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Aston Villa FC Pre-Season Tour 2026</h3><p class="font-label-md text-primary">Client: ATA Carnet Handling</p></div><p class="font-body-sm text-on-surface-variant">Customs ATA Carnet Handling for professional sports equipment.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/12 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Renewable Energy</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Renewable Energy</h3><p class="font-label-md text-primary">Client: Indocement &amp; IMIP Morowali</p></div><p class="font-body-sm text-on-surface-variant">31,000+ Solar Panels logistics and distribution.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/6 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Cold Chain</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Remote Area Deliveries</h3>
+        <p class="font-label-md text-primary">Client: Cold Chain Logistics Solutions</p></div>
+        <p class="font-body-sm text-on-surface-variant">Temperature-controlled food cargo to remote logistics sites.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div><div class="flex justify-center mt-lg"><a href="projects.html" class="bg-primary text-on-primary px-xl py-md rounded-lg font-label-md uppercase tracking-wider hover:brightness-95 transition-all shadow-md flex items-center gap-xs">Lihat Semua Portofolio Proyek <span class="material-symbols-outlined text-[20px]">arrow_forward</span></a></div></div></section>
+      <!-- Client Logo Cloud -->
+      <section class="w-full bg-surface-container-low py-xl px-lg overflow-hidden">
+      <div class="max-w-container-max mx-auto flex flex-col items-center gap-lg">
+      <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Trusted By Industry Leaders</span>
+      <div class="w-full flex overflow-hidden">
+      <div class="flex w-max animate-scroll opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+      <div class="flex gap-xl pr-xl items-center">
+      <span class="font-headline-md font-bold whitespace-nowrap">Unilever</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Charoen Pokphand</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Isuzu</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">BP</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Tokopedia</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">GeoPost</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">DPD</span>
+      </div>
+      <div aria-hidden="true" class="flex gap-xl pr-xl items-center">
+      <span class="font-headline-md font-bold whitespace-nowrap">Unilever</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Charoen Pokphand</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Isuzu</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">BP</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">Tokopedia</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">GeoPost</span>
+      <span class="font-headline-md font-bold whitespace-nowrap">DPD</span>
+      </div>
+      </div>
+      </div>
+      </div>
+      </section>
+      <!-- Contact & Branches -->
+      <section class="w-full py-xl px-lg bg-surface">
+      <div class="max-w-container-max mx-auto flex flex-col lg:flex-row gap-xl"><div class="flex flex-col lg:flex-row gap-xl justify-between w-full"><div class="flex-1 flex flex-col gap-lg"><div class="flex flex-col gap-md"><span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">CONTACT &amp; BRANCHES</span><h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Our Locations</h2></div><div class="flex flex-col gap-sm"><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Jakarta Barat</h3><p class="font-body-md text-on-surface">Head Office</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Bekasi</h3><p class="font-body-md text-on-surface">Main Garage</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Sites</h3><p class="font-body-md text-on-surface">Soekarno-Hatta &amp; Tanjung Priok</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Regional</h3><p class="font-body-md text-on-surface">Semarang &amp; Makassar</p></div></div></div></div><div class="lg:w-[500px] flex-shrink-0"><div class="bg-surface-container-lowest p-lg rounded-xl shadow-xl border border-outline-variant/20 flex flex-col gap-md"><div class="text-center mb-xs"><h3 class="font-headline-sm text-headline-sm text-on-surface">Formulir Permintaan Penawaran Harga (RFQ)</h3><p class="font-body-sm text-on-surface-variant">Lengkapi data kargo Anda untuk penawaran terbaik.</p></div><form class="flex flex-col gap-sm"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Lengkap" type="text"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Perusahaan / PT" type="text"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Email Perusahaan" type="email"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nomor HP / WhatsApp" type="tel"><textarea class="w-full bg-surface-container-low p-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Rincian Kargo / Pesan" rows="3"></textarea><button class="w-full h-12 bg-primary text-on-primary font-label-md uppercase tracking-wider rounded-lg shadow-md hover:brightness-95 transition-all flex items-center justify-center gap-xs" type="button">Kirim Permintaan Penawaran <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></form><div class="text-center"><a class="text-body-sm text-primary hover:underline" href="https://wa.me/6282171789853">Atau Butuh Respon Cepat? Chat Sales via WhatsApp</a></div></div></div></div></div>
+      </section>
+      </div></main><footer class="w-full bg-primary text-on-primary py-xl mt-0"><div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row items-center justify-between gap-md"><div class="flex flex-col items-center md:items-start"><span class="font-headline-sm text-headline-sm mb-base">Berkat Subuh Transpor</span><p class="font-body-sm text-body-sm opacity-80">A Reputation For Excellence</p></div><div class="font-label-md text-label-md opacity-70">© 2024 PT Berkat Subuh Transpor. All rights reserved.</div></div></footer>
+      <a class="fixed bottom-md right-md z-50 flex items-center gap-xs bg-[#25D366] text-white px-md py-sm rounded-full shadow-xl hover:brightness-95 transition-all animate-[slideUp_0.8s_ease-out]" href="https://wa.me/6282171789853"><span class="material-symbols-outlined text-[24px]">chat</span><span class="font-label-md text-label-md uppercase tracking-wider">Chat via WhatsApp</span></a>
+      
+      </body></html>
