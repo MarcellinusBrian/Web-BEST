@@ -1,432 +1,660 @@
-<!DOCTYPE html><html lang="en" data-mbtss-nonce="nq8b0iib2c072n2p3avtdmr8obpwgsc6eiarc6lz9g"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              keyframes: {
-                scroll: {
-                  '0%': { transform: 'translateX(0)' },
-                  '100%': { transform: 'translateX(-50%)' },
-                }
-              },
-              animation: {
-                scroll: 'scroll 30s linear infinite',
-              },
-              "colors": {
-                      "on-primary-fixed-variant": "#2d4674",
-                      "tertiary-fixed-dim": "#b7c8e1",
-                      "surface-container-high": "#e6e8ea",
-                      "inverse-primary": "#aec7fd",
-                      "tertiary-container": "#1e2e42",
-                      "on-tertiary-container": "#8596ae",
-                      "secondary-fixed-dim": "#ffb95f",
-                      "secondary": "#855300",
-                      "on-tertiary-fixed-variant": "#38485d",
-                      "on-surface": "#191c1e",
-                      "on-tertiary": "#ffffff",
-                      "on-secondary-fixed-variant": "#653e00",
-                      "inverse-on-surface": "#eff1f3",
-                      "surface-container-lowest": "#ffffff",
-                      "on-surface-variant": "#44474f",
-                      "surface-container": "#eceef0",
-                      "on-primary-fixed": "#001a41",
-                      "primary-fixed-dim": "#aec7fd",
-                      "primary": "#0f2c59",
-                      "on-error": "#ffffff",
-                      "primary-container": "#0f2c59",
-                      "secondary-container": "#f59e0b",
-                      "on-secondary-fixed": "#2a1700",
-                      "outline-variant": "#c4c6d0",
-                      "error-container": "#ffdad6",
-                      "outline": "#747780",
-                      "on-error-container": "#93000a",
-                      "primary-fixed": "#d8e2ff",
-                      "surface-container-low": "#f2f4f6",
-                      "on-primary-container": "#7c94c8",
-                      "surface-bright": "#f7f9fb",
-                      "secondary-fixed": "#ffddb8",
-                      "surface-dim": "#d8dadc",
-                      "tertiary-fixed": "#d3e4fe",
-                      "on-primary": "#ffffff",
-                      "tertiary": "#08192c",
-                      "on-tertiary-fixed": "#0b1c30",
-                      "on-secondary": "#ffffff",
-                      "error": "#ba1a1a",
-                      "surface-variant": "#e0e3e5",
-                      "on-background": "#191c1e",
-                      "surface-container-highest": "#e0e3e5",
-                      "surface": "#f7f9fb",
-                      "surface-tint": "#465e8e",
-                      "background": "#f7f9fb",
-                      "inverse-surface": "#2d3133",
-                      "on-secondary-container": "#ffffff"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.125rem",
-                      "lg": "0.25rem",
-                      "xl": "0.5rem",
-                      "full": "0.75rem"
-              },
-              "spacing": {
-                      "gutter": "24px",
-                      "base": "4px",
-                      "lg": "40px",
-                      "md": "24px",
-                      "container-max": "1440px",
-                      "xs": "8px",
-                      "xl": "64px",
-                      "sm": "16px"
-              },
-              "fontFamily": {
-                      "headline-lg": [
-                              "Plus Jakarta Sans"
-                      ],
-                      "display-lg": [
-                              "Plus Jakarta Sans"
-                      ],
-                      "label-md": [
-                              "Inter"
-                      ],
-                      "body-sm": [
-                              "Inter"
-                      ],
-                      "headline-sm": [
-                              "Plus Jakarta Sans"
-                      ],
-                      "headline-md": [
-                              "Plus Jakarta Sans"
-                      ],
-                      "body-lg": [
-                              "Inter"
-                      ],
-                      "data-mono": [
-                              "Inter"
-                      ],
-                      "body-md": [
-                              "Inter"
-                      ]
-              },
-              "fontSize": {
-                      "headline-lg": [
-                              "32px",
-                              {
-                                      "lineHeight": "40px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "display-lg": [
-                              "48px",
-                              {
-                                      "lineHeight": "60px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "label-md": [
-                              "12px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.05em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "body-sm": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "headline-sm": [
-                              "20px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-md": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "body-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "data-mono": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "500"
-                              }
-                      ],
-                      "body-md": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "fontWeight": "400"
-                              }
-                      ]
-              }
-      },
-          },
-        }
-      </script>
-      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"></head>
-      <body class="bg-surface font-body-md text-on-surface">
-        <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-                <div class="h-20 w-full px-lg flex items-center justify-between mx-auto max-w-container-max">
-                        <div class="flex items-center gap-sm">
-                                <img alt="BEST Logistics Logo" class="h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_KbCoSg6rrink2FKc9jgUN2qeb5-W2pZhM5-aFfirq8HJ-6DDLpc2BCkYpBBDdG7Dvne8dGQ6GQlLsNyOMvHXn4hFFp10P-LqFbZ4ZAoG6sqjztJx0f4y_vqnBNST7Io5bev4ysKYSNHA6d_0mkK9eR7ztyVrs9edpsCtmyMaPBC8o6Jqywe0icw3qg28Ci0Tsy0d1y0uHjGLVwIJWLvKrz7UOD7iq9KnI63cz67v9lDLHAuY_mL5mA">
-                                <span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Berkat Subuh Transpor</span>
-                        </div>
-                        <nav class="hidden lg:flex items-center gap-lg" data-active-classes="text-primary font-bold">
-                                <a aria-current="page" class="transition-colors text-primary font-bold" data-path="home" href="index.html">Home</a>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About Us</a>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Services</a>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="fleet" href="#">Fleet</a>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Contact</a>
-                        </nav>
-                        <div class="flex items-center gap-md">
-                                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full relative overflow-x-hidden">
-      <!-- Hero Section with Background & Scrim -->
-      <section class="relative w-full h-[600px] flex items-end pb-xl px-lg lg:px-lg -mt-20 pt-20">
-      <div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A sprawling, hyper-realistic, low-angle shot of a massive shipping port at dawn. Dozens of blue and amber shipping containers stacked perfectly, illuminated by a warm sunrise. A colossal cargo ship in the background, sleek semi-trucks on the dock. Dramatic atmospheric lighting, deep navy shadows, cinematic composition, highly detailed, photorealistic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKew8Im5CJ7Uxf1H7jzrDn9vqFJuEkGSlCa7BadNwvJb3YjmRHUFND7IcsESw9Cm2Sgg0ktpeEFJsCezW4n5RFR4xXsR2W--yAT_MYRO3aXtbJSDhddlKj_XEbQ32sAZwTSNsUSLWvKfD3Q00DvoXQ-TgsXKvnGoJ2rUiYFjI9xDsyGWUvDPZNlQTw_2LSenVyjoa2ymXNw2InW3PiS77iUnjS-vdOUeiubep8Mc4Mlo22ojI6iPo')"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
-      <div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col lg:flex-row items-end justify-between gap-xl">
-      <div class="flex flex-col gap-md max-w-3xl">
-      <h1 class="font-display-lg text-display-lg text-on-primary">Solusi Logistik Terpadu,<br>Cepat &amp; Terpercaya</h1>
-      <p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl">
-                Integrated Air, Sea, Land Freight &amp; Customs Clearance across Indonesia.
-              </p>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PT Berkat Subuh Transpor - Solusi Logistik Terpadu</title>
+
+    <!-- Custom External CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Tailwind CDN & Custom Config JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-surface font-body-md text-on-surface">
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+      <div class="h-20 w-full px-lg flex items-center justify-between mx-auto max-w-container-max">
+        <div class="flex items-center gap-sm">
+          <img alt="BEST Logistics Logo" class="h-16 w-auto object-contain" src="assets/images/logo/best_logo2.png" />
+          <span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Berkat Subuh Transpor</span>
+        </div>
+        <nav class="hidden lg:flex items-center gap-lg">
+          <a class="transition-colors text-primary font-bold" href="index.html">Home</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#about">About Us</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#services">Services</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#fleet">Fleet</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#projects">Projects</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-md">
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">person</span>
+          </div>
+        </div>
       </div>
-      <!-- Quick Action Card -->
-      <div class="bg-surface p-lg rounded-xl shadow-xl w-full lg:w-[400px] flex flex-col gap-sm flex-shrink-0 animate-[slideUp_0.8s_ease-out]">
-      <div class="flex items-center gap-xs mb-sm text-primary">
-      <span class="material-symbols-outlined text-[24px]">search</span>
-      <h2 class="font-headline-sm text-headline-sm">Cek Tarif / Search Rates</h2>
-      </div>
-      <div class="flex flex-col gap-sm">
-      <div class="flex flex-col relative">
-      <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_takeoff</span>
-      <input class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30" placeholder="Asal (Origin)" type="text">
-      </div>
-      <div class="flex flex-col relative">
-      <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_land</span>
-      <input class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30" placeholder="Tujuan (Destination)" type="text">
-      </div>
-      <a href="rates.html" class="w-full h-12 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary-container font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors shadow-md mt-xs flex items-center justify-center gap-xs">
+    </header>
+
+    <main class="w-full pt-20 bg-surface">
+      <div class="flex flex-col w-full relative overflow-x-hidden">
+        <!-- Hero Section -->
+        <section class="relative w-full h-[600px] flex items-end pb-xl px-lg lg:px-lg -mt-20 pt-20">
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDKew8Im5CJ7Uxf1H7jzrDn9vqFJuEkGSlCa7BadNwvJb3YjmRHUFND7IcsESw9Cm2Sgg0ktpeEFJsCezW4n5RFR4xXsR2W--yAT_MYRO3aXtbJSDhddlKj_XEbQ32sAZwTSNsUSLWvKfD3Q00DvoXQ-TgsXKvnGoJ2rUiYFjI9xDsyGWUvDPZNlQTw_2LSenVyjoa2ymXNw2InW3PiS77iUnjS-vdOUeiubep8Mc4Mlo22ojI6iPo&quot;);
+            "></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+          <div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col lg:flex-row items-end justify-between gap-xl">
+            <div class="flex flex-col gap-md max-w-3xl">
+              <h1 class="font-display-lg text-display-lg text-on-primary">Solusi Logistik Terpadu,<br />Cepat &amp; Terpercaya</h1>
+              <p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl">Integrated Air, Sea, Land Freight &amp; Customs Clearance across Indonesia.</p>
+            </div>
+            <!-- Quick Action Card -->
+            <div class="bg-surface p-lg rounded-xl shadow-xl w-full lg:w-[400px] flex flex-col gap-sm flex-shrink-0 animate-[slideUp_0.8s_ease-out]">
+              <div class="flex items-center gap-xs mb-sm text-primary">
+                <span class="material-symbols-outlined text-[24px]">search</span>
+                <h2 class="font-headline-sm text-headline-sm">Cek Tarif / Search Rates</h2>
+              </div>
+              <div class="flex flex-col gap-sm">
+                <div class="flex flex-col relative">
+                  <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_takeoff</span>
+                  <input
+                    class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30"
+                    placeholder="Asal (Origin)"
+                    type="text" />
+                </div>
+                <div class="flex flex-col relative">
+                  <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_land</span>
+                  <input
+                    class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30"
+                    placeholder="Tujuan (Destination)"
+                    type="text" />
+                </div>
+                <a
+                  href="rates.html"
+                  class="w-full h-12 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary-container font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors shadow-md mt-xs flex items-center justify-center gap-xs">
                   Cari Tarif <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-      </a>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Us & Credentials -->
+        <section id="about" class="w-full py-xl px-lg bg-surface">
+          <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+            <div class="flex flex-col lg:flex-row gap-lg">
+              <div class="flex-1 flex flex-col gap-md">
+                <span class="font-label-md text-label-md text-primary uppercase tracking-wider">About Us</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Founded in 1999 by Bpk. Alfian.</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  We have built a legacy of trust and efficiency in the logistics industry, dedicated to moving your business forward.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-md mt-sm">
+                  <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
+                    <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Vision</h3>
+                    <p class="font-body-sm text-on-surface-variant">To be the most reliable and integrated logistics partner in Indonesia and beyond.</p>
+                  </div>
+                  <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
+                    <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Mission</h3>
+                    <p class="font-body-sm text-on-surface-variant">Delivering excellence through speed, safety, and comprehensive logistics solutions.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-1 flex flex-col gap-sm">
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Our Certifications &amp; Awards</h3>
+                <div class="grid grid-cols-2 gap-sm">
+                  <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-secondary-container">verified</span>
+                    <span class="font-label-md text-on-surface">ISO 9001:2015</span>
+                  </div>
+                  <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-secondary-container">health_and_safety</span>
+                    <span class="font-label-md text-on-surface">SMK3 Safety</span>
+                  </div>
+                  <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-secondary-container">security</span>
+                    <span class="font-label-md text-on-surface">OHSAS 18001</span>
+                  </div>
+                  <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
+                    <span class="material-symbols-outlined text-secondary-container">emoji_events</span>
+                    <span class="font-label-md text-on-surface">Sorong Customs Award Winner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Director Card -->
+            <div class="mt-md bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20 flex flex-col md:flex-row gap-lg items-center">
+              <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0 border-4 border-surface">
+                <div class="w-full h-full bg-surface-container-highest flex items-center justify-center text-outline-variant">
+                  <span class="material-symbols-outlined text-[48px]">photo_camera</span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-sm">
+                <div>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface">Bpk. Alfian</h3>
+                  <span class="font-label-md text-primary uppercase tracking-wider">Founder &amp; Director</span>
+                </div>
+                <p class="font-body-md text-on-surface-variant italic">
+                  "With over 25 years of commitment to logistics excellence, PT Berkat Subuh Transpor continues to evolve. Our reputation is built on trust, efficiency, and a deep
+                  understanding of Indonesia's unique geographical challenges."
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Our Services -->
+        <section id="services" class="w-full bg-surface-container-lowest py-xl px-lg relative z-20">
+          <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+            <div class="text-center">
+              <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Our Services</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">Comprehensive Logistics Solutions</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">flight</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Air Cargo &amp; Express</h3>
+                <p class="font-body-sm text-on-surface-variant">IATA Accredited fast and reliable air freight services.</p>
+              </div>
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">sailing</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Sea Freight</h3>
+                <p class="font-body-sm text-on-surface-variant">FCL / LCL Domestic &amp; International shipping solutions.</p>
+              </div>
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">local_shipping</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Land Transport &amp; Last Mile</h3>
+                <p class="font-body-sm text-on-surface-variant">Efficient land transport and last mile trucking.</p>
+              </div>
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">warehouse</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Warehousing &amp; Storage</h3>
+                <p class="font-body-sm text-on-surface-variant">Comprehensive warehousing &amp; storage management.</p>
+              </div>
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">description</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Customs Declaration / PPJK</h3>
+                <p class="font-body-sm text-on-surface-variant">Import-Export Compliance and customs handling.</p>
+              </div>
+              <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm">
+                  <span class="material-symbols-outlined">precision_manufacturing</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Special Project Cargo</h3>
+                <p class="font-body-sm text-on-surface-variant">Handling of heavy equipment and special project cargo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Fleet Capability -->
+        <section id="fleet" class="w-full py-xl px-lg bg-surface">
+          <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+              <div>
+                <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Fleet Capability</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Our Transport Assets</h2>
+              </div>
+              <div class="flex items-center gap-xs bg-surface-container-low px-sm py-xs rounded-full border border-outline-variant/20">
+                <span class="material-symbols-outlined text-secondary-container text-[20px]">verified</span>
+                <span class="font-label-md text-on-surface">SMK3 Safety Compliant</span>
+              </div>
+            </div>
+            <div class="w-full bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/20 overflow-hidden">
+              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">directions_car</span>
+                  <span class="font-headline-sm text-on-surface">30 Units</span>
+                  <span class="font-body-sm text-on-surface-variant">Container Trucks</span>
+                </div>
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+                  <span class="font-headline-sm text-on-surface">Wingbox</span>
+                </div>
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+                  <span class="font-headline-sm text-on-surface">CDE</span>
+                </div>
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
+                  <span class="font-headline-sm text-on-surface">CDD</span>
+                </div>
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">airport_shuttle</span>
+                  <span class="font-headline-sm text-on-surface">Small Box</span>
+                </div>
+                <div class="p-md text-center flex flex-col items-center justify-center">
+                  <span class="material-symbols-outlined text-primary text-[32px] mb-xs">ac_unit</span>
+                  <span class="font-headline-sm text-on-surface text-center">Cold Chain Reefer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Network Highlight -->
+        <section class="w-full bg-primary text-on-primary py-xl px-lg">
+          <div class="max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-lg">
+            <div class="flex-1 flex flex-col gap-md">
+              <span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider">Network Highlight</span>
+              <h2 class="font-headline-lg text-headline-lg">Extensive Coverage</h2>
+              <p class="font-body-lg text-on-primary/80">Connecting major hubs and remote areas across Indonesia and the globe.</p>
+              <div class="flex flex-wrap gap-sm mt-sm">
+                <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Jakarta</span>
+                <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Surabaya</span>
+                <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Medan</span>
+                <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Makassar</span>
+                <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Sorong</span>
+                <span class="px-sm py-xs bg-secondary-container text-primary font-bold rounded-full font-label-md">+ 16 Global Hubs</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="w-full py-xl px-lg bg-surface">
+          <div class="max-w-container-max mx-auto flex flex-col gap-lg">
+            <div class="text-center">
+              <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Featured Projects</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">Proven Track Record</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+              <!-- Project 1 -->
+              <div
+                class="group bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300">
+                <div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+                  <img
+                    src="assets/images/ProjectF1/F1-1.png"
+                    alt="Formula 1 McLaren Car Logistics"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-md flex flex-col gap-sm flex-1">
+                  <span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Global Events</span>
+                  <div class="flex flex-col">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Formula 1 McLaren Car Logistics</h3>
+                    <p class="font-label-md text-primary">Client: Puma Indonesia</p>
+                  </div>
+                  <p class="font-body-sm text-on-surface-variant">Simultaneous Global Reveal in Las Vegas, London, Bahrain &amp; Jakarta.</p>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div
+                class="group bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300">
+                <div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+                  <img
+                    src="assets/images/ProjectAstonVilla/AstonVilla-1.png"
+                    alt="Aston Villa FC Pre-Season Tour 2026"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-md flex flex-col gap-sm flex-1">
+                  <span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Sports Logistics</span>
+                  <div class="flex flex-col">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Aston Villa FC Pre-Season Tour 2026</h3>
+                    <p class="font-label-md text-primary">Client: ATA Carnet Handling</p>
+                  </div>
+                  <p class="font-body-sm text-on-surface-variant">Customs ATA Carnet Handling for professional sports equipment.</p>
+                </div>
+              </div>
+
+              <!-- Project 3 -->
+              <div
+                class="group bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300">
+                <div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+                  <img
+                    src="assets/images/ProjectRenewEnergy/renew_energy-1.png"
+                    alt="Renewable Energy Logistics"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-md flex flex-col gap-sm flex-1">
+                  <span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Renewable Energy</span>
+                  <div class="flex flex-col">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Renewable Energy</h3>
+                    <p class="font-label-md text-primary">Client: Indocement &amp; IMIP Morowali</p>
+                  </div>
+                  <p class="font-body-sm text-on-surface-variant">31,000+ Solar Panels logistics and distribution.</p>
+                </div>
+              </div>
+
+              <!-- Project 4 -->
+              <div
+                class="group bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300">
+                <div class="relative aspect-video bg-surface-container-highest overflow-hidden">
+                  <img
+                    src="assets/images/ProjectCPI/CPI-1.png"
+                    alt="Remote Area Deliveries"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy" />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-md flex flex-col gap-sm flex-1">
+                  <span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Cold Chain</span>
+                  <div class="flex flex-col">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Remote Area Deliveries</h3>
+                    <p class="font-label-md text-primary">Client: Cold Chain Logistics Solutions</p>
+                  </div>
+                  <p class="font-body-sm text-on-surface-variant">Temperature-controlled food cargo to remote logistics sites.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Button ke Halaman Projects -->
+            <div class="flex justify-center mt-lg">
+              <a
+                href="projects.html"
+                class="bg-primary text-on-primary px-xl py-md rounded-lg font-label-md uppercase tracking-wider hover:brightness-95 transition-all shadow-md flex items-center gap-xs">
+                Lihat Semua Portofolio Proyek <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Client Logo Cloud -->
+        <section class="w-full bg-surface-container-low py-xl px-lg overflow-hidden">
+          <div class="max-w-container-max mx-auto flex flex-col items-center gap-lg">
+            <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Trusted By Industry Leaders</span>
+
+            <!-- Pembungkus Luar -->
+            <div class="w-full overflow-hidden">
+              <!-- Track Utama -->
+              <div class="flex w-max animate-scroll transform-gpu will-change-transform">
+                <!-- SET 1 -->
+                <div class="flex gap-xl pr-xl items-center shrink-0">
+                  <img src="assets/images/logo/logo_unilever.png" alt="Unilever" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_cpi.png" alt="Charoen Pokphand" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_isuzu.png" alt="Isuzu" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_sunn.png" alt="SUN" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_tokopedia.png" alt="Tokopedia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_pos-indonesia.webp" alt="Pos Indonesia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_CP-fooddiv.png" alt="CP Food" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_mitsubishi.png" alt="Mitsubishi" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_bukalapak.png" alt="Bukalapak" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                </div>
+
+                <!-- SET 2 -->
+                <div aria-hidden="true" class="flex gap-xl pr-xl items-center shrink-0">
+                  <img src="assets/images/logo/logo_unilever.png" alt="Unilever" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_cpi.png" alt="Charoen Pokphand" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_isuzu.png" alt="Isuzu" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_sunn.png" alt="SUN" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_tokopedia.png" alt="Tokopedia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_pos-indonesia.webp" alt="Pos Indonesia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_CP-fooddiv.png" alt="CP Food" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_mitsubishi.png" alt="Mitsubishi" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_bukalapak.png" alt="Bukalapak" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                </div>
+
+                <!-- SET 3 (Buffer untuk menutup area kosong di layar lebar) -->
+                <div aria-hidden="true" class="flex gap-xl pr-xl items-center shrink-0">
+                  <img src="assets/images/logo/logo_unilever.png" alt="Unilever" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_cpi.png" alt="Charoen Pokphand" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_isuzu.png" alt="Isuzu" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_sunn.png" alt="SUN" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_tokopedia.png" alt="Tokopedia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_pos-indonesia.webp" alt="Pos Indonesia" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_CP-fooddiv.png" alt="CP Food" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_mitsubishi.png" alt="Mitsubishi" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                  <img src="assets/images/logo/logo_bukalapak.png" alt="Bukalapak" class="h-12 md:h-16 w-auto object-contain shrink-0" loading="eager" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact & Branches -->
+        <section id="contact" class="w-full py-xl px-lg bg-surface">
+          <div class="max-w-container-max mx-auto flex flex-col lg:flex-row gap-xl">
+            <div class="flex flex-col lg:flex-row gap-xl justify-between w-full">
+              <div class="flex-1 flex flex-col gap-lg">
+                <div class="flex flex-col gap-md">
+                  <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">CONTACT &amp; BRANCHES</span>
+                  <h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Our Locations</h2>
+                </div>
+                <div class="flex flex-col gap-sm">
+                  <div class="flex items-start gap-sm py-sm">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <div>
+                      <h3 class="font-label-md text-primary uppercase tracking-wider">Jakarta Barat</h3>
+                      <p class="font-body-md text-on-surface">Head Office</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-sm py-sm">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <div>
+                      <h3 class="font-label-md text-primary uppercase tracking-wider">Bekasi</h3>
+                      <p class="font-body-md text-on-surface">Main Garage</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-sm py-sm">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <div>
+                      <h3 class="font-label-md text-primary uppercase tracking-wider">Sites</h3>
+                      <p class="font-body-md text-on-surface">Soekarno-Hatta &amp; Tanjung Priok</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-sm py-sm">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <div>
+                      <h3 class="font-label-md text-primary uppercase tracking-wider">Regional</h3>
+                      <p class="font-body-md text-on-surface">Semarang &amp; Makassar</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RFQ Form -->
+              <div class="lg:w-[500px] flex-shrink-0">
+                <div class="bg-surface-container-lowest p-lg rounded-xl shadow-xl border border-outline-variant/20 flex flex-col gap-md">
+                  <div class="text-center mb-xs">
+                    <h3 class="font-headline-sm text-headline-sm text-on-surface">Formulir Permintaan Penawaran Harga (RFQ)</h3>
+                    <p class="font-body-sm text-on-surface-variant">Lengkapi data kargo Anda untuk penawaran terbaik.</p>
+                  </div>
+                  <form class="flex flex-col gap-sm">
+                    <input
+                      class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
+                      placeholder="Nama Lengkap"
+                      type="text" />
+                    <input
+                      class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
+                      placeholder="Nama Perusahaan / PT"
+                      type="text" />
+                    <input
+                      class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
+                      placeholder="Email Perusahaan"
+                      type="email" />
+                    <input
+                      class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
+                      placeholder="Nomor HP / WhatsApp"
+                      type="tel" />
+                    <textarea
+                      class="w-full bg-surface-container-low p-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
+                      placeholder="Pesan"
+                      rows="3"></textarea>
+                    <button
+                      class="w-full h-12 bg-primary text-on-primary font-label-md uppercase tracking-wider rounded-lg shadow-md hover:brightness-95 transition-all flex items-center justify-center gap-xs"
+                      type="button">
+                      Kirim Permintaan Penawaran <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </button>
+                  </form>
+                  <div class="text-center">
+                    <a class="text-body-sm text-primary hover:underline" href="https://wa.me/6281519129115" target="_blank">Atau Butuh Respon Cepat? Chat Sales via WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+    </main>
+
+    <!-- Banner CTA (Ready to Optimize...) -->
+    <section class="w-full bg-primary text-on-primary py-xl px-lg">
+      <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-md">
+        <h2 class="font-headline-lg text-headline-lg text-on-primary">Ready to Optimize Your Supply Chain?</h2>
+        <p class="font-body-lg text-body-lg text-on-primary/80 max-w-2xl">
+          Join thousands of global businesses that trust Bestranspor for their most critical logistics needs. Get a custom quote for your requirements today.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-sm mt-xs">
+          <a
+            href="#contact"
+            class="bg-secondary-container text-on-surface font-label-md uppercase tracking-wider px-lg py-md rounded-lg shadow-md hover:brightness-105 transition-all font-bold">
+            Request a Quote
+          </a>
+          <a
+            href="https://wa.me/6282171789853"
+            target="_blank"
+            class="border border-on-primary/40 text-on-primary font-label-md uppercase tracking-wider px-lg py-md rounded-lg hover:bg-on-primary/10 transition-all font-bold">
+            Contact Sales
+          </a>
+        </div>
       </div>
+    </section>
+
+    <!-- Footer Utama -->
+    <footer class="w-full bg-surface-container-lowest text-on-surface pt-xl pb-lg border-t border-outline-variant/20">
+      <div class="max-w-container-max mx-auto px-lg">
+        <!-- Grid 4 Kolom -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl pb-xl">
+          <!-- Kolom 1: Contact Us -->
+          <div class="flex flex-col gap-sm">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-xs">Contact Us</h3>
+            <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant">
+              <li class="flex items-start gap-xs">
+                <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">location_on</span>
+                <span>Jl. Latumenten 1 No. 6 Grogol, Jakarta Barat 11460, Indonesia</span>
+              </li>
+              <li class="flex items-center gap-xs">
+                <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">call</span>
+                <a href="tel:+6282171789853" class="hover:text-primary transition-colors">+62 821-7178-9853</a>
+              </li>
+              <li class="flex items-center gap-xs">
+                <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">mail</span>
+                <a href="mailto:support@bestranspor.com" class="hover:text-primary transition-colors">support@bestranspor.com</a>
+              </li>
+              <li class="flex items-center gap-xs">
+                <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">language</span>
+                <a href="index.html" class="hover:text-primary transition-colors">www.bestranspor.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kolom 2: Services -->
+          <div class="flex flex-col gap-sm">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-xs">Services</h3>
+            <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant">
+              <li><a href="#services" class="hover:text-primary transition-colors">Air Cargo &amp; Express</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Sea Freight (FCL/LCL)</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Land Transport &amp; Last Mile</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Warehousing &amp; Storage</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Customs Clearance / PPJK</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Company -->
+          <div class="flex flex-col gap-sm">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-xs">Company</h3>
+            <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant">
+              <li><a href="#about" class="hover:text-primary transition-colors">About Bestranspor</a></li>
+              <li><a href="projects.html" class="hover:text-primary transition-colors">Project Portfolio</a></li>
+              <li><a href="#contact" class="hover:text-primary transition-colors">Branch Locations</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 4: Stay Connected -->
+          <div class="flex flex-col gap-sm">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-xs">Stay Connected</h3>
+
+            <!-- Social Media Buttons -->
+            <div class="flex items-center gap-xs mb-xs">
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                aria-label="LinkedIn"
+                class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.48 1.48 0 1 0 0 2.96 1.48 1.48 0 0 0 0-2.96z" />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                aria-label="Instagram"
+                class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <!-- TikTok -->
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                aria-label="TikTok"
+                class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.31 1.55-1.28 2.53-.02 1.01.44 2.03 1.23 2.66.86.69 2.06.92 3.12.63 1.11-.29 2.02-1.18 2.29-2.28.06-.31.07-.63.07-.95V.02z" />
+                </svg>
+              </a>
+            </div>
+
+            <p class="font-body-sm text-on-surface-variant">Subscribe to our newsletter for the latest logistics updates and industry news.</p>
+          </div>
+        </div>
+
+        <!-- Bottom Line (Copyright & Links) -->
+        <div class="pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-sm font-body-sm text-on-surface-variant">
+          <div>© 2026 PT Berkat Subuh Transpor. All rights reserved.</div>
+          <div class="flex items-center gap-md">
+            <a href="#" class="hover:text-primary transition-colors">Privacy</a>
+            <a href="#" class="hover:text-primary transition-colors">Legal</a>
+            <a href="#" class="hover:text-primary transition-colors">Accessibility</a>
+          </div>
+        </div>
       </div>
-      </section>
-      <!-- About Us & Credentials -->
-      <section class="w-full py-xl px-lg bg-surface">
-      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
-      <div class="flex flex-col lg:flex-row gap-lg">
-      <div class="flex-1 flex flex-col gap-md">
-      <span class="font-label-md text-label-md text-primary uppercase tracking-wider">About Us</span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface">Founded in 1999 by Bpk. Alfian.</h2>
-      <p class="font-body-md text-body-md text-on-surface-variant">We have built a legacy of trust and efficiency in the logistics industry, dedicated to moving your business forward.</p>
-      <div class="flex flex-col sm:flex-row gap-md mt-sm">
-      <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
-      <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Vision</h3>
-      <p class="font-body-sm text-on-surface-variant">To be the most reliable and integrated logistics partner in Indonesia and beyond.</p>
-      </div>
-      <div class="flex-1 bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20">
-      <h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Mission</h3>
-      <p class="font-body-sm text-on-surface-variant">Delivering excellence through speed, safety, and comprehensive logistics solutions.</p>
-      </div>
-      </div>
-      </div>
-      <div class="flex-1 flex flex-col gap-sm">
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Our Certifications &amp; Awards</h3>
-      <div class="grid grid-cols-2 gap-sm">
-      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
-      <span class="material-symbols-outlined text-secondary-container">verified</span>
-      <span class="font-label-md text-on-surface">ISO 9001:2015</span>
-      </div>
-      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
-      <span class="material-symbols-outlined text-secondary-container">health_and_safety</span>
-      <span class="font-label-md text-on-surface">SMK3 Safety</span>
-      </div>
-      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
-      <span class="material-symbols-outlined text-secondary-container">security</span>
-      <span class="font-label-md text-on-surface">OHSAS 18001</span>
-      </div>
-      <div class="flex items-center gap-xs p-sm bg-surface-container-low rounded-lg border border-outline-variant/20">
-      <span class="material-symbols-outlined text-secondary-container">emoji_events</span>
-      <span class="font-label-md text-on-surface">Sorong Customs Award Winner</span>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div class="mt-md bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/20 flex flex-col md:flex-row gap-lg items-center">
-      <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden flex-shrink-0 border-4 border-surface">
-      <div class="w-full h-full bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span></div>
-      </div>
-      <div class="flex flex-col gap-sm">
-      <div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface">Bpk. Alfian</h3>
-      <span class="font-label-md text-primary uppercase tracking-wider">Founder &amp; Director</span>
-      </div>
-      <p class="font-body-md text-on-surface-variant italic">
-                  "With over 25 years of commitment to logistics excellence, PT Berkat Subuh Transpor continues to evolve. Our reputation is built on trust, efficiency, and a deep understanding of Indonesia's unique geographical challenges."
-              </p>
-      </div>
-      </div>
-      </div>
-      </section>
-      <!-- Our Services -->
-      <section class="w-full bg-surface-container-lowest py-xl px-lg relative z-20">
-      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
-      <div class="text-center">
-      <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Our Services</span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface">Comprehensive Logistics Solutions</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">flight</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Air Cargo &amp; Express</h3>
-      <p class="font-body-sm text-on-surface-variant">IATA Accredited fast and reliable air freight services.</p>
-      </div>
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">sailing</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Sea Freight</h3>
-      <p class="font-body-sm text-on-surface-variant">FCL / LCL Domestic &amp; International shipping solutions.</p>
-      </div>
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">local_shipping</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Land Transport &amp; Last Mile</h3>
-      <p class="font-body-sm text-on-surface-variant">Efficient land transport and last mile trucking.</p>
-      </div>
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">warehouse</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Warehousing &amp; Storage</h3>
-      <p class="font-body-sm text-on-surface-variant">Comprehensive warehousing &amp; storage management.</p>
-      </div>
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">description</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Customs Declaration / PPJK</h3>
-      <p class="font-body-sm text-on-surface-variant">Import-Export Compliance and customs handling.</p>
-      </div>
-      <div class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant/20 hover:border-primary/50 transition-colors">
-      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-sm"><span class="material-symbols-outlined">precision_manufacturing</span></div>
-      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Special Project Cargo</h3>
-      <p class="font-body-sm text-on-surface-variant">Handling of heavy equipment and special project cargo.</p>
-      </div>
-      </div>
-      </div>
-      </section>
-      <!-- Fleet Capability -->
-      <section class="w-full py-xl px-lg bg-surface">
-      <div class="max-w-container-max mx-auto flex flex-col gap-lg">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
-      <div>
-      <span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Fleet Capability</span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface">Our Transport Assets</h2>
-      </div>
-      <div class="flex items-center gap-xs bg-surface-container-low px-sm py-xs rounded-full border border-outline-variant/20">
-      <span class="material-symbols-outlined text-secondary-container text-[20px]">verified</span>
-      <span class="font-label-md text-on-surface">SMK3 Safety Compliant</span>
-      </div>
-      </div>
-      <div class="w-full bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/20 overflow-hidden">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">directions_car</span>
-      <span class="font-headline-sm text-on-surface">30 Units</span>
-      <span class="font-body-sm text-on-surface-variant">Container Trucks</span>
-      </div>
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
-      <span class="font-headline-sm text-on-surface">Wingbox</span>
-      </div>
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
-      <span class="font-headline-sm text-on-surface">CDE</span>
-      </div>
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">local_shipping</span>
-      <span class="font-headline-sm text-on-surface">CDD</span>
-      </div>
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">airport_shuttle</span>
-      <span class="font-headline-sm text-on-surface">Small Box</span>
-      </div>
-      <div class="p-md text-center flex flex-col items-center justify-center">
-      <span class="material-symbols-outlined text-primary text-[32px] mb-xs">ac_unit</span>
-      <span class="font-headline-sm text-on-surface text-center">Cold Chain Reefer</span>
-      </div>
-      </div>
-      </div>
-      </div>
-      </section>
-      <!-- Network Highlight -->
-      <section class="w-full bg-primary text-on-primary py-xl px-lg">
-      <div class="max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-lg">
-      <div class="flex-1 flex flex-col gap-md">
-      <span class="font-label-md text-label-md text-secondary-container uppercase tracking-wider">Network Highlight</span>
-      <h2 class="font-headline-lg text-headline-lg">Extensive Coverage</h2>
-      <p class="font-body-lg text-on-primary/80">Connecting major hubs and remote areas across Indonesia and the globe.</p>
-      <div class="flex flex-wrap gap-sm mt-sm">
-      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Jakarta</span>
-      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Surabaya</span>
-      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Medan</span>
-      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Makassar</span>
-      <span class="px-sm py-xs bg-primary-container rounded-full font-label-md border border-on-primary/20">Sorong</span>
-      <span class="px-sm py-xs bg-secondary-container text-primary font-bold rounded-full font-label-md">+ 16 Global Hubs</span>
-      </div>
-      </div>
-      </div>
-      </section>
-      <!-- Featured Projects -->
-      <section class="w-full py-xl px-lg bg-surface"><div class="max-w-container-max mx-auto flex flex-col gap-lg"><div class="text-center"><span class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs block">Featured Projects</span><h2 class="font-headline-lg text-headline-lg text-on-surface">Proven Track Record</h2></div><div class="grid grid-cols-1 md:grid-cols-2 gap-md"><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/8 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Global Events</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Formula 1 McLaren Car Logistics</h3><p class="font-label-md text-primary">Client: Puma Indonesia</p></div><p class="font-body-sm text-on-surface-variant">Simultaneous Global Reveal in Las Vegas, London, Bahrain &amp; Jakarta.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/5 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Sports Logistics</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Aston Villa FC Pre-Season Tour 2026</h3><p class="font-label-md text-primary">Client: ATA Carnet Handling</p></div><p class="font-body-sm text-on-surface-variant">Customs ATA Carnet Handling for professional sports equipment.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/12 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Renewable Energy</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Renewable Energy</h3><p class="font-label-md text-primary">Client: Indocement &amp; IMIP Morowali</p></div><p class="font-body-sm text-on-surface-variant">31,000+ Solar Panels logistics and distribution.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div><div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/20 overflow-hidden flex flex-col"><div class="relative aspect-video bg-surface-container-highest flex items-center justify-center text-outline-variant"><span class="material-symbols-outlined text-[48px]">photo_camera</span><div class="absolute top-sm right-sm bg-black/50 text-white px-xs py-base rounded text-[10px] font-bold">1/6 Photos</div><div class="absolute inset-y-0 left-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_left</span></div><div class="absolute inset-y-0 right-0 flex items-center px-xs"><span class="material-symbols-outlined text-white/70 cursor-pointer">chevron_right</span></div><div class="absolute bottom-sm left-1/2 -translate-x-1/2 flex gap-xs"><div class="w-1.5 h-1.5 rounded-full bg-white"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div><div class="w-1.5 h-1.5 rounded-full bg-white/40"></div></div></div><div class="p-md flex flex-col gap-sm flex-1"><span class="w-max px-xs py-base bg-primary/10 text-primary font-label-md text-[10px] rounded uppercase tracking-wider">Cold Chain</span><div class="flex flex-col"><h3 class="font-headline-sm text-headline-sm text-on-surface">Remote Area Deliveries</h3>
-        <p class="font-label-md text-primary">Client: Cold Chain Logistics Solutions</p></div>
-        <p class="font-body-sm text-on-surface-variant">Temperature-controlled food cargo to remote logistics sites.</p><a class="mt-auto pt-sm flex items-center gap-xs text-primary font-label-md hover:underline" href="#">Lihat Detail &amp; Galeri Proyek <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></div></div><div class="flex justify-center mt-lg"><a href="projects.html" class="bg-primary text-on-primary px-xl py-md rounded-lg font-label-md uppercase tracking-wider hover:brightness-95 transition-all shadow-md flex items-center gap-xs">Lihat Semua Portofolio Proyek <span class="material-symbols-outlined text-[20px]">arrow_forward</span></a></div></div></section>
-      <!-- Client Logo Cloud -->
-      <section class="w-full bg-surface-container-low py-xl px-lg overflow-hidden">
-      <div class="max-w-container-max mx-auto flex flex-col items-center gap-lg">
-      <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Trusted By Industry Leaders</span>
-      <div class="w-full flex overflow-hidden">
-      <div class="flex w-max animate-scroll opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-      <div class="flex gap-xl pr-xl items-center">
-      <span class="font-headline-md font-bold whitespace-nowrap">Unilever</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Charoen Pokphand</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Isuzu</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">BP</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Tokopedia</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">GeoPost</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">DPD</span>
-      </div>
-      <div aria-hidden="true" class="flex gap-xl pr-xl items-center">
-      <span class="font-headline-md font-bold whitespace-nowrap">Unilever</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Charoen Pokphand</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Isuzu</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">BP</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">Tokopedia</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">GeoPost</span>
-      <span class="font-headline-md font-bold whitespace-nowrap">DPD</span>
-      </div>
-      </div>
-      </div>
-      </div>
-      </section>
-      <!-- Contact & Branches -->
-      <section class="w-full py-xl px-lg bg-surface">
-      <div class="max-w-container-max mx-auto flex flex-col lg:flex-row gap-xl"><div class="flex flex-col lg:flex-row gap-xl justify-between w-full"><div class="flex-1 flex flex-col gap-lg"><div class="flex flex-col gap-md"><span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">CONTACT &amp; BRANCHES</span><h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Our Locations</h2></div><div class="flex flex-col gap-sm"><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Jakarta Barat</h3><p class="font-body-md text-on-surface">Head Office</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Bekasi</h3><p class="font-body-md text-on-surface">Main Garage</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Sites</h3><p class="font-body-md text-on-surface">Soekarno-Hatta &amp; Tanjung Priok</p></div></div><div class="flex items-start gap-sm py-sm"><span class="material-symbols-outlined text-primary">location_on</span><div><h3 class="font-label-md text-primary uppercase tracking-wider">Regional</h3><p class="font-body-md text-on-surface">Semarang &amp; Makassar</p></div></div></div></div><div class="lg:w-[500px] flex-shrink-0"><div class="bg-surface-container-lowest p-lg rounded-xl shadow-xl border border-outline-variant/20 flex flex-col gap-md"><div class="text-center mb-xs"><h3 class="font-headline-sm text-headline-sm text-on-surface">Formulir Permintaan Penawaran Harga (RFQ)</h3><p class="font-body-sm text-on-surface-variant">Lengkapi data kargo Anda untuk penawaran terbaik.</p></div><form class="flex flex-col gap-sm"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Lengkap" type="text"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nama Perusahaan / PT" type="text"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Email Perusahaan" type="email"><input class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Nomor HP / WhatsApp" type="tel"><textarea class="w-full bg-surface-container-low p-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Rincian Kargo / Pesan" rows="3"></textarea><button class="w-full h-12 bg-primary text-on-primary font-label-md uppercase tracking-wider rounded-lg shadow-md hover:brightness-95 transition-all flex items-center justify-center gap-xs" type="button">Kirim Permintaan Penawaran <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></form><div class="text-center"><a class="text-body-sm text-primary hover:underline" href="https://wa.me/6282171789853">Atau Butuh Respon Cepat? Chat Sales via WhatsApp</a></div></div></div></div></div>
-      </section>
-      </div></main><footer class="w-full bg-primary text-on-primary py-xl mt-0"><div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row items-center justify-between gap-md"><div class="flex flex-col items-center md:items-start"><span class="font-headline-sm text-headline-sm mb-base">Berkat Subuh Transpor</span><p class="font-body-sm text-body-sm opacity-80">A Reputation For Excellence</p></div><div class="font-label-md text-label-md opacity-70">© 2024 PT Berkat Subuh Transpor. All rights reserved.</div></div></footer>
-      <a class="fixed bottom-md right-md z-50 flex items-center gap-xs bg-[#25D366] text-white px-md py-sm rounded-full shadow-xl hover:brightness-95 transition-all animate-[slideUp_0.8s_ease-out]" href="https://wa.me/6282171789853"><span class="material-symbols-outlined text-[24px]">chat</span><span class="font-label-md text-label-md uppercase tracking-wider">Chat via WhatsApp</span></a>
-      
-      </body></html>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      class="fixed bottom-md right-md z-50 flex items-center gap-xs bg-[#25D366] text-white px-md py-sm rounded-full shadow-xl hover:brightness-95 transition-all animate-[slideUp_0.8s_ease-out]"
+      href="https://wa.me/6281519129115"
+      target="_blank">
+      <span class="material-symbols-outlined text-[24px]">chat</span>
+      <span class="font-label-md text-label-md uppercase tracking-wider">Chat via WhatsApp</span>
+    </a>
+  </body>
+</html>

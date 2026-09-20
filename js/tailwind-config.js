@@ -1,0 +1,62 @@
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-33.333%)" },
+        },
+      },
+      animation: {
+        scroll: "scroll 45s linear infinite",
+      },
+      colors: {
+        primary: "#0f2c59",
+        "on-primary": "#ffffff",
+        "primary-container": "#0f2c59",
+        secondary: "#855300",
+        "secondary-container": "#f59e0b",
+        "on-secondary-container": "#ffffff",
+        surface: "#f7f9fb",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-low": "#f2f4f6",
+        "surface-container": "#eceef0",
+        "surface-container-highest": "#e0e3e5",
+        "surface-container-high": "#e6e8ea",
+        "on-surface": "#191c1e",
+        "on-surface-variant": "#44474f",
+        "outline-variant": "#c4c6d0",
+        tertiary: "#08192c",
+        "tertiary-container": "#1e2e42",
+      },
+      borderRadius: {
+        DEFAULT: "0.125rem",
+        lg: "0.25rem",
+        xl: "0.5rem",
+        full: "0.75rem",
+      },
+      spacing: {
+        gutter: "24px",
+        base: "4px",
+        xs: "8px",
+        sm: "16px",
+        md: "24px",
+        lg: "40px",
+        xl: "64px",
+        "container-max": "1440px",
+      },
+      fontFamily: {
+        "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+        "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+        "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+        "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+        "body-lg": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "body-sm": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "data-mono": ["Inter", "sans-serif"],
+      },
+    },
+  },
+};
