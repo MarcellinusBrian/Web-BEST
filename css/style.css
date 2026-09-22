@@ -1,6 +1,7 @@
 /* Custom Base & Reset Styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px; /* Adjust this value based on your header height */
 }
 
 html,
