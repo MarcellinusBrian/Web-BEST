@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Project Experience & Proven Track Record - PT Berkat Subuh Transpor</title>
+    <title>Project Experience &amp; Proven Track Record - PT Berkat Subuh Transpor</title>
 
     <!-- Custom External CSS -->
     <link rel="stylesheet" href="css/style.css" />
@@ -18,37 +18,8 @@
   </head>
 
   <body class="bg-surface font-body-md text-on-surface">
-    <!-- Header Navigation -->
-    <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-      <div class="h-20 w-full px-lg flex items-center justify-between mx-auto max-w-container-max">
-        <div class="flex items-center gap-sm">
-          <img
-            alt="BEST Logistics Logo"
-            class="h-8 w-auto object-contain"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHsLXM3GFgmhfy1--Ms8-pWF_vCzWHa-6g8g5MsXxtFnk09Rw_Yf7_xGEEhOtams13mkBHKhpRiVPp4bg7zxcjp1e8K4VjXQqs7UksuLbrUetXWipzx68LbhfENPr3Zo9GHesNdHcicurMl3cqzxF_L7VIeJuJoDu2Op3pf8Z-x6s6E0WYHps7NWNQWbBLr6CzihzBthOnBV_sCP1r8bbndllkwn1tiA8gqpV7pyoXwAhj3z0J4JM" />
-          <span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Berkat Subuh Transpor</span>
-        </div>
-        <nav class="hidden lg:flex items-center gap-lg">
-          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
-          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="rates.html">Rates</a>
-          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#services">Services</a>
-          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#fleet">Fleet</a>
-          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#contact">Contact</a>
-        </nav>
-        <div class="flex items-center gap-md">
-          <a
-            class="flex items-center gap-xs bg-[#25D366] text-white px-md py-base rounded-lg hover:brightness-95 transition-all shadow-sm"
-            href="https://wa.me/6282171789853"
-            target="_blank">
-            <span class="material-symbols-outlined text-[20px]">chat</span>
-            <span class="font-label-md text-label-md uppercase tracking-wider">WhatsApp</span>
-          </a>
-          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-          </div>
-        </div>
-      </div>
-    </header>
+    <!-- Header Navigation (Injected via components.js) -->
+    <div id="header-placeholder"></div>
 
     <!-- Main Content -->
     <main class="w-full pt-20 bg-surface">
@@ -68,7 +39,9 @@
           </nav>
           <div class="mb-xl max-w-3xl">
             <h1 class="font-display-lg text-display-lg text-on-surface mb-sm">Project Experience &amp; Proven Track Record</h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">Demonstrating capability across complex, time-critical, and large-scale global logistics operations.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              Demonstrating capability across complex, time-critical, and large-scale global logistics operations.
+            </p>
           </div>
         </div>
 
@@ -103,7 +76,7 @@
         <!-- Projects Grid -->
         <div class="w-full max-w-container-max mx-auto px-lg py-xl">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-            <!-- Card 1: F1 McLaren (Banyak Foto) -->
+            <!-- Card 1: F1 McLaren -->
             <article
               onclick="
                 openGallery('F1 McLaren Car Logistics', [
@@ -154,10 +127,14 @@
               </div>
             </article>
 
-            <!-- Card 2: Aston Villa (Banyak Foto) -->
+            <!-- Card 2: Aston Villa -->
             <article
               onclick="
-                openGallery('Aston Villa FC Pre-Season Tour 2026', ['images/projects/aston-villa.jpg', 'images/projects/aston-villa-2.jpg', 'images/projects/aston-villa-3.jpg'])
+                openGallery('Aston Villa FC Pre-Season Tour 2026', [
+                  'images/projects/aston-villa.jpg',
+                  'images/projects/aston-villa-2.jpg',
+                  'images/projects/aston-villa-3.jpg',
+                ])
               "
               class="group bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden cursor-pointer">
               <div class="w-full aspect-video bg-surface-container relative overflow-hidden">
@@ -202,7 +179,7 @@
               </div>
             </article>
 
-            <!-- Card 3: Solar Panel (Banyak Foto) -->
+            <!-- Card 3: Solar Panel -->
             <article
               onclick="
                 openGallery('Solar Panel Freight', [
@@ -252,7 +229,7 @@
               </div>
             </article>
 
-            <!-- Card 4: Garuda Indonesia (1 Foto) -->
+            <!-- Card 4: Garuda Indonesia -->
             <article
               onclick="openGallery('Garuda Indonesia Cargo Partnership', ['assets/images/ProjectGaruda/Garuda-1.png'])"
               class="group bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden cursor-pointer">
@@ -289,7 +266,7 @@
               </div>
             </article>
 
-            <!-- Card 5: Cold Chain (Banyak Foto) -->
+            <!-- Card 5: Cold Chain -->
             <article
               onclick="openGallery('Remote Area Cold Chain Delivery', ['images/projects/cold-chain.jpg', 'images/projects/cold-chain-2.jpg'])"
               class="group bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden cursor-pointer">
@@ -333,7 +310,7 @@
               </div>
             </article>
 
-            <!-- Card 6: Charoen Pokphand Indonesia (Banyak Foto) -->
+            <!-- Card 6: Charoen Pokphand Indonesia -->
             <article
               onclick="
                 openGallery('Charoen Pokphand Indonesia', [
@@ -369,7 +346,7 @@
               <div class="p-md flex flex-col flex-grow">
                 <div class="flex items-center gap-xs mb-sm">
                   <span class="px-2 py-1 bg-tertiary-container/10 text-tertiary-container rounded font-label-md text-[10px] uppercase tracking-wider"
-                    >Cold Chain & Food Logistics</span
+                    >Cold Chain &amp; Food Logistics</span
                   >
                 </div>
                 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-xs group-hover:text-primary transition-colors">Charoen Pokphand Indonesia</h3>
@@ -389,24 +366,18 @@
           </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- MODAL POPUP GALERI (Elemen Layar Penuh)   -->
-        <!-- ========================================== -->
+        <!-- Modal Popup Galeri -->
         <div id="gallery-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-md backdrop-blur-sm">
-          <!-- Tombol Close (X) -->
           <button onclick="closeGallery()" class="absolute top-5 right-5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all z-10">
             <span class="material-symbols-outlined text-[28px]">close</span>
           </button>
 
           <div class="max-w-4xl w-full flex flex-col items-center relative">
-            <!-- Judul Proyek -->
             <h3 id="modal-title" class="text-white font-headline-sm text-center mb-md px-lg"></h3>
 
-            <!-- Container Gambar Utama -->
             <div class="relative w-full aspect-video bg-black/40 rounded-xl overflow-hidden flex items-center justify-center shadow-2xl">
               <img id="modal-img" src="" alt="Dokumentasi Proyek" class="max-h-full max-w-full object-contain transition-all duration-300" />
 
-              <!-- Tombol Prev (Kiri) -->
               <button
                 id="modal-prev"
                 onclick="prevSlide()"
@@ -414,7 +385,6 @@
                 <span class="material-symbols-outlined text-[28px]">chevron_left</span>
               </button>
 
-              <!-- Tombol Next (Kanan) -->
               <button
                 id="modal-next"
                 onclick="nextSlide()"
@@ -423,74 +393,9 @@
               </button>
             </div>
 
-            <!-- Indikator Angka (misal: 1 dari 4 Foto) -->
             <div id="modal-counter" class="text-white/70 font-label-md text-sm mt-md"></div>
           </div>
         </div>
-
-        <!-- ========================================== -->
-        <!-- SCRIPT JS UNTUK KONTROL POPUP GALERI      -->
-        <!-- ========================================== -->
-        <script>
-          let currentImages = [];
-          let currentIndex = 0;
-
-          function openGallery(title, images) {
-            currentImages = images;
-            currentIndex = 0;
-
-            document.getElementById("modal-title").innerText = title;
-            updateModalContent();
-
-            const modal = document.getElementById("gallery-modal");
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
-            document.body.style.overflow = "hidden"; // Stop scroll di latar belakang
-          }
-
-          function closeGallery() {
-            const modal = document.getElementById("gallery-modal");
-            modal.classList.add("hidden");
-            modal.classList.remove("flex");
-            document.body.style.overflow = "auto";
-          }
-
-          function updateModalContent() {
-            document.getElementById("modal-img").src = currentImages[currentIndex];
-            document.getElementById("modal-counter").innerText = `${currentIndex + 1} dari ${currentImages.length} Foto`;
-
-            // Sembunyikan tombol navigasi jika hanya ada 1 foto
-            const prevBtn = document.getElementById("modal-prev");
-            const nextBtn = document.getElementById("modal-next");
-            if (currentImages.length <= 1) {
-              prevBtn.style.display = "none";
-              nextBtn.style.display = "none";
-            } else {
-              prevBtn.style.display = "block";
-              nextBtn.style.display = "block";
-            }
-          }
-
-          function prevSlide() {
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            updateModalContent();
-          }
-
-          function nextSlide() {
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            updateModalContent();
-          }
-
-          // Navigasi menggunakan Keyboard (Tombol ESC, Kiri, Kanan)
-          document.addEventListener("keydown", (e) => {
-            const modal = document.getElementById("gallery-modal");
-            if (!modal.classList.contains("hidden")) {
-              if (e.key === "Escape") closeGallery();
-              if (e.key === "ArrowLeft") prevSlide();
-              if (e.key === "ArrowRight") nextSlide();
-            }
-          });
-        </script>
 
         <!-- Banner Consultation CTA -->
         <div class="w-full bg-primary py-xl px-lg mt-xl overflow-hidden relative">
@@ -521,16 +426,71 @@
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full bg-surface-container-low border-t border-outline-variant/30 py-xl mt-xl">
-      <div class="max-w-container-max mx-auto px-lg flex flex-col md:flex-row items-center justify-between gap-md">
-        <div class="flex flex-col items-center md:items-start">
-          <span class="font-headline-sm text-headline-sm text-primary mb-base">Berkat Subuh Transpor</span>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">A Reputation For Excellence</p>
-        </div>
-        <div class="font-label-md text-label-md text-on-surface-variant opacity-70">© 2026 PT Berkat Subuh Transpor. All rights reserved.</div>
-      </div>
-    </footer>
+    <!-- Footer (Injected via components.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Dynamic Header & Footer Loader -->
+    <script src="js/components.js"></script>
+
+    <!-- Script Kontrol Popup Galeri -->
+    <script>
+      let currentImages = [];
+      let currentIndex = 0;
+
+      function openGallery(title, images) {
+        currentImages = images;
+        currentIndex = 0;
+
+        document.getElementById("modal-title").innerText = title;
+        updateModalContent();
+
+        const modal = document.getElementById("gallery-modal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeGallery() {
+        const modal = document.getElementById("gallery-modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "auto";
+      }
+
+      function updateModalContent() {
+        document.getElementById("modal-img").src = currentImages[currentIndex];
+        document.getElementById("modal-counter").innerText = `${currentIndex + 1} dari ${currentImages.length} Foto`;
+
+        const prevBtn = document.getElementById("modal-prev");
+        const nextBtn = document.getElementById("modal-next");
+        if (currentImages.length <= 1) {
+          prevBtn.style.display = "none";
+          nextBtn.style.display = "none";
+        } else {
+          prevBtn.style.display = "block";
+          nextBtn.style.display = "block";
+        }
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateModalContent();
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateModalContent();
+      }
+
+      document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("gallery-modal");
+        if (!modal.classList.contains("hidden")) {
+          if (e.key === "Escape") closeGallery();
+          if (e.key === "ArrowLeft") prevSlide();
+          if (e.key === "ArrowRight") nextSlide();
+        }
+      });
+    </script>
 
     <!-- Filter Buttons Script -->
     <script>
