@@ -23,43 +23,100 @@
     <main class="w-full pt-20 bg-surface">
       <div class="flex flex-col w-full relative overflow-x-hidden">
         <!-- Hero Section -->
-        <section id="home" class="relative w-full h-[600px] flex items-end pb-xl px-lg lg:px-lg -mt-20 pt-20">
+        <section id="home" class="relative w-full min-h-[640px] flex items-end pb-xl px-md md:px-lg -mt-20 pt-28 overflow-hidden">
+          <!-- Background Image with Overlay -->
           <div
             class="absolute inset-0 w-full h-full bg-cover bg-center"
             style="
               background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDKew8Im5CJ7Uxf1H7jzrDn9vqFJuEkGSlCa7BadNwvJb3YjmRHUFND7IcsESw9Cm2Sgg0ktpeEFJsCezW4n5RFR4xXsR2W--yAT_MYRO3aXtbJSDhddlKj_XEbQ32sAZwTSNsUSLWvKfD3Q00DvoXQ-TgsXKvnGoJ2rUiYFjI9xDsyGWUvDPZNlQTw_2LSenVyjoa2ymXNw2InW3PiS77iUnjS-vdOUeiubep8Mc4Mlo22ojI6iPo&quot;);
             "></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40"></div>
+
+          <!-- Hero Content Grid -->
           <div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col lg:flex-row items-end justify-between gap-xl">
-            <div class="flex flex-col gap-md max-w-3xl">
-              <h1 class="font-display-lg text-display-lg text-on-primary">Solusi Logistik Terpadu,<br />Cepat &amp; Terpercaya</h1>
-              <p class="font-body-lg text-body-lg text-on-primary/80 max-w-xl">Integrated Air, Sea, Land Freight &amp; Customs Clearance across Indonesia.</p>
-            </div>
-            <!-- Quick Action Card -->
-            <div class="bg-surface p-lg rounded-xl shadow-xl w-full lg:w-[400px] flex flex-col gap-sm flex-shrink-0 animate-[slideUp_0.8s_ease-out]">
-              <div class="flex items-center gap-xs mb-sm text-primary">
-                <span class="material-symbols-outlined text-[24px]">search</span>
-                <h2 class="font-headline-sm text-headline-sm">Cek Tarif / Search Rates</h2>
+            <div class="flex flex-col gap-md max-w-2xl lg:max-w-3xl">
+              <div
+                class="inline-flex items-center gap-xs bg-secondary-container/20 text-secondary-container border border-secondary-container/30 px-md py-xs rounded-full w-max backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+                <span class="font-label-md text-xs uppercase tracking-widest font-bold">Reliable B2B Logistics Partner</span>
               </div>
-              <div class="flex flex-col gap-sm">
-                <div class="flex flex-col relative">
-                  <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_takeoff</span>
-                  <input
-                    class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30"
-                    placeholder="Asal (Origin)"
-                    type="text" />
+
+              <!-- Expanded Headline -->
+              <h1 class="font-headline-lg text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-primary leading-tight tracking-tight">
+                Solusi Logistik Terpadu,<br class="hidden sm:inline" />
+                <span class="text-secondary-container">Cepat</span> &amp; Terpercaya
+              </h1>
+
+              <!-- Subtitle Description -->
+              <p class="font-body-lg text-body-md sm:text-body-lg text-on-primary/90 max-w-xl leading-relaxed">
+                Layanan pengiriman kargo Udara, Laut, Darat &amp; Pengurusan Kepabeanan (PPJK) terintegrasi ke seluruh Indonesia dan rute global.
+              </p>
+
+              <!-- Quick Service Icons -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-sm pt-md border-t border-on-primary/20 mt-xs">
+                <div class="flex items-center gap-xs text-on-primary">
+                  <span class="material-symbols-outlined text-secondary-container text-[22px]">flight_takeoff</span>
+                  <span class="font-label-md text-xs font-bold uppercase tracking-wider">Air Freight</span>
                 </div>
-                <div class="flex flex-col relative">
-                  <span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-outline-variant text-[20px]">flight_land</span>
-                  <input
-                    class="w-full bg-surface-container-lowest font-body-md text-on-surface h-12 pl-lg pr-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline-variant shadow-sm border border-outline-variant/30"
-                    placeholder="Tujuan (Destination)"
-                    type="text" />
+                <div class="flex items-center gap-xs text-on-primary">
+                  <span class="material-symbols-outlined text-secondary-container text-[22px]">sailing</span>
+                  <span class="font-label-md text-xs font-bold uppercase tracking-wider">Sea Cargo</span>
                 </div>
+                <div class="flex items-center gap-xs text-on-primary">
+                  <span class="material-symbols-outlined text-secondary-container text-[22px]">local_shipping</span>
+                  <span class="font-label-md text-xs font-bold uppercase tracking-wider">Land Trucking</span>
+                </div>
+                <div class="flex items-center gap-xs text-on-primary">
+                  <span class="material-symbols-outlined text-secondary-container text-[22px]">verified</span>
+                  <span class="font-label-md text-xs font-bold uppercase tracking-wider">Customs PPJK</span>
+                </div>
+              </div>
+            </div>
+            <!-- Quick Action Card (Simplified & High-Converting CTA) -->
+            <div
+              class="bg-surface-container-lowest p-lg rounded-2xl shadow-2xl w-full lg:w-[380px] flex flex-col gap-md flex-shrink-0 border border-outline-variant/30 relative overflow-hidden group">
+              <!-- Akses Garis Warna Dekoratif di Bagian Atas Card -->
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-secondary-container to-primary"></div>
+
+              <!-- Card Header -->
+              <div class="flex flex-col gap-xs pt-xs">
+                <div class="flex items-center gap-xs text-primary">
+                  <span class="material-symbols-outlined text-[26px]">calculate</span>
+                  <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Cek Tarif / Search Rates</h2>
+                </div>
+                <p class="font-body-sm text-on-surface-variant leading-relaxed">
+                  Dapatkan estimasi tarif indikatif &amp; SLA pengiriman kargo darat, laut, dan udara secara transparan.
+                </p>
+              </div>
+
+              <!-- Checklist Keunggulan Ringkas (Pengisi Ruang Visual) -->
+              <div class="flex flex-col gap-xs py-xs border-y border-outline-variant/20 font-body-sm text-on-surface">
+                <div class="flex items-center gap-xs text-xs font-semibold text-on-surface-variant">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Daftar Tarif Indikatif Lengkap</span>
+                </div>
+                <div class="flex items-center gap-xs text-xs font-semibold text-on-surface-variant">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span>Cakupan Rute Domestik &amp; Global</span>
+                </div>
+              </div>
+
+              <!-- Tombol Utama (Primary CTA) -->
+              <a
+                href="rates.html"
+                class="w-full h-12 bg-secondary-container hover:brightness-95 text-on-surface font-label-md text-label-md uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-xs font-bold">
+                <span class="material-symbols-outlined text-[20px]">search</span>
+                Buka Katalog Tarif
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </a>
+
+              <!-- Link Bantuan Sales FCL / Kargo Khusus -->
+              <div class="text-center pt-xs">
                 <a
-                  href="rates.html"
-                  class="w-full h-12 bg-secondary-container hover:bg-secondary-container/90 text-on-secondary-container font-label-md text-label-md uppercase tracking-wider rounded-lg transition-colors shadow-md mt-xs flex items-center justify-center gap-xs">
-                  Cari Tarif <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20minta%20penawaran%20kargo%20khusus%20%2F%20FCL"
+                  target="_blank"
+                  class="font-label-md text-xs text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1">
+                  Butuh tarif khusus FCL? <span class="text-primary font-bold underline">Hubungi Sales</span>
                 </a>
               </div>
             </div>
