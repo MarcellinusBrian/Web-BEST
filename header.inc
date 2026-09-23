@@ -12,6 +12,7 @@
       <a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#fleet">Fleet</a>
       <a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#projects">Projects</a>
       <a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+      <a class="nav-link font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="tracking.html">Tracking</a>
     </nav>
     <div class="flex items-center gap-md">
       <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary cursor-pointer">

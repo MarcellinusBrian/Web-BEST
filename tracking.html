@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lacak Pengiriman (Shipment Tracking) - PT Berkat Subuh Transpor</title>
+
+    <!-- Custom External CSS & Tailwind Config -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col justify-between">
+    <!-- Header Navigation (Injected via components.js) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="w-full pt-20 bg-surface flex-grow">
+      <div class="flex flex-col w-full">
+        <!-- Breadcrumbs -->
+        <div class="px-md md:px-lg max-w-container-max mx-auto w-full pt-lg pb-sm">
+          <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+            <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+            <span class="text-primary font-bold">Lacak Pengiriman</span>
+          </nav>
+        </div>
+
+        <!-- Search Header Banner -->
+        <div class="bg-surface-container-low w-full pt-md pb-xl relative overflow-hidden border-b border-outline-variant/20">
+          <div class="max-w-container-max mx-auto px-md md:px-lg w-full relative z-10 flex flex-col items-center text-center gap-md">
+            <div class="flex flex-col gap-xs max-w-2xl">
+              <span class="font-label-md text-primary uppercase tracking-wider font-bold text-xs">Real-Time Cargo Tracking</span>
+              <h1 class="font-headline-lg text-display-lg text-on-surface font-bold">Lacak Posisi Kargo Anda</h1>
+              <p class="font-body-md text-on-surface-variant">Masukkan Nomor Resi / AWB / Booking Number untuk memantau status posisi muatan secara langsung.</p>
+            </div>
+
+            <!-- Search Console Input Box -->
+            <form
+              id="tracking-form"
+              onsubmit="handleSearch(event)"
+              class="bg-surface-container-lowest p-sm md:p-md rounded-2xl shadow-lg w-full max-w-2xl flex flex-col md:flex-row gap-sm items-center border border-outline-variant/30 mt-xs">
+              <div class="relative w-full flex-1">
+                <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[22px]">search</span>
+                <input
+                  id="awb-input"
+                  class="w-full bg-surface py-sm pl-xl pr-md rounded-xl border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none font-data-mono font-bold text-on-surface transition-all placeholder:font-body-md placeholder:font-normal placeholder:text-outline"
+                  placeholder="Masukkan No. AWB / Booking No..."
+                  type="text"
+                  value="BEST-88912"
+                  required />
+              </div>
+              <button
+                type="submit"
+                class="w-full md:w-auto bg-primary text-on-primary px-xl h-[48px] rounded-xl font-label-md text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-xs shadow-md font-bold whitespace-nowrap">
+                <span class="material-symbols-outlined text-[18px]">radar</span>
+                Cek Status
+              </button>
+            </form>
+
+            <!-- Quick Demo Chips -->
+            <div class="flex items-center gap-xs text-xs font-label-md text-on-surface-variant mt-xs flex-wrap justify-center">
+              <span>Contoh No. Resi Simulasi:</span>
+              <button
+                onclick="setSampleAwb('BEST-88912')"
+                class="bg-surface-container-lowest hover:bg-surface-container px-xs py-1 rounded border border-outline-variant/40 text-primary font-bold transition-colors">
+                BEST-88912 (Transit)
+              </button>
+              <button
+                onclick="setSampleAwb('BEST-99001')"
+                class="bg-surface-container-lowest hover:bg-surface-container px-xs py-1 rounded border border-outline-variant/40 text-primary font-bold transition-colors">
+                BEST-99001 (Selesai)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACKING RESULT AREA -->
+        <div class="max-w-container-max mx-auto px-md md:px-lg w-full py-xl">
+          <!-- State 1: Active Result Card -->
+          <div id="tracking-result" class="grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
+            <!-- LEFT MAIN COLUMN (2/3 Screen): Progress & Shopee Timeline -->
+            <div class="lg:col-span-2 flex flex-col gap-lg">
+              <!-- 1. Top Horizontal Stepper Card (Ala Shopee Top Bar) -->
+              <div class="bg-surface-container-lowest p-md md:p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-xs pb-sm border-b border-outline-variant/20">
+                  <div>
+                    <span class="font-label-md text-xs uppercase tracking-wider text-on-surface-variant block">Status Utama</span>
+                    <h2 id="result-status-title" class="font-headline-sm text-headline-sm font-bold text-primary">Pesanan Dalam Transit</h2>
+                  </div>
+                  <div id="result-badge-container">
+                    <span class="inline-flex items-center gap-xs bg-primary/10 text-primary px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
+                      <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> In Transit
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Top Horizontal Milestone Progress Bar -->
+                <div class="py-xs px-xs sm:px-md">
+                  <div class="relative flex items-center justify-between w-full">
+                    <!-- Background Connector Line -->
+                    <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-surface-container-high z-0"></div>
+                    <div id="progress-line-fill" class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary z-0 transition-all duration-500" style="width: 50%"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative z-10 flex flex-col items-center gap-xs">
+                      <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
+                        <span class="material-symbols-outlined text-[16px]">check</span>
+                      </div>
+                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center">Resi Dibuat</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative z-10 flex flex-col items-center gap-xs">
+                      <div id="step-2-icon" class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
+                        <span class="material-symbols-outlined text-[16px]">inventory_2</span>
+                      </div>
+                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center">Diterima Gudang</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative z-10 flex flex-col items-center gap-xs">
+                      <div
+                        id="step-3-icon"
+                        class="w-8 h-8 rounded-full bg-primary text-on-primary ring-4 ring-primary/20 flex items-center justify-center font-bold text-xs shadow-sm">
+                        <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                      </div>
+                      <span class="font-label-md text-[11px] text-primary font-bold text-center">Sedang Dikirim</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative z-10 flex flex-col items-center gap-xs">
+                      <div id="step-4-icon" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs">
+                        <span class="material-symbols-outlined text-[16px]">task_alt</span>
+                      </div>
+                      <span class="font-label-md text-[11px] text-on-surface-variant text-center">Kargo Tiba</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shopee Vertical Timeline Card -->
+              <div class="bg-surface-container-lowest p-md md:p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
+                <div class="flex items-center justify-between pb-xs border-b border-outline-variant/20">
+                  <h3 class="font-headline-sm text-body-lg font-bold text-on-surface flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-primary text-[20px]">history</span>
+                    Riwayat Perjalanan Kargo
+                  </h3>
+                </div>
+
+                <!-- Vertical Timeline List -->
+                <div id="timeline-container" class="flex flex-col py-xs">
+                  <!-- Timeline items -->
+                </div>
+
+                <!-- Container Preview Foto POD (Muncul di Paling Bawah Timeline) -->
+                <div id="pod-preview-container"></div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN (1/3 Screen): Shipment Details & Actions -->
+            <div class="lg:col-span-1 flex flex-col gap-md">
+              <!-- Meta Info Card -->
+              <div class="bg-surface-container-lowest p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
+                <h3 class="font-headline-sm text-body-lg font-bold text-on-surface pb-xs border-b border-outline-variant/20 flex items-center gap-xs">
+                  <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+                  Rincian Muatan
+                </h3>
+
+                <div class="flex flex-col gap-sm font-body-sm">
+                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+                    <span class="text-on-surface-variant text-xs">Nomor AWB / Resi</span>
+                    <div class="flex items-center gap-xs">
+                      <span id="meta-awb" class="font-data-mono font-bold text-primary">BEST-88912</span>
+                      <button onclick="copyAwb()" class="text-on-surface-variant hover:text-primary transition-colors" title="Salin No. AWB">
+                        <span class="material-symbols-outlined text-[16px]">content_copy</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+                    <span class="text-on-surface-variant text-xs">Moda Pengiriman</span>
+                    <span id="meta-service" class="font-bold text-on-surface">Sea Freight LCL</span>
+                  </div>
+
+                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+                    <span class="text-on-surface-variant text-xs">Kota Asal (Origin)</span>
+                    <span id="meta-origin" class="font-bold text-on-surface">Jakarta (Tanjung Priok)</span>
+                  </div>
+
+                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+                    <span class="text-on-surface-variant text-xs">Tujuan (Destination)</span>
+                    <span id="meta-destination" class="font-bold text-on-surface">Sorong (Papua Barat Daya)</span>
+                  </div>
+
+                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+                    <span class="text-on-surface-variant text-xs">Jumlah Koli / Berat</span>
+                    <span id="meta-weight" class="font-data-mono font-bold text-on-surface">12 Colli / 450 Kg</span>
+                  </div>
+
+                  <div class="flex justify-between items-center py-xs pt-xs">
+                    <span class="text-on-surface-variant text-xs">Estimasi Tiba (ETA)</span>
+                    <span id="meta-eta" class="font-bold text-primary">25 September 2026</span>
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col gap-xs pt-xs mt-xs border-t border-outline-variant/20">
+                  <a
+                    id="btn-wa-cs"
+                    href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20BEST-88912"
+                    target="_blank"
+                    class="w-full bg-[#25D366] text-white hover:brightness-105 px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs font-bold shadow-sm">
+                    <span class="material-symbols-outlined text-[18px]">chat</span>
+                    Tanya CS via WhatsApp
+                  </a>
+
+                  <button
+                    onclick="alert('Fitur Unduh Surat Jalan (POD) siap dihubungkan ke database/API sistem operasional.')"
+                    class="w-full bg-surface-container-low hover:bg-surface-container text-on-surface px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs border border-outline-variant/30 font-semibold">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    Unduh e-POD / Surat Jalan
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- State 2: Error / Not Found Message (Hidden by default) -->
+          <div
+            id="tracking-error"
+            class="hidden flex-col items-center justify-center text-center py-xl gap-md bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-xl max-w-2xl mx-auto shadow-sm">
+            <div class="w-16 h-16 rounded-full bg-error/10 text-error flex items-center justify-center">
+              <span class="material-symbols-outlined text-[36px]">search_off</span>
+            </div>
+            <div class="flex flex-col gap-xs">
+              <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Nomor Resi Tidak Ditemukan</h3>
+              <p class="font-body-md text-on-surface-variant max-w-md">
+                Mohon periksa kembali nomor AWB atau Booking Number yang Anda masukkan. Pastikan tidak ada kesalahan pengetikan.
+              </p>
+            </div>
+            <a
+              href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20kesulitan%20melacak%20resi%20kargo"
+              target="_blank"
+              class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center gap-xs shadow-md">
+              <span class="material-symbols-outlined text-[18px]">support_agent</span> Bantuan Tim Operasional
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (Injected via components.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+
+    <script>
+      const trackingDatabase = {
+        "BEST-88912": {
+          title: "Kargo Dalam Transit",
+          badgeClass: "bg-primary/10 text-primary",
+          badgeText: "In Transit",
+          progressPercent: "65%",
+          step: 3,
+          meta: {
+            awb: "BEST-88912",
+            service: "Sea Freight LCL",
+            origin: "Jakarta (Tanjung Priok)",
+            destination: "Sorong (Papua Barat Daya)",
+            weight: "12 Colli / 450 Kg",
+            eta: "25 September 2026",
+          },
+          // TIMELINE
+          timeline: [
+            {
+              date: "22 Sep",
+              time: "13:43",
+              text: "Kapal KM Dobonsolo telah bertolak dari Pelabuhan Makassar menuju Pelabuhan Sorong.",
+              active: true,
+            },
+            {
+              date: "22 Sep",
+              time: "07:15",
+              text: "Proses bongkar muat transit di Pelabuhan Makassar selesai.",
+              active: false,
+            },
+            {
+              date: "21 Sep",
+              time: "18:00",
+              text: "Kapal tiba dan bersandar di Pelabuhan Makassar.",
+              active: false,
+            },
+            {
+              date: "19 Sep",
+              time: "10:30",
+              text: "Kargo dimuat ke dalam kontainer kapal KM Dobonsolo di Pelabuhan Tanjung Priok, Jakarta.",
+              active: false,
+            },
+            {
+              date: "18 Sep",
+              time: "15:20",
+              text: "Kargo telah diserahterimakan dan lolos verifikasi timbang di Gudang Utama BST Cengkareng.",
+              active: false,
+            },
+            {
+              date: "18 Sep",
+              time: "09:00",
+              text: "Booking resep pengiriman dibuat oleh pengirim (Sender).",
+              active: false,
+            },
+          ],
+        },
+        "BEST-99001": {
+          title: "Kargo Telah Diterima (Delivered)",
+          badgeClass: "bg-[#25D366]/10 text-[#25D366]",
+          badgeText: "Delivered",
+          progressPercent: "100%",
+          step: 4,
+          meta: {
+            awb: "BEST-99001",
+            service: "Air Express Cargo",
+            origin: "Jakarta (CGK)",
+            destination: "Medan (KNO)",
+            weight: "5 Colli / 120 Kg",
+            eta: "20 September 2026 (Tiba)",
+          },
+          timeline: [
+            {
+              date: "20 Sep",
+              time: "11:20",
+              text: "Kargo telah diterima di alamat tujuan oleh Bapak Rahmad (Penerima). Status selesai.",
+              active: true,
+            },
+            {
+              date: "20 Sep",
+              time: "08:30",
+              text: "Kargo dibawa oleh kurir armada darat BST Medan menuju alamat tujuan.",
+              active: false,
+            },
+            {
+              date: "20 Sep",
+              time: "05:15",
+              text: "Kargo mendarat di Bandara Kualanamu Medan dan telah melewati area kargo.",
+              active: false,
+            },
+            {
+              date: "19 Sep",
+              time: "21:00",
+              text: "Kargo lepas landas dari Bandara Soekarno-Hatta via penerbangan Garuda Indonesia (GA-188).",
+              active: false,
+            },
+          ],
+        },
+      };
+
+      // RENDER TIMELINE VERTIKAL
+      function renderTimeline(timelineData) {
+        const container = document.getElementById("timeline-container");
+        container.innerHTML = "";
+
+        timelineData.forEach((item, index) => {
+          const isFirst = index === 0;
+          const isLast = index === timelineData.length - 1;
+          const textStyle = item.active ? "text-primary font-bold text-body-md" : "text-on-surface-variant font-normal text-body-sm";
+          const dotStyle = item.active ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
+          const dateStyle = item.active ? "text-primary font-bold" : "text-on-surface-variant/80 font-medium";
+
+          const rowHtml = `
+            <div class="flex items-start gap-md relative group">
+              
+              <!-- Left Column: Date & Time -->
+              <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
+                <span class="font-data-mono text-xs ${dateStyle}">${item.date}</span>
+                <span class="font-data-mono text-[11px] text-on-surface-variant/70">${item.time}</span>
+              </div>
+
+              <!-- Middle Column: Vertical Connecting Line & Node Dots -->
+              <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
+                <!-- Connecting Line -->
+                ${!isLast ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
+                <!-- Circle Dot -->
+                <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
+                  ${item.active ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+                </div>
+              </div>
+
+              <!-- Right Column: Event Status Description -->
+              <div class="flex-1 pb-lg pt-0.5">
+                <p class="${textStyle} leading-relaxed">
+                  ${item.text}
+                </p>
+              </div>
+
+            </div>
+          `;
+          container.insertAdjacentHTML("beforeend", rowHtml);
+        });
+      }
+
+      // FUNCTION TAMPILKAN DATA METADATA
+      function loadTrackingData(awbKey) {
+        const data = trackingDatabase[awbKey];
+        const resultCard = document.getElementById("tracking-result");
+        const errorCard = document.getElementById("tracking-error");
+
+        if (!data) {
+          resultCard.classList.add("hidden");
+          errorCard.classList.remove("hidden");
+          errorCard.classList.add("flex");
+          return;
+        }
+
+        errorCard.classList.add("hidden");
+        errorCard.classList.remove("flex");
+        resultCard.classList.remove("hidden");
+
+        // Update Header & Badge
+        document.getElementById("result-status-title").innerText = data.title;
+        document.getElementById("progress-line-fill").style.width = data.progressPercent;
+        document.getElementById("result-badge-container").innerHTML = `
+          <span class="inline-flex items-center gap-xs ${data.badgeClass} px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full ${data.badgeClass.includes("primary") ? "bg-primary" : "bg-[#25D366]"} animate-ping"></span> ${data.badgeText}
+          </span>
+        `;
+
+        // Update Meta Rincian
+        document.getElementById("meta-awb").innerText = data.meta.awb;
+        document.getElementById("meta-service").innerText = data.meta.service;
+        document.getElementById("meta-origin").innerText = data.meta.origin;
+        document.getElementById("meta-destination").innerText = data.meta.destination;
+        document.getElementById("meta-weight").innerText = data.meta.weight;
+        document.getElementById("meta-eta").innerText = data.meta.eta;
+
+        // Update WA Link
+        document.getElementById("btn-wa-cs").href = `https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${data.meta.awb}`;
+
+        // Render Shopee Vertical Timeline
+        renderTimeline(data.timeline);
+      }
+
+      // HANDLER SEARCH FORM
+      function handleSearch(e) {
+        if (e) e.preventDefault();
+        const inputVal = document.getElementById("awb-input").value.trim().toUpperCase();
+        loadTrackingData(inputVal);
+      }
+
+      // SET SAMPLE DEMO
+      function setSampleAwb(awb) {
+        document.getElementById("awb-input").value = awb;
+        loadTrackingData(awb);
+      }
+
+      // COPY AWB TO CLIPBOARD
+      function copyAwb() {
+        const awbText = document.getElementById("meta-awb").innerText;
+        navigator.clipboard.writeText(awbText);
+        alert("Nomor AWB berhasil disalin: " + awbText);
+      }
+
+      // INITIAL LOAD
+      document.addEventListener("DOMContentLoaded", () => {
+        loadTrackingData("BEST-88912");
+      });
+
+      // DAFTR STATUS CODE BERDASARKAN API BEST 2025
+      const HOLD_STATUS_CODES = ["IM03", "IM11", "IM14", "IM20", "IM25", "IM27"];
+
+      function processApiResponse(apiData, podImageData) {
+        const resultCard = document.getElementById("tracking-result");
+        const statusCode = apiData.StatusCode || "IM30"; // Contoh
+        const statusName = apiData.StatusName || "IN TRANSIT";
+
+        // 1. Tentukan Warna Badge & Stepper berdasarkan Status Code API
+        let badgeClass = "bg-primary/10 text-primary"; // Default Biru (Normal)
+        let dotColorClass = "bg-primary";
+
+        if (statusCode === "IM01") {
+          // Hijau untuk Delivered
+          badgeClass = "bg-[#25D366]/10 text-[#25D366]";
+          dotColorClass = "bg-[#25D366]";
+        } else if (HOLD_STATUS_CODES.includes(statusCode)) {
+          // Oranye untuk Delay / Custom Hold / Exception
+          badgeClass = "bg-amber-500/10 text-amber-600";
+          dotColorClass = "bg-amber-500";
+        }
+
+        // 2. Render Badge Status
+        document.getElementById("result-status-title").innerText = statusName;
+        document.getElementById("result-badge-container").innerHTML = `
+    <span class="inline-flex items-center gap-xs ${badgeClass} px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
+      <span class="w-2 h-2 rounded-full ${dotColorClass} animate-ping"></span> ${statusName}
+    </span>
+  `;
+
+        // 3. Render Preview Foto POD di Paling Bawah Timeline (jika URL foto tersedia)
+        const podContainer = document.getElementById("pod-preview-container");
+        if (podImageData && podImageData.link_url && statusCode === "IM01") {
+          podContainer.innerHTML = `
+      <div class="mt-md pt-md border-t border-outline-variant/20 flex flex-col gap-xs">
+        <span class="font-label-md text-xs font-bold text-on-surface uppercase flex items-center gap-xs">
+          <span class="material-symbols-outlined text-primary text-[18px]">photo_camera</span>
+          Bukti Penerimaan Kargo (Proof of Delivery / e-POD)
+        </span>
+        <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm max-w-md mt-xs">
+          <img src="${podImageData.link_url}" alt="Foto Bukti POD" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" />
+        </div>
+      </div>
+    `;
+        } else {
+          podContainer.innerHTML = ""; // Bersihkan jika belum ada POD
+        }
+      }
+    </script>
+  </body>
+</html>
