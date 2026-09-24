@@ -83,9 +83,9 @@
         <div class="max-w-container-max mx-auto px-md md:px-lg w-full py-xl">
           <!-- Active Result Card -->
           <div id="tracking-result" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
-            <!-- LEFT MAIN COLUMN (2/3 Screen): Progress & Shopee Timeline -->
+            <!-- Progress & Timeline -->
             <div class="lg:col-span-2 flex flex-col gap-lg">
-              <!-- 1. Top Horizontal Stepper Card (Ala Shopee Top Bar) -->
+              <!-- Top Horizontal Stepper Card -->
               <div class="bg-surface-container-lowest p-md md:p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-xs pb-sm border-b border-outline-variant/20">
                   <div>
@@ -143,7 +143,7 @@
                 </div>
               </div>
 
-              <!-- Shopee Vertical Timeline Card -->
+              <!-- Vertical Timeline Card -->
               <div class="bg-surface-container-lowest p-md md:p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
                 <div class="flex items-center justify-between pb-xs border-b border-outline-variant/20">
                   <h3 class="font-headline-sm text-body-lg font-bold text-on-surface flex items-center gap-xs">
@@ -157,12 +157,12 @@
                   <!-- Timeline items -->
                 </div>
 
-                <!-- Container Preview Foto POD (di Paling Bawah Timeline) -->
+                <!-- Container Preview Foto POD -->
                 <div id="pod-preview-container"></div>
               </div>
             </div>
 
-            <!-- RIGHT COLUMN (1/3 Screen): Shipment Details & Actions -->
+            <!-- Shipment Details & Actions -->
             <div class="lg:col-span-1 flex flex-col gap-md">
               <!-- Meta Info Card -->
               <div class="bg-surface-container-lowest p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
@@ -182,7 +182,7 @@
                     </div>
                   </div>
 
-                  <!-- 2. Lokasi / Catatan Terakhir (Tambahkan ini) -->
+                  <!-- Lokasi / Catatan Terakhir (Tambahkan ini) -->
                   <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
                     <span class="text-on-surface-variant text-xs">Lokasi / Catatan Terakhir</span>
                     <span id="meta-remark" class="font-bold text-on-surface text-right">-</span>
@@ -205,12 +205,12 @@
                     Tanya CS via WhatsApp
                   </a>
 
-                  <button
+                  <!-- <button
                     onclick="alert('Fitur Unduh Surat Jalan (POD) siap dihubungkan ke database/API sistem operasional.')"
                     class="w-full bg-surface-container-low hover:bg-surface-container text-on-surface px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs border border-outline-variant/30 font-semibold">
                     <span class="material-symbols-outlined text-[18px]">download</span>
                     Unduh e-POD / Surat Jalan
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -253,7 +253,7 @@
         const errorCard = document.getElementById("tracking-error");
         const submitBtn = document.querySelector("#tracking-form button[type='submit']");
 
-        // 1. UBAH TOMBOL JADI INDIKATOR LOADING
+        // UBAH TOMBOL JADI INDIKATOR LOADING
         const originalBtnText = submitBtn.innerHTML;
         submitBtn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Memuat...`;
         submitBtn.disabled = true;
@@ -292,7 +292,7 @@
             return;
           }
 
-          // 2. Jika data berhasil didapat, tampilkan di UI!
+          // Jika data berhasil didapat, tampilkan di UI!
           processApiResponse(data);
         } catch (error) {
           console.error("Error saat panggil API:", error);
@@ -365,7 +365,7 @@
           }
         }
 
-        // RENDER TIMELINE VERTIKAL (Diurutkan dari terbaru ke terlama)
+        // RENDER TIMELINE VERTIKAL (terbaru ke terlama)
         const container = document.getElementById("timeline-container");
         container.innerHTML = "";
 
