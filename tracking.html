@@ -22,7 +22,6 @@
     <!-- Main Content -->
     <main class="w-full pt-20 bg-surface flex-grow">
       <div class="flex flex-col w-full">
-        <!-- Breadcrumbs -->
         <div class="px-md md:px-lg max-w-container-max mx-auto w-full pt-lg pb-sm">
           <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
             <a class="hover:text-primary transition-colors" href="index.html">Home</a>
@@ -82,7 +81,7 @@
 
         <!-- TRACKING RESULT AREA -->
         <div class="max-w-container-max mx-auto px-md md:px-lg w-full py-xl">
-          <!-- State 1: Active Result Card -->
+          <!-- Active Result Card -->
           <div id="tracking-result" class="grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
             <!-- LEFT MAIN COLUMN (2/3 Screen): Progress & Shopee Timeline -->
             <div class="lg:col-span-2 flex flex-col gap-lg">
@@ -158,7 +157,7 @@
                   <!-- Timeline items -->
                 </div>
 
-                <!-- Container Preview Foto POD (Muncul di Paling Bawah Timeline) -->
+                <!-- Container Preview Foto POD (di Paling Bawah Timeline) -->
                 <div id="pod-preview-container"></div>
               </div>
             </div>
@@ -262,262 +261,167 @@
     <script src="js/components.js"></script>
 
     <script>
-      const trackingDatabase = {
-        "BEST-88912": {
-          title: "Kargo Dalam Transit",
-          badgeClass: "bg-primary/10 text-primary",
-          badgeText: "In Transit",
-          progressPercent: "65%",
-          step: 3,
-          meta: {
-            awb: "BEST-88912",
-            service: "Sea Freight LCL",
-            origin: "Jakarta (Tanjung Priok)",
-            destination: "Sorong (Papua Barat Daya)",
-            weight: "12 Colli / 450 Kg",
-            eta: "25 September 2026",
-          },
-          // TIMELINE
-          timeline: [
-            {
-              date: "22 Sep",
-              time: "13:43",
-              text: "Kapal KM Dobonsolo telah bertolak dari Pelabuhan Makassar menuju Pelabuhan Sorong.",
-              active: true,
-            },
-            {
-              date: "22 Sep",
-              time: "07:15",
-              text: "Proses bongkar muat transit di Pelabuhan Makassar selesai.",
-              active: false,
-            },
-            {
-              date: "21 Sep",
-              time: "18:00",
-              text: "Kapal tiba dan bersandar di Pelabuhan Makassar.",
-              active: false,
-            },
-            {
-              date: "19 Sep",
-              time: "10:30",
-              text: "Kargo dimuat ke dalam kontainer kapal KM Dobonsolo di Pelabuhan Tanjung Priok, Jakarta.",
-              active: false,
-            },
-            {
-              date: "18 Sep",
-              time: "15:20",
-              text: "Kargo telah diserahterimakan dan lolos verifikasi timbang di Gudang Utama BST Cengkareng.",
-              active: false,
-            },
-            {
-              date: "18 Sep",
-              time: "09:00",
-              text: "Booking resep pengiriman dibuat oleh pengirim (Sender).",
-              active: false,
-            },
-          ],
-        },
-        "BEST-99001": {
-          title: "Kargo Telah Diterima (Delivered)",
-          badgeClass: "bg-[#25D366]/10 text-[#25D366]",
-          badgeText: "Delivered",
-          progressPercent: "100%",
-          step: 4,
-          meta: {
-            awb: "BEST-99001",
-            service: "Air Express Cargo",
-            origin: "Jakarta (CGK)",
-            destination: "Medan (KNO)",
-            weight: "5 Colli / 120 Kg",
-            eta: "20 September 2026 (Tiba)",
-          },
-          timeline: [
-            {
-              date: "20 Sep",
-              time: "11:20",
-              text: "Kargo telah diterima di alamat tujuan oleh Bapak Rahmad (Penerima). Status selesai.",
-              active: true,
-            },
-            {
-              date: "20 Sep",
-              time: "08:30",
-              text: "Kargo dibawa oleh kurir armada darat BST Medan menuju alamat tujuan.",
-              active: false,
-            },
-            {
-              date: "20 Sep",
-              time: "05:15",
-              text: "Kargo mendarat di Bandara Kualanamu Medan dan telah melewati area kargo.",
-              active: false,
-            },
-            {
-              date: "19 Sep",
-              time: "21:00",
-              text: "Kargo lepas landas dari Bandara Soekarno-Hatta via penerbangan Garuda Indonesia (GA-188).",
-              active: false,
-            },
-          ],
-        },
-      };
-
-      // RENDER TIMELINE VERTIKAL
-      function renderTimeline(timelineData) {
-        const container = document.getElementById("timeline-container");
-        container.innerHTML = "";
-
-        timelineData.forEach((item, index) => {
-          const isFirst = index === 0;
-          const isLast = index === timelineData.length - 1;
-          const textStyle = item.active ? "text-primary font-bold text-body-md" : "text-on-surface-variant font-normal text-body-sm";
-          const dotStyle = item.active ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
-          const dateStyle = item.active ? "text-primary font-bold" : "text-on-surface-variant/80 font-medium";
-
-          const rowHtml = `
-            <div class="flex items-start gap-md relative group">
-              
-              <!-- Left Column: Date & Time -->
-              <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
-                <span class="font-data-mono text-xs ${dateStyle}">${item.date}</span>
-                <span class="font-data-mono text-[11px] text-on-surface-variant/70">${item.time}</span>
-              </div>
-
-              <!-- Middle Column: Vertical Connecting Line & Node Dots -->
-              <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
-                <!-- Connecting Line -->
-                ${!isLast ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
-                <!-- Circle Dot -->
-                <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
-                  ${item.active ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
-                </div>
-              </div>
-
-              <!-- Right Column: Event Status Description -->
-              <div class="flex-1 pb-lg pt-0.5">
-                <p class="${textStyle} leading-relaxed">
-                  ${item.text}
-                </p>
-              </div>
-
-            </div>
-          `;
-          container.insertAdjacentHTML("beforeend", rowHtml);
-        });
-      }
-
-      // FUNCTION TAMPILKAN DATA METADATA
-      function loadTrackingData(awbKey) {
-        const data = trackingDatabase[awbKey];
+      // FUNGSI UNTUK TEMBAK API VIA CORS PROXY (UNTUK TES LOKAL)
+      async function loadTrackingData(awbKey) {
         const resultCard = document.getElementById("tracking-result");
         const errorCard = document.getElementById("tracking-error");
+        const submitBtn = document.querySelector("#tracking-form button[type='submit']");
 
-        if (!data) {
+        // 1. UBAH TOMBOL JADI INDIKATOR LOADING
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Memuat...`;
+        submitBtn.disabled = true;
+
+        try {
+          // Menggunakan CORS Proxy agar browser tidak memblokir API IP http://59.153.83.135
+          const targetApiUrl = "http://59.153.83.135/api/best/HAWBStatus";
+          const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(targetApiUrl);
+
+          // UNTUK PRODUCTION, gunakan track.php sebagai endpoint server-side untuk menghindari masalah CORS
+          // const response = await fetch("track.php", {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({ HAWBNo: awbKey }),
+          // });
+
+          // UNTUK DEMO
+          const response = await fetch("/api/track", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ HAWBNo: awbKey }),
+          });
+
+          const data = await response.json();
+          console.log("Respon Data dari API:", data); // Cek data di Console F12
+
+          // Jika data kosong atau bukan array
+          if (!data || !Array.isArray(data) || data.length === 0) {
+            resultCard.classList.add("hidden");
+            errorCard.classList.remove("hidden");
+            errorCard.classList.add("flex");
+            return;
+          }
+
+          // 2. Jika data berhasil didapat, tampilkan di UI!
+          processApiResponse(data);
+        } catch (error) {
+          console.error("Error saat panggil API:", error);
+          alert("Gagal terhubung ke API. Buka F12 Console untuk detail error.");
           resultCard.classList.add("hidden");
           errorCard.classList.remove("hidden");
           errorCard.classList.add("flex");
-          return;
+        } finally {
+          // KEMBALIKAN TOMBOL KE SEMULA
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
         }
+      }
+
+      // FUNGSI MERENDER DATA DARI API KE UI TIMELINE
+      function processApiResponse(apiResponse) {
+        const resultCard = document.getElementById("tracking-result");
+        const errorCard = document.getElementById("tracking-error");
 
         errorCard.classList.add("hidden");
         errorCard.classList.remove("flex");
         resultCard.classList.remove("hidden");
 
-        // Update Header & Badge
-        document.getElementById("result-status-title").innerText = data.title;
-        document.getElementById("progress-line-fill").style.width = data.progressPercent;
-        document.getElementById("result-badge-container").innerHTML = `
-          <span class="inline-flex items-center gap-xs ${data.badgeClass} px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full ${data.badgeClass.includes("primary") ? "bg-primary" : "bg-[#25D366]"} animate-ping"></span> ${data.badgeText}
-          </span>
-        `;
+        // Ambil status terbaru (elemen terakhir dari array API)
+        const latestData = apiResponse[apiResponse.length - 1];
 
-        // Update Meta Rincian
-        document.getElementById("meta-awb").innerText = data.meta.awb;
-        document.getElementById("meta-service").innerText = data.meta.service;
-        document.getElementById("meta-origin").innerText = data.meta.origin;
-        document.getElementById("meta-destination").innerText = data.meta.destination;
-        document.getElementById("meta-weight").innerText = data.meta.weight;
-        document.getElementById("meta-eta").innerText = data.meta.eta;
+        // Update Header Status & Resi
+        document.getElementById("result-status-title").innerText = latestData.StatusName;
+        document.getElementById("meta-awb").innerText = latestData.HAWB;
 
-        // Update WA Link
-        document.getElementById("btn-wa-cs").href = `https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${data.meta.awb}`;
+        // Sederhanakan Informasi Card Rincian
+        document.getElementById("meta-service").innerText = "HAWB Express Cargo";
+        document.getElementById("meta-origin").innerText = latestData.Remark || "JAKARTA";
+        document.getElementById("meta-destination").innerText = "-";
+        document.getElementById("meta-weight").innerText = "-";
+        document.getElementById("meta-eta").innerText = latestData.Statusdate;
 
-        // Render Shopee Vertical Timeline
-        renderTimeline(data.timeline);
+        // Update WhatsApp CS Link
+        document.getElementById("btn-wa-cs").href = `https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
+
+        // Stepper Progress Sederhana
+        let progressPercent = "50%";
+        if (latestData.StatusCode === "IM01" || latestData.StatusCode === "EX01") {
+          progressPercent = "100%";
+        } else if (latestData.StatusCode === "IM10") {
+          progressPercent = "75%";
+        }
+        document.getElementById("progress-line-fill").style.width = progressPercent;
+
+        // RENDER TIMELINE VERTIKAL (Diurutkan dari terbaru ke terlama)
+        const container = document.getElementById("timeline-container");
+        container.innerHTML = "";
+
+        const reversedHistory = [...apiResponse].reverse();
+
+        reversedHistory.forEach((item, index) => {
+          const isLatest = index === 0;
+
+          // Format Tanggal
+          const dateObj = new Date(item.Statusdate);
+          const dateStr = !isNaN(dateObj) ? dateObj.toLocaleDateString("id-ID", { day: "numeric", month: "short" }) : item.Statusdate;
+          const timeStr = !isNaN(dateObj) ? dateObj.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }) : "";
+
+          const textStyle = isLatest ? "text-primary font-bold text-body-md" : "text-on-surface-variant text-body-sm";
+          const dotStyle = isLatest ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
+
+          const rowHtml = `
+        <div class="flex items-start gap-md relative group">
+          <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
+            <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
+            <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
+          </div>
+
+          <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
+            ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
+            <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
+              ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+            </div>
+          </div>
+
+          <div class="flex-1 pb-lg pt-0.5">
+            <p class="${textStyle} leading-relaxed">
+              <span class="uppercase font-bold">[${item.StatusName}]</span> - ${item.Remark || "Tidak ada catatan"}
+            </p>
+          </div>
+        </div>
+      `;
+          container.insertAdjacentHTML("beforeend", rowHtml);
+        });
       }
 
       // HANDLER SEARCH FORM
       function handleSearch(e) {
         if (e) e.preventDefault();
         const inputVal = document.getElementById("awb-input").value.trim().toUpperCase();
-        loadTrackingData(inputVal);
+        if (inputVal) loadTrackingData(inputVal);
       }
 
-      // SET SAMPLE DEMO
+      // CHIPS DEMO
       function setSampleAwb(awb) {
         document.getElementById("awb-input").value = awb;
         loadTrackingData(awb);
       }
 
-      // COPY AWB TO CLIPBOARD
+      // SALIN AWB
       function copyAwb() {
         const awbText = document.getElementById("meta-awb").innerText;
         navigator.clipboard.writeText(awbText);
         alert("Nomor AWB berhasil disalin: " + awbText);
       }
 
-      // INITIAL LOAD
+      // LOAD PERTAMA KALI SAAT HALAMAN DIBUKA
       document.addEventListener("DOMContentLoaded", () => {
-        loadTrackingData("BEST-88912");
+        document.getElementById("awb-input").value = "";
       });
-
-      // DAFTR STATUS CODE BERDASARKAN API BEST 2025
-      const HOLD_STATUS_CODES = ["IM03", "IM11", "IM14", "IM20", "IM25", "IM27"];
-
-      function processApiResponse(apiData, podImageData) {
-        const resultCard = document.getElementById("tracking-result");
-        const statusCode = apiData.StatusCode || "IM30"; // Contoh
-        const statusName = apiData.StatusName || "IN TRANSIT";
-
-        // 1. Tentukan Warna Badge & Stepper berdasarkan Status Code API
-        let badgeClass = "bg-primary/10 text-primary"; // Default Biru (Normal)
-        let dotColorClass = "bg-primary";
-
-        if (statusCode === "IM01") {
-          // Hijau untuk Delivered
-          badgeClass = "bg-[#25D366]/10 text-[#25D366]";
-          dotColorClass = "bg-[#25D366]";
-        } else if (HOLD_STATUS_CODES.includes(statusCode)) {
-          // Oranye untuk Delay / Custom Hold / Exception
-          badgeClass = "bg-amber-500/10 text-amber-600";
-          dotColorClass = "bg-amber-500";
-        }
-
-        // 2. Render Badge Status
-        document.getElementById("result-status-title").innerText = statusName;
-        document.getElementById("result-badge-container").innerHTML = `
-    <span class="inline-flex items-center gap-xs ${badgeClass} px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
-      <span class="w-2 h-2 rounded-full ${dotColorClass} animate-ping"></span> ${statusName}
-    </span>
-  `;
-
-        // 3. Render Preview Foto POD di Paling Bawah Timeline (jika URL foto tersedia)
-        const podContainer = document.getElementById("pod-preview-container");
-        if (podImageData && podImageData.link_url && statusCode === "IM01") {
-          podContainer.innerHTML = `
-      <div class="mt-md pt-md border-t border-outline-variant/20 flex flex-col gap-xs">
-        <span class="font-label-md text-xs font-bold text-on-surface uppercase flex items-center gap-xs">
-          <span class="material-symbols-outlined text-primary text-[18px]">photo_camera</span>
-          Bukti Penerimaan Kargo (Proof of Delivery / e-POD)
-        </span>
-        <div class="rounded-xl overflow-hidden border border-outline-variant/30 shadow-sm max-w-md mt-xs">
-          <img src="${podImageData.link_url}" alt="Foto Bukti POD" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" />
-        </div>
-      </div>
-    `;
-        } else {
-          podContainer.innerHTML = ""; // Bersihkan jika belum ada POD
-        }
-      }
     </script>
   </body>
 </html>
