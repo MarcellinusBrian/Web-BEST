@@ -51,7 +51,7 @@
                   class="w-full bg-surface py-sm pl-xl pr-md rounded-xl border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none font-data-mono font-bold text-on-surface transition-all placeholder:font-body-md placeholder:font-normal placeholder:text-outline"
                   placeholder="Masukkan No. AWB / Booking No..."
                   type="text"
-                  value="BEST-88912"
+                  value="JO112233445"
                   required />
               </div>
               <button
@@ -66,14 +66,14 @@
             <div class="flex items-center gap-xs text-xs font-label-md text-on-surface-variant mt-xs flex-wrap justify-center">
               <span>Contoh No. Resi Simulasi:</span>
               <button
-                onclick="setSampleAwb('BEST-88912')"
+                onclick="setSampleAwb('JO112233445')"
                 class="bg-surface-container-lowest hover:bg-surface-container px-xs py-1 rounded border border-outline-variant/40 text-primary font-bold transition-colors">
-                BEST-88912 (Transit)
+                JO112233445
               </button>
               <button
-                onclick="setSampleAwb('BEST-99001')"
+                onclick="setSampleAwb('JO123456789')"
                 class="bg-surface-container-lowest hover:bg-surface-container px-xs py-1 rounded border border-outline-variant/40 text-primary font-bold transition-colors">
-                BEST-99001 (Selesai)
+                JO123456789
               </button>
             </div>
           </div>
@@ -82,7 +82,7 @@
         <!-- TRACKING RESULT AREA -->
         <div class="max-w-container-max mx-auto px-md md:px-lg w-full py-xl">
           <!-- Active Result Card -->
-          <div id="tracking-result" class="grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
+          <div id="tracking-result" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
             <!-- LEFT MAIN COLUMN (2/3 Screen): Progress & Shopee Timeline -->
             <div class="lg:col-span-2 flex flex-col gap-lg">
               <!-- 1. Top Horizontal Stepper Card (Ala Shopee Top Bar) -->
@@ -104,7 +104,7 @@
                   <div class="relative flex items-center justify-between w-full">
                     <!-- Background Connector Line -->
                     <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-surface-container-high z-0"></div>
-                    <div id="progress-line-fill" class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary z-0 transition-all duration-500" style="width: 50%"></div>
+                    <div id="progress-line-fill" class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary z-0 transition-all duration-500" style="width: 0%"></div>
 
                     <!-- Step 1 -->
                     <div class="relative z-10 flex flex-col items-center gap-xs">
@@ -175,36 +175,22 @@
                   <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
                     <span class="text-on-surface-variant text-xs">Nomor AWB / Resi</span>
                     <div class="flex items-center gap-xs">
-                      <span id="meta-awb" class="font-data-mono font-bold text-primary">BEST-88912</span>
+                      <span id="meta-awb" class="font-data-mono font-bold text-primary">JO123456789</span>
                       <button onclick="copyAwb()" class="text-on-surface-variant hover:text-primary transition-colors" title="Salin No. AWB">
                         <span class="material-symbols-outlined text-[16px]">content_copy</span>
                       </button>
                     </div>
                   </div>
 
+                  <!-- 2. Lokasi / Catatan Terakhir (Tambahkan ini) -->
                   <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Moda Pengiriman</span>
-                    <span id="meta-service" class="font-bold text-on-surface">Sea Freight LCL</span>
-                  </div>
-
-                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Kota Asal (Origin)</span>
-                    <span id="meta-origin" class="font-bold text-on-surface">Jakarta (Tanjung Priok)</span>
-                  </div>
-
-                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Tujuan (Destination)</span>
-                    <span id="meta-destination" class="font-bold text-on-surface">Sorong (Papua Barat Daya)</span>
-                  </div>
-
-                  <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Jumlah Koli / Berat</span>
-                    <span id="meta-weight" class="font-data-mono font-bold text-on-surface">12 Colli / 450 Kg</span>
+                    <span class="text-on-surface-variant text-xs">Lokasi / Catatan Terakhir</span>
+                    <span id="meta-remark" class="font-bold text-on-surface text-right">-</span>
                   </div>
 
                   <div class="flex justify-between items-center py-xs pt-xs">
-                    <span class="text-on-surface-variant text-xs">Estimasi Tiba (ETA)</span>
-                    <span id="meta-eta" class="font-bold text-primary">25 September 2026</span>
+                    <span class="text-on-surface-variant text-xs">Waktu Update Terakhir</span>
+                    <span id="meta-last-update" class="font-bold text-primary font-data-mono text-xs">-</span>
                   </div>
                 </div>
 
@@ -212,7 +198,7 @@
                 <div class="flex flex-col gap-xs pt-xs mt-xs border-t border-outline-variant/20">
                   <a
                     id="btn-wa-cs"
-                    href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20BEST-88912"
+                    href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20JO123456789"
                     target="_blank"
                     class="w-full bg-[#25D366] text-white hover:brightness-105 px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs font-bold shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">chat</span>
@@ -277,17 +263,8 @@
           const targetApiUrl = "http://59.153.83.135/api/best/HAWBStatus";
           const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(targetApiUrl);
 
-          // UNTUK PRODUCTION, gunakan track.php sebagai endpoint server-side untuk menghindari masalah CORS
-          // const response = await fetch("track.php", {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({ HAWBNo: awbKey }),
-          // });
-
-          // UNTUK DEMO
-          const response = await fetch("/api/track", {
+          // UNTUK TES DI LOKAL PC, gunakan track.php
+          const response = await fetch("track.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -295,8 +272,17 @@
             body: JSON.stringify({ HAWBNo: awbKey }),
           });
 
+          // UNTUK DEMO DI VERCEL
+          // const response = await fetch("/api/track", {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({ HAWBNo: awbKey }),
+          // });
+
           const data = await response.json();
-          console.log("Respon Data dari API:", data); // Cek data di Console F12
+          console.log("Respon Data dari API:", data);
 
           // Jika data kosong atau bukan array
           if (!data || !Array.isArray(data) || data.length === 0) {
@@ -321,6 +307,15 @@
         }
       }
 
+      // FUNGSI MAPPING STATUS CODE KE STEPPER
+      function getStepLevel(statusCode) {
+        if (["IM01", "EX01", "EX95"].includes(statusCode)) return { step: 4, percent: "100%" };
+        if (["IM02", "IM07", "IM30", "IM19", "IM22", "EX04", "EX07", "EX93"].includes(statusCode)) return { step: 3, percent: "75%" };
+        if (["IM08", "IM10", "IM13", "IM16", "IM18", "IM26", "IM27", "IM28", "IM34", "EX28", "EX52"].includes(statusCode)) return { step: 2, percent: "50%" };
+        if (["EX26", "PIEX03", "IM29"].includes(statusCode)) return { step: 1, percent: "25%" };
+        return { step: 2, percent: "50%" };
+      }
+
       // FUNGSI MERENDER DATA DARI API KE UI TIMELINE
       function processApiResponse(apiResponse) {
         const resultCard = document.getElementById("tracking-result");
@@ -331,30 +326,44 @@
         resultCard.classList.remove("hidden");
 
         // Ambil status terbaru (elemen terakhir dari array API)
+        const firstData = apiResponse[0];
         const latestData = apiResponse[apiResponse.length - 1];
 
         // Update Header Status & Resi
         document.getElementById("result-status-title").innerText = latestData.StatusName;
-        document.getElementById("meta-awb").innerText = latestData.HAWB;
+        // document.getElementById("meta-awb").innerText = latestData.HAWB;
 
         // Sederhanakan Informasi Card Rincian
-        document.getElementById("meta-service").innerText = "HAWB Express Cargo";
-        document.getElementById("meta-origin").innerText = latestData.Remark || "JAKARTA";
-        document.getElementById("meta-destination").innerText = "-";
-        document.getElementById("meta-weight").innerText = "-";
-        document.getElementById("meta-eta").innerText = latestData.Statusdate;
+        document.getElementById("meta-awb").innerText = latestData.HAWB;
+        document.getElementById("meta-remark").innerText = latestData.Remark || "-";
+        document.getElementById("meta-last-update").innerText = latestData.Statusdate;
 
         // Update WhatsApp CS Link
         document.getElementById("btn-wa-cs").href = `https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
 
         // Stepper Progress Sederhana
-        let progressPercent = "50%";
-        if (latestData.StatusCode === "IM01" || latestData.StatusCode === "EX01") {
-          progressPercent = "100%";
-        } else if (latestData.StatusCode === "IM10") {
-          progressPercent = "75%";
+        // let progressPercent = "50%";
+        // if (latestData.StatusCode === "IM01" || latestData.StatusCode === "EX01") {
+        //   progressPercent = "100%";
+        // } else if (latestData.StatusCode === "IM10") {
+        //   progressPercent = "75%";
+        // }
+        // document.getElementById("progress-line-fill").style.width = progressPercent;
+
+        // Stepper Progress
+        const statusCode = latestData.StatusCode || "";
+        const stepInfo = getStepLevel(statusCode);
+        document.getElementById("progress-line-fill").style.width = stepInfo.percent;
+
+        // Update Badge Status (Pojok Kanan Header)
+        const badgeContainer = document.getElementById("result-badge-container");
+        if (badgeContainer) {
+          if (stepInfo.step === 4) {
+            badgeContainer.innerHTML = `<span class="inline-flex items-center gap-xs bg-[#25D366]/10 text-[#25D366] px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span> DELIVERED</span>`;
+          } else {
+            badgeContainer.innerHTML = `<span class="inline-flex items-center gap-xs bg-primary/10 text-primary px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> ${latestData.StatusName}</span>`;
+          }
         }
-        document.getElementById("progress-line-fill").style.width = progressPercent;
 
         // RENDER TIMELINE VERTIKAL (Diurutkan dari terbaru ke terlama)
         const container = document.getElementById("timeline-container");
