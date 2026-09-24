@@ -23,7 +23,8 @@
     <main class="w-full pt-20 bg-surface">
       <div class="flex flex-col w-full relative overflow-x-hidden">
         <!-- Hero Section -->
-        <section id="home" class="relative w-full min-h-[640px] flex items-end pb-xl px-md md:px-lg -mt-20 pt-28 overflow-hidden">
+        <!-- <section id="home" class="relative w-full min-h-[640px] flex items-end pb-xl px-md md:px-lg -mt-20 pt-28 overflow-hidden"> -->
+        <section id="home" class="relative w-full min-h-[560px] sm:min-h-[640px] flex items-center lg:items-end pb-lg sm:pb-xl px-md md:px-lg -mt-20 pt-28 overflow-hidden">
           <!-- Background Image with Overlay -->
           <div
             class="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -333,7 +334,9 @@
               </div>
             </div>
             <div class="w-full bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant/20 overflow-hidden">
-              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+              <!-- <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20"> -->
+              <div
+                class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-outline-variant/20 rounded-xl overflow-hidden divide-x-0 md:divide-x divide-y md:divide-y-0 divide-outline-variant/20">
                 <div class="p-md text-center flex flex-col items-center justify-center">
                   <span class="material-symbols-outlined text-primary text-[32px] mb-xs">directions_car</span>
                   <span class="font-headline-sm text-on-surface">30 Units</span>
@@ -972,12 +975,21 @@
     <script src="js/gallery-modal.js"></script>
 
     <!-- Floating WhatsApp Button -->
-    <a
+    <!-- <a
       class="fixed bottom-md right-md z-50 flex items-center gap-xs bg-[#25D366] text-white px-md py-sm rounded-full shadow-xl hover:brightness-95 transition-all animate-[slideUp_0.8s_ease-out]"
       href="https://wa.me/6281519129115"
       target="_blank">
       <span class="material-symbols-outlined text-[24px]">chat</span>
       <span class="font-label-md text-label-md uppercase tracking-wider">Chat via WhatsApp</span>
+    </a> -->
+
+    <a
+      class="fixed bottom-md right-md z-50 flex items-center justify-center gap-xs bg-[#25D366] text-white p-3 sm:px-md sm:py-sm rounded-full shadow-xl hover:brightness-95 transition-all"
+      href="https://wa.me/6281519129115"
+      target="_blank"
+      title="Chat via WhatsApp">
+      <span class="material-symbols-outlined text-[24px]">chat</span>
+      <span class="hidden sm:inline font-label-md text-label-md uppercase tracking-wider">Chat via WhatsApp</span>
     </a>
 
     <!-- Script Switcher Tab Network -->

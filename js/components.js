@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         headerPlaceholder.innerHTML = cleanInjectedScripts(data);
         initNavState();
+        initMobileMenu();
       })
       .catch((err) => console.error("Error loading header:", err));
   }
@@ -102,4 +103,23 @@ function initScrollSpy(navLinks) {
   }, observerOptions);
 
   sections.forEach((section) => observer.observe(section));
+}
+
+// FUNGSI TOGGLE HAMBURGER MENU MOBILE
+function initMobileMenu() {
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener("click", () => {
+      mobileNav.classList.toggle("hidden");
+    });
+
+    // Otomatis tutup menu saat link diklik
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.add("hidden");
+      });
+    });
+  }
 }
