@@ -264,22 +264,22 @@
           const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(targetApiUrl);
 
           // UNTUK TES DI LOKAL PC, gunakan track.php
-          const response = await fetch("track.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ HAWBNo: awbKey }),
-          });
-
-          // UNTUK DEMO DI VERCEL
-          // const response = await fetch("/api/track", {
+          // const response = await fetch("track.php", {
           //   method: "POST",
           //   headers: {
           //     "Content-Type": "application/json",
           //   },
           //   body: JSON.stringify({ HAWBNo: awbKey }),
           // });
+
+          // UNTUK DEMO DI VERCEL
+          const response = await fetch("/api/track", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ HAWBNo: awbKey }),
+          });
 
           const data = await response.json();
           console.log("Respon Data dari API:", data);

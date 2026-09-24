@@ -11,7 +11,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Panggil API Pusat dari Server Vercel (Bebas CORS!)
     const apiResponse = await fetch("http://59.153.83.135/api/best/HAWBStatus", {
       method: "POST",
       headers: {
