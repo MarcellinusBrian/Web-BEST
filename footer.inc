@@ -9,7 +9,7 @@
         <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant text-sm">
           <li class="flex items-start gap-xs">
             <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">location_on</span>
-            <span>Jl. Latumenten 1 No. 6 Grogol, Jakarta Barat 11460, Indonesia</span>
+            <span>Jl. Latumenten 1 No. 6 Grogol, Jakarta Barat, Indonesia 11460</span>
           </li>
           <li class="flex items-center gap-xs">
             <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">call</span>
