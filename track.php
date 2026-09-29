@@ -3,45 +3,92 @@
 ini_set('display_errors', 0);
 error_reporting(0);
 
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *'); // Jika sudah produksi, ganti '*' dengan domain websitemu (misal: https://ptbest.co.id)
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
 
-if (!function_exists('curl_init')) {
-    echo json_encode(array('error' => 'Ekstensi PHP cURL belum diaktifkan di server produksi.'));
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
     exit;
 }
 
-$inputData = json_decode(file_get_contents('php://input'), true);
+// Validasi Metode Request (Hanya POST)
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Metode request tidak diizinkan. Gunakan POST.']);
+    exit;
+}
+
+// Ekstensi cURL Aktif
+if (!function_exists('curl_init')) {
+    error_log('cURL Extension Error: Ekstensi cURL belum aktif di server.');
+    http_response_code(500);
+    echo json_encode(['error' => 'Layanan server sedang mengalami kendala teknis.']);
+    exit;
+}
+
+// Baca & Sanitasi Input Body
+$inputRaw = file_get_contents('php://input');
+$inputData = json_decode($inputRaw, true);
+
 $hawbNo = isset($inputData['HAWBNo']) ? trim($inputData['HAWBNo']) : '';
 
 if (empty($hawbNo)) {
-    echo json_encode(array('error' => 'Nomor AWB tidak boleh kosong'));
+    http_response_code(400);
+    echo json_encode(['error' => 'Nomor AWB / Resi tidak boleh kosong.']);
     exit;
 }
 
+if (strlen($hawbNo) > 30) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Format nomor AWB terlalu panjang.']);
+    exit;
+}
+
+if (!preg_match('/^[a-zA-Z0-9\-]+$/', $hawbNo)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Nomor AWB mengandung karakter tidak valid.']);
+    exit;
+}
+
+$hawbNo = strtoupper($hawbNo);
+
 $apiUrl = 'http://59.153.83.135/api/best/HAWBStatus';
-$payload = json_encode(array('HAWBNo' => $hawbNo));
+$payload = json_encode(['HAWBNo' => $hawbNo]);
 
 $ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => $payload,
+    CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+    CURLOPT_TIMEOUT        => 10,
+    CURLOPT_CONNECTTIMEOUT => 5, // Timeout batas waktu percobaan koneksi awal
+]);
 
 $response = curl_exec($ch);
 $curlError = curl_error($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// Tangkap error cURL jika koneksi diblokir / timeout
 if ($curlError) {
-    echo json_encode(array('error' => 'Gagal melakukan cURL ke API Pusat: ' . $curlError));
+    // Catat detail error teknis asli ke log internal server (Aman, tidak terkespesos ke browser/Inspect Element)
+    error_log("Tracking API cURL Error for HAWB [{$hawbNo}]: " . $curlError);
+
+    // Kirim pesan umum yang aman ke frontend
+    http_response_code(502);
+    echo json_encode(['error' => 'Gagal terhubung ke server pusat tracking. Silakan coba beberapa saat lagi.']);
     exit;
 }
 
 if ($httpCode === 200 && $response) {
+    http_response_code(200);
     echo $response;
 } else {
-    echo json_encode(array('error' => 'API Pusat mengembalikan HTTP Status: ' . $httpCode));
+    // Log error HTTP dari API Pusat ke log internal server
+    error_log("Tracking API Central returned HTTP Status [{$httpCode}] for HAWB [{$hawbNo}]");
+
+    http_response_code(502);
+    echo json_encode(['error' => 'Layanan API Pusat sedang tidak dapat memproses permintaan.']);
 }

@@ -55,7 +55,8 @@
                   data-i18n-placeholder="tracking.placeholder_awb"
                   placeholder="Masukkan No. AWB / Booking No..."
                   type="text"
-                  value="JO112233445"
+                  maxlength="15"
+                  autocomplete="off"
                   required />
               </div>
               <button
@@ -284,7 +285,7 @@
             return;
           }
 
-          // Jika data didapat, tampilkan di UI!
+          // Kalo data didapat, tampilkan di UI
           processApiResponse(data);
         } catch (error) {
           console.error("Error saat panggil API:", error);
@@ -357,7 +358,7 @@
           }
         }
 
-        // RENDER TIMELINE VERTIKAL (terbaru ke terlama)
+        // RENDER TIMELINE VERTIKAL (baru ke lama)
         const container = document.getElementById("timeline-container");
         container.innerHTML = "";
 
@@ -400,13 +401,39 @@
       }
 
       // HANDLER SEARCH FORM
+      // function handleSearch(e) {
+      //   if (e) e.preventDefault();
+      //   const inputVal = document.getElementById("awb-input").value.trim().toUpperCase();
+      //   if (inputVal) loadTrackingData(inputVal);
+      // }
+
+      const awbInput = document.getElementById("awb-input");
+
+      if (awbInput) {
+        awbInput.addEventListener("input", function () {
+          // Hanya menyisakan Huruf (a-z, A-Z), Angka (0-9), dan Tanda Hubung (-)
+          this.value = this.value.replace(/[^a-zA-Z0-9-]/g, "").toUpperCase();
+        });
+      }
+      // HANDLER SEARCH FORM
       function handleSearch(e) {
         if (e) e.preventDefault();
-        const inputVal = document.getElementById("awb-input").value.trim().toUpperCase();
-        if (inputVal) loadTrackingData(inputVal);
+
+        const rawVal = document.getElementById("awb-input").value.trim();
+        const cleanVal = rawVal.replace(/[^a-zA-Z0-9-]/g, "").toUpperCase();
+
+        if (cleanVal) {
+          loadTrackingData(cleanVal);
+        } else {
+          const resultCard = document.getElementById("tracking-result");
+          const errorCard = document.getElementById("tracking-error");
+
+          resultCard.classList.add("hidden");
+          errorCard.classList.remove("hidden");
+          errorCard.classList.add("flex");
+        }
       }
 
-      // CHIPS DEMO
       function setSampleAwb(awb) {
         document.getElementById("awb-input").value = awb;
         loadTrackingData(awb);
@@ -419,7 +446,6 @@
         alert("Nomor AWB berhasil disalin: " + awbText);
       }
 
-      // LOAD PERTAMA KALI SAAT HALAMAN DIBUKA
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("awb-input").value = "";
       });
