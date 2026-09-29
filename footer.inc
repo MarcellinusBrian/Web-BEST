@@ -3,9 +3,9 @@
   <div class="max-w-container-max mx-auto px-lg">
     <!-- Grid 4 Kolom -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl pb-xl">
-      <!-- Kolom 1: Contact Us -->
+      <!-- Contact Us -->
       <div class="flex flex-col gap-sm">
-        <h3 class="font-headline-sm text-on-surface font-bold mb-xs">Contact Us</h3>
+        <h3 class="font-headline-sm text-on-surface font-bold mb-xs" data-i18n="footer.contact_title">Contact Us</h3>
         <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant text-sm">
           <li class="flex items-start gap-xs">
             <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">location_on</span>
@@ -17,7 +17,7 @@
           </li>
           <li class="flex items-center gap-xs">
             <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">mail</span>
-            <a href="mailto:support@bestranspor.com" class="hover:text-primary transition-colors">support@bestranspor.com</a>
+            <a href="mailto:cs.admin@bestranspor.com" class="hover:text-primary transition-colors">support@bestranspor.com</a>
           </li>
           <li class="flex items-center gap-xs">
             <span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">language</span>
@@ -26,39 +26,38 @@
         </ul>
       </div>
 
-      <!-- Kolom 2: Services -->
+      <!-- Services -->
       <div class="flex flex-col gap-sm">
-        <h3 class="font-headline-sm text-on-surface font-bold mb-xs">Services</h3>
+        <h3 class="font-headline-sm text-on-surface font-bold mb-xs" data-i18n="footer.services_title">Services</h3>
         <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant text-sm">
-          <li><a href="index.html#services" class="hover:text-primary transition-colors">Air Cargo &amp; Express</a></li>
-          <li><a href="index.html#services" class="hover:text-primary transition-colors">Sea Freight (FCL/LCL)</a></li>
-          <li><a href="index.html#services" class="hover:text-primary transition-colors">Land Transport &amp; Last Mile</a></li>
-          <li><a href="index.html#services" class="hover:text-primary transition-colors">Warehousing &amp; Storage</a></li>
-          <li><a href="index.html#services" class="hover:text-primary transition-colors">Customs Clearance / PPJK</a></li>
+          <li><a href="index.html#services" class="hover:text-primary transition-colors" data-i18n="footer.service_1">Air Cargo &amp; Express</a></li>
+          <li><a href="index.html#services" class="hover:text-primary transition-colors" data-i18n="footer.service_2">Sea Freight (FCL/LCL)</a></li>
+          <li><a href="index.html#services" class="hover:text-primary transition-colors" data-i18n="footer.service_3">Land Transport &amp; Last Mile</a></li>
+          <li><a href="index.html#services" class="hover:text-primary transition-colors" data-i18n="footer.service_4">Warehousing &amp; Storage</a></li>
+          <li><a href="index.html#services" class="hover:text-primary transition-colors" data-i18n="footer.service_5">Customs Clearance / PPJK</a></li>
         </ul>
       </div>
 
-      <!-- Kolom 3: Company -->
+      <!-- Company -->
       <div class="flex flex-col gap-sm">
-        <h3 class="font-headline-sm text-on-surface font-bold mb-xs">Company</h3>
+        <h3 class="font-headline-sm text-on-surface font-bold mb-xs" data-i18n="footer.company_title">Company</h3>
         <ul class="flex flex-col gap-xs font-body-sm text-on-surface-variant text-sm">
-          <li><a href="index.html#about" class="hover:text-primary transition-colors">About Bestranspor</a></li>
-          <li><a href="projects.html" class="hover:text-primary transition-colors">Project Portfolio</a></li>
-          <li><a href="index.html#contact" class="hover:text-primary transition-colors">Branch Locations</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+          <li><a href="index.html#about" class="hover:text-primary transition-colors" data-i18n="footer.about_us">About Bestranspor</a></li>
+          <li><a href="projects.html" class="hover:text-primary transition-colors" data-i18n="footer.portfolio">Project Portfolio</a></li>
+          <li><a href="index.html#contact" class="hover:text-primary transition-colors" data-i18n="footer.branches">Branch Locations</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.privacy_policy">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors" data-i18n="footer.terms_of_service">Terms of Service</a></li>
         </ul>
       </div>
 
-      <!-- Kolom 4: Stay Connected -->
+      <!--  Stay Connected -->
       <div class="flex flex-col gap-sm">
-        <h3 class="font-headline-sm text-on-surface font-bold mb-xs">Stay Connected</h3>
+        <h3 class="font-headline-sm text-on-surface font-bold mb-xs" data-i18n="footer.stay_connected">Stay Connected</h3>
 
         <!-- Social Media Buttons -->
         <div class="flex items-center gap-xs mb-xs">
-          <!-- LinkedIn -->
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/company/berkat-subuh-transpor"
             target="_blank"
             aria-label="LinkedIn"
             class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
@@ -68,9 +67,8 @@
             </svg>
           </a>
 
-          <!-- Instagram -->
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/bestransporindonesia"
             target="_blank"
             aria-label="Instagram"
             class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
@@ -80,9 +78,8 @@
             </svg>
           </a>
 
-          <!-- TikTok -->
           <a
-            href="https://tiktok.com"
+            href="https://tiktok.com/@bestransporindonesia"
             target="_blank"
             aria-label="TikTok"
             class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
@@ -91,19 +88,32 @@
                 d="M12.525 2.25c1.31 0 2.491.523 3.354 1.368a6.388 6.388 0 0 0 3.123 1.312v3.018a9.38 9.38 0 0 1-3.412-.862c-.08-.038-.159-.079-.236-.122v7.126c0 3.823-3.1 6.923-6.923 6.923-3.824 0-6.923-3.1-6.923-6.923 0-3.823 3.099-6.923 6.923-6.923.392 0 .774.033 1.146.096V10.3a3.89 3.89 0 0 0-1.146-.172 3.846 3.846 0 1 0 3.846 3.846V2.25z" />
             </svg>
           </a>
+
+          <a
+            href="https://youtube.com/@bestranspor"
+            target="_blank"
+            aria-label="YouTube"
+            class="w-10 h-10 rounded-full bg-secondary-container text-on-surface flex items-center justify-center hover:brightness-110 transition-all shadow-sm">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
         </div>
 
-        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed">Subscribe to our newsletter for the latest logistics updates and industry news.</p>
+        <p class="font-body-sm text-sm text-on-surface-variant leading-relaxed" data-i18n="footer.newsletter_text">
+          Subscribe to our newsletter for the latest logistics updates and industry news.
+        </p>
       </div>
     </div>
 
     <!-- Bottom Line -->
     <div class="pt-lg border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-sm font-body-sm text-sm text-on-surface-variant">
-      <div>© 2026 PT Berkat Subuh Transpor. All rights reserved.</div>
+      <div data-i18n="footer.copyright">© 2026 PT Berkat Subuh Transpor. All rights reserved.</div>
       <div class="flex items-center gap-md">
-        <a href="#" class="hover:text-primary transition-colors">Privacy</a>
-        <a href="#" class="hover:text-primary transition-colors">Legal</a>
-        <a href="#" class="hover:text-primary transition-colors">Accessibility</a>
+        <a href="#" class="hover:text-primary transition-colors" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" class="hover:text-primary transition-colors" data-i18n="footer.legal">Legal</a>
+        <a href="#" class="hover:text-primary transition-colors" data-i18n="footer.accessibility">Accessibility</a>
       </div>
     </div>
   </div>
