@@ -51,13 +51,21 @@
                 <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[22px]">search</span>
                 <input
                   id="awb-input"
-                  class="w-full bg-surface py-sm pl-xl pr-md rounded-xl border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none font-data-mono font-bold text-on-surface transition-all placeholder:font-body-md placeholder:font-normal placeholder:text-outline"
+                  class="w-full bg-surface py-sm pl-xl pr-10 rounded-xl border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none font-data-mono font-bold text-on-surface transition-all placeholder:font-body-md placeholder:font-normal placeholder:text-outline"
                   data-i18n-placeholder="tracking.placeholder_awb"
                   placeholder="Masukkan No. AWB / Booking No..."
                   type="text"
                   maxlength="15"
                   autocomplete="off"
                   required />
+                <button
+                  type="button"
+                  id="clear-awb-btn"
+                  onClick="clearAwbInput()"
+                  class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container-high hover:bg-outline-variant/40 text-on-surface-variant items-center justify-center transition-all cursor-pointer"
+                  title="Hapus Input">
+                  <span class="material-symbols-outlined text-[14px]">close</span>
+                </button>
               </div>
               <button
                 type="submit"
@@ -334,15 +342,6 @@
         // Update WhatsApp CS Link
         document.getElementById("btn-wa-cs").href = `https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
 
-        // Stepper Progress Sederhana
-        // let progressPercent = "50%";
-        // if (latestData.StatusCode === "IM01" || latestData.StatusCode === "EX01") {
-        //   progressPercent = "100%";
-        // } else if (latestData.StatusCode === "IM10") {
-        //   progressPercent = "75%";
-        // }
-        // document.getElementById("progress-line-fill").style.width = progressPercent;
-
         // Stepper Progress
         const statusCode = latestData.StatusCode || "";
         const stepInfo = getStepLevel(statusCode);
@@ -408,13 +407,28 @@
       // }
 
       const awbInput = document.getElementById("awb-input");
+      const clearBtn = document.getElementById("clear-awb-btn");
+
+      function toggleClearBtn() {
+        if (awbInput && clearBtn) {
+          if (awbInput.value.trim().length > 0) {
+            clearBtn.classList.remove("hidden");
+            clearBtn.classList.add("flex");
+          } else {
+            clearBtn.classList.add("hidden");
+            clearBtn.classList.remove("flex");
+          }
+        }
+      }
 
       if (awbInput) {
         awbInput.addEventListener("input", function () {
           // Hanya menyisakan Huruf (a-z, A-Z), Angka (0-9), dan Tanda Hubung (-)
           this.value = this.value.replace(/[^a-zA-Z0-9-]/g, "").toUpperCase();
+          toggleClearBtn();
         });
       }
+
       // HANDLER SEARCH FORM
       function handleSearch(e) {
         if (e) e.preventDefault();
@@ -434,9 +448,24 @@
         }
       }
 
+      function clearAwbInput() {
+        if (awbInput) {
+          awbInput.value = "";
+          toggleClearBtn();
+          awbInput.focus(); // Fokuskan kembali kursor ke input
+        }
+      }
+      // function setSampleAwb(awb) {
+      //   document.getElementById("awb-input").value = awb;
+      //   loadTrackingData(awb);
+      // }
+
       function setSampleAwb(awb) {
-        document.getElementById("awb-input").value = awb;
-        loadTrackingData(awb);
+        if (awbInput) {
+          awbInput.value = awb;
+          toggleClearBtn();
+          loadTrackingData(awb);
+        }
       }
 
       // SALIN AWB
