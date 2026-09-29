@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lacak Pengiriman (Shipment Tracking) - PT Berkat Subuh Transpor</title>
+    <title>Shipment Tracking - PT Berkat Subuh Transpor</title>
+    <link rel="icon" type="image/png" href="assets/images/logo/logo_best.png" />
 
     <!-- Custom External CSS & Tailwind Config -->
     <link rel="stylesheet" href="css/style.css" />
@@ -24,9 +25,9 @@
       <div class="flex flex-col w-full">
         <div class="px-md md:px-lg max-w-container-max mx-auto w-full pt-lg pb-sm">
           <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
-            <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+            <a class="hover:text-primary transition-colors" href="index.html" data-i18n="tracking.breadcrumb_home">Home</a>
             <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-            <span class="text-primary font-bold">Lacak Pengiriman</span>
+            <span class="text-primary font-bold" data-i18n="tracking.breadcrumb_current">Lacak Pengiriman</span>
           </nav>
         </div>
 
@@ -34,9 +35,11 @@
         <div class="bg-surface-container-low w-full pt-md pb-xl relative overflow-hidden border-b border-outline-variant/20">
           <div class="max-w-container-max mx-auto px-md md:px-lg w-full relative z-10 flex flex-col items-center text-center gap-md">
             <div class="flex flex-col gap-xs max-w-2xl">
-              <span class="font-label-md text-primary uppercase tracking-wider font-bold text-xs">Real-Time Cargo Tracking</span>
-              <h1 class="font-headline-lg text-display-lg text-on-surface font-bold">Lacak Posisi Kargo Anda</h1>
-              <p class="font-body-md text-on-surface-variant">Masukkan Nomor Resi / AWB / Booking Number untuk memantau status posisi muatan secara langsung.</p>
+              <span class="font-label-md text-primary uppercase tracking-wider font-bold text-xs" data-i18n="tracking.tag">Real-Time Cargo Tracking</span>
+              <h1 class="font-headline-lg text-display-lg text-on-surface font-bold" data-i18n="tracking.title">Lacak Posisi Kargo Anda</h1>
+              <p class="font-body-md text-on-surface-variant" data-i18n="tracking.desc">
+                Masukkan Nomor Resi / AWB / Booking Number untuk memantau status posisi muatan secara langsung.
+              </p>
             </div>
 
             <!-- Search Console Input Box -->
@@ -49,6 +52,7 @@
                 <input
                   id="awb-input"
                   class="w-full bg-surface py-sm pl-xl pr-md rounded-xl border border-outline-variant/40 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none font-data-mono font-bold text-on-surface transition-all placeholder:font-body-md placeholder:font-normal placeholder:text-outline"
+                  data-i18n-placeholder="tracking.placeholder_awb"
                   placeholder="Masukkan No. AWB / Booking No..."
                   type="text"
                   value="JO112233445"
@@ -58,13 +62,13 @@
                 type="submit"
                 class="w-full md:w-auto bg-primary text-on-primary px-xl h-[48px] rounded-xl font-label-md text-xs uppercase tracking-wider hover:brightness-110 transition-all flex items-center justify-center gap-xs shadow-md font-bold whitespace-nowrap">
                 <span class="material-symbols-outlined text-[18px]">radar</span>
-                Cek Status
+                <span data-i18n="tracking.btn_check">Cek Status</span>
               </button>
             </form>
 
-            <!-- Quick Demo Chips -->
+            <!-- Quick Demo -->
             <div class="flex items-center gap-xs text-xs font-label-md text-on-surface-variant mt-xs flex-wrap justify-center">
-              <span>Contoh No. Resi Simulasi:</span>
+              <span data-i18n="tracking.sample_label">Contoh No. Resi Simulasi:</span>
               <button
                 onclick="setSampleAwb('JO112233445')"
                 class="bg-surface-container-lowest hover:bg-surface-container px-xs py-1 rounded border border-outline-variant/40 text-primary font-bold transition-colors">
@@ -89,12 +93,14 @@
               <div class="bg-surface-container-lowest p-md md:p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-xs pb-sm border-b border-outline-variant/20">
                   <div>
-                    <span class="font-label-md text-xs uppercase tracking-wider text-on-surface-variant block">Status Utama</span>
-                    <h2 id="result-status-title" class="font-headline-sm text-headline-sm font-bold text-primary">Pesanan Dalam Transit</h2>
+                    <span class="font-label-md text-xs uppercase tracking-wider text-on-surface-variant block" data-i18n="tracking.status_main_label">Status Utama</span>
+                    <h2 id="result-status-title" class="font-headline-sm text-headline-sm font-bold text-primary" data-i18n="tracking.status_in_transit">
+                      Pesanan Dalam Transit
+                    </h2>
                   </div>
                   <div id="result-badge-container">
                     <span class="inline-flex items-center gap-xs bg-primary/10 text-primary px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider">
-                      <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> In Transit
+                      <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> <span data-i18n="tracking.badge_in_transit">In Transit</span>
                     </span>
                   </div>
                 </div>
@@ -106,38 +112,34 @@
                     <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-surface-container-high z-0"></div>
                     <div id="progress-line-fill" class="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary z-0 transition-all duration-500" style="width: 0%"></div>
 
-                    <!-- Step 1 -->
                     <div class="relative z-10 flex flex-col items-center gap-xs">
                       <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
                         <span class="material-symbols-outlined text-[16px]">check</span>
                       </div>
-                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center">Resi Dibuat</span>
+                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center" data-i18n="tracking.step_created">Resi Dibuat</span>
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="relative z-10 flex flex-col items-center gap-xs">
                       <div id="step-2-icon" class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs shadow-sm">
                         <span class="material-symbols-outlined text-[16px]">inventory_2</span>
                       </div>
-                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center">Diterima Gudang</span>
+                      <span class="font-label-md text-[11px] text-on-surface font-semibold text-center" data-i18n="tracking.step_warehouse">Diterima Gudang</span>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="relative z-10 flex flex-col items-center gap-xs">
                       <div
                         id="step-3-icon"
                         class="w-8 h-8 rounded-full bg-primary text-on-primary ring-4 ring-primary/20 flex items-center justify-center font-bold text-xs shadow-sm">
                         <span class="material-symbols-outlined text-[16px]">local_shipping</span>
                       </div>
-                      <span class="font-label-md text-[11px] text-primary font-bold text-center">Sedang Dikirim</span>
+                      <span class="font-label-md text-[11px] text-primary font-bold text-center" data-i18n="tracking.step_shipping">Sedang Dikirim</span>
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="relative z-10 flex flex-col items-center gap-xs">
                       <div id="step-4-icon" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs">
                         <span class="material-symbols-outlined text-[16px]">task_alt</span>
                       </div>
-                      <span class="font-label-md text-[11px] text-on-surface-variant text-center">Kargo Tiba</span>
+                      <span class="font-label-md text-[11px] text-on-surface-variant text-center" data-i18n="tracking.step_arrived">Kargo Tiba</span>
                     </div>
                   </div>
                 </div>
@@ -148,7 +150,7 @@
                 <div class="flex items-center justify-between pb-xs border-b border-outline-variant/20">
                   <h3 class="font-headline-sm text-body-lg font-bold text-on-surface flex items-center gap-xs">
                     <span class="material-symbols-outlined text-primary text-[20px]">history</span>
-                    Riwayat Perjalanan Kargo
+                    <span data-i18n="tracking.timeline_title">Riwayat Perjalanan Kargo</span>
                   </h3>
                 </div>
 
@@ -168,12 +170,12 @@
               <div class="bg-surface-container-lowest p-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-md">
                 <h3 class="font-headline-sm text-body-lg font-bold text-on-surface pb-xs border-b border-outline-variant/20 flex items-center gap-xs">
                   <span class="material-symbols-outlined text-primary text-[20px]">info</span>
-                  Rincian Muatan
+                  <span data-i18n="tracking.details_title">Rincian Muatan</span>
                 </h3>
 
                 <div class="flex flex-col gap-sm font-body-sm">
                   <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Nomor AWB / Resi</span>
+                    <span class="text-on-surface-variant text-xs" data-i18n="tracking.meta_awb_label">Nomor AWB / Resi</span>
                     <div class="flex items-center gap-xs">
                       <span id="meta-awb" class="font-data-mono font-bold text-primary">JO123456789</span>
                       <button onclick="copyAwb()" class="text-on-surface-variant hover:text-primary transition-colors" title="Salin No. AWB">
@@ -182,14 +184,14 @@
                     </div>
                   </div>
 
-                  <!-- Lokasi / Catatan Terakhir (Tambahkan ini) -->
+                  <!-- Lokasi / Catatan Terakhir -->
                   <div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
-                    <span class="text-on-surface-variant text-xs">Lokasi / Catatan Terakhir</span>
+                    <span class="text-on-surface-variant text-xs" data-i18n="tracking.meta_remark_label">Lokasi / Catatan Terakhir</span>
                     <span id="meta-remark" class="font-bold text-on-surface text-right">-</span>
                   </div>
 
                   <div class="flex justify-between items-center py-xs pt-xs">
-                    <span class="text-on-surface-variant text-xs">Waktu Update Terakhir</span>
+                    <span class="text-on-surface-variant text-xs" data-i18n="tracking.meta_update_label">Waktu Update Terakhir</span>
                     <span id="meta-last-update" class="font-bold text-primary font-data-mono text-xs">-</span>
                   </div>
                 </div>
@@ -198,25 +200,18 @@
                 <div class="flex flex-col gap-xs pt-xs mt-xs border-t border-outline-variant/20">
                   <a
                     id="btn-wa-cs"
-                    href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20JO123456789"
+                    href="https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20JO123456789"
                     target="_blank"
                     class="w-full bg-[#25D366] text-white hover:brightness-105 px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs font-bold shadow-sm">
                     <span class="material-symbols-outlined text-[18px]">chat</span>
-                    Tanya CS via WhatsApp
+                    <span data-i18n="tracking.btn_wa_cs">Tanya CS via WhatsApp</span>
                   </a>
-
-                  <!-- <button
-                    onclick="alert('Fitur Unduh Surat Jalan (POD) siap dihubungkan ke database/API sistem operasional.')"
-                    class="w-full bg-surface-container-low hover:bg-surface-container text-on-surface px-md py-sm rounded-xl font-label-md text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-xs border border-outline-variant/30 font-semibold">
-                    <span class="material-symbols-outlined text-[18px]">download</span>
-                    Unduh e-POD / Surat Jalan
-                  </button> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- State 2: Error / Not Found Message (Hidden by default) -->
+          <!-- Error / Not Found Message -->
           <div
             id="tracking-error"
             class="hidden flex-col items-center justify-center text-center py-xl gap-md bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-xl max-w-2xl mx-auto shadow-sm">
@@ -224,42 +219,39 @@
               <span class="material-symbols-outlined text-[36px]">search_off</span>
             </div>
             <div class="flex flex-col gap-xs">
-              <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Nomor Resi Tidak Ditemukan</h3>
-              <p class="font-body-md text-on-surface-variant max-w-md">
-                Mohon periksa kembali nomor AWB atau Booking Number yang Anda masukkan. Pastikan tidak ada kesalahan pengetikan.
+              <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" data-i18n="tracking.error_title">Nomor Resi Tidak Ditemukan</h3>
+              <p class="font-body-md text-on-surface-variant max-w-md" data-i18n="tracking.error_desc">
+                Silakan periksa kembali Nomor AWB atau Booking Number yang Anda masukkan. Pastikan tidak ada kesalahan ketik.
               </p>
             </div>
             <a
-              href="https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20kesulitan%20melacak%20resi%20kargo"
+              href="https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20kesulitan%20melacak%20resi%20kargo"
               target="_blank"
               class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md text-xs uppercase tracking-wider font-bold transition-all inline-flex items-center gap-xs shadow-md">
-              <span class="material-symbols-outlined text-[18px]">support_agent</span> Bantuan Tim Operasional
+              <span class="material-symbols-outlined text-[18px]">support_agent</span> <span data-i18n="tracking.error_helpline">Bantuan Tim Operasional</span>
             </a>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- Footer (Injected via components.js) -->
+    <!-- Footer  -->
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
     <script src="js/components.js"></script>
+    <script src="js/lang.js"></script>
 
     <script>
-      // FUNGSI UNTUK TEMBAK API VIA CORS PROXY (UNTUK TES LOKAL)
       async function loadTrackingData(awbKey) {
         const resultCard = document.getElementById("tracking-result");
         const errorCard = document.getElementById("tracking-error");
         const submitBtn = document.querySelector("#tracking-form button[type='submit']");
 
-        // UBAH TOMBOL JADI INDIKATOR LOADING
         const originalBtnText = submitBtn.innerHTML;
         submitBtn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Memuat...`;
         submitBtn.disabled = true;
 
         try {
-          // Menggunakan CORS Proxy agar browser tidak memblokir API IP http://59.153.83.135
           const targetApiUrl = "http://59.153.83.135/api/best/HAWBStatus";
           const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(targetApiUrl);
 
@@ -292,7 +284,7 @@
             return;
           }
 
-          // Jika data berhasil didapat, tampilkan di UI!
+          // Jika data didapat, tampilkan di UI!
           processApiResponse(data);
         } catch (error) {
           console.error("Error saat panggil API:", error);
@@ -339,7 +331,7 @@
         document.getElementById("meta-last-update").innerText = latestData.Statusdate;
 
         // Update WhatsApp CS Link
-        document.getElementById("btn-wa-cs").href = `https://wa.me/6281519129115?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
+        document.getElementById("btn-wa-cs").href = `https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
 
         // Stepper Progress Sederhana
         // let progressPercent = "50%";
