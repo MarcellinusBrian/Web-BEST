@@ -930,35 +930,50 @@
                     <h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="contact.rfq_title">Formulir Permintaan Penawaran Harga (RFQ)</h3>
                     <p class="font-body-sm text-on-surface-variant" data-i18n="contact.rfq_desc">Lengkapi data kargo Anda untuk penawaran terbaik.</p>
                   </div>
-                  <form class="flex flex-col gap-sm">
+                  <form id="rfq-form" class="flex flex-col gap-sm">
                     <input
+                      id="rfq-name"
                       class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
                       data-i18n-placeholder="contact.placeholder_name"
                       placeholder="Nama Lengkap"
-                      type="text" />
+                      type="text"
+                      maxlength="50"
+                      required />
                     <input
+                      id="rfq-company"
                       class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
                       data-i18n-placeholder="contact.placeholder_company"
                       placeholder="Nama Perusahaan / PT"
-                      type="text" />
+                      type="text"
+                      maxlength="75"
+                      required />
                     <input
+                      id="rfq-email"
                       class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
                       data-i18n-placeholder="contact.placeholder_email"
                       placeholder="Email Perusahaan"
-                      type="email" />
+                      type="email"
+                      maxlength="100"
+                      required />
                     <input
+                      id="rfq-phone"
                       class="w-full bg-surface-container-low h-12 px-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
                       data-i18n-placeholder="contact.placeholder_phone"
                       placeholder="Nomor HP / WhatsApp"
-                      type="tel" />
+                      type="tel"
+                      maxlength="20"
+                      required />
                     <textarea
+                      id="rfq-message"
                       class="w-full bg-surface-container-low p-md rounded-lg border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 outline-none"
                       data-i18n-placeholder="contact.placeholder_message"
                       placeholder="Pesan"
-                      rows="3"></textarea>
+                      rows="3"
+                      maxlength="250"
+                      required></textarea>
                     <button
                       class="w-full h-12 bg-primary text-on-primary font-label-md uppercase tracking-wider rounded-lg shadow-md hover:brightness-95 transition-all flex items-center justify-center gap-xs"
-                      type="button">
+                      type="submit">
                       <span data-i18n="contact.btn_send">Kirim Permintaan Penawaran</span> <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </button>
                   </form>
@@ -1042,6 +1057,35 @@
             "network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all border-b-2 border-primary text-primary bg-surface-container-lowest shadow-sm";
         }
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const rfqForm = document.getElementById("rfq-form");
+
+        if (rfqForm) {
+          rfqForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("rfq-name")?.value.trim() || "";
+            const company = document.getElementById("rfq-company")?.value.trim() || "";
+            const email = document.getElementById("rfq-email")?.value.trim() || "";
+            const phone = document.getElementById("rfq-phone")?.value.trim() || "";
+            const message = document.getElementById("rfq-message")?.value.trim() || "";
+
+            const salesWhatsAppNumber = "6282171789853";
+            const text =
+              `Halo Sales BEST, saya ingin meminta Penawaran Harga (RFQ):\n\n` +
+              `• *Nama:* ${name}\n` +
+              `• *Perusahaan:* ${company}\n` +
+              `• *Email:* ${email}\n` +
+              `• *No. HP/WA:* ${phone}\n` +
+              `• *Detail Pesan:* ${message || "-"}`;
+
+            const waUrl = `https://wa.me/${salesWhatsAppNumber}?text=${encodeURIComponent(text)}`;
+
+            window.open(waUrl, "_blank");
+          });
+        }
+      });
     </script>
   </body>
 </html>
