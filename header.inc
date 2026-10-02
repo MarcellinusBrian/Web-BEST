@@ -31,9 +31,9 @@
     <div class="flex items-center gap-sm md:gap-md">
       <!-- Tombol Switcher ID / EN -->
       <div class="flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant/30 text-xs font-bold text-on-surface-variant">
-        <button onclick="setLanguage('id')" id="btn-lang-id" class="px-2.5 py-1 rounded-full transition-all hover:text-primary">ID</button>
+        <a href="?lang=id" id="btn-lang-id" class="px-2.5 py-1 rounded-full transition-all hover:text-primary">ID</a>
         <span class="text-outline-variant opacity-40">|</span>
-        <button onclick="setLanguage('en')" id="btn-lang-en" class="px-2.5 py-1 rounded-full transition-all hover:text-primary">EN</button>
+        <a href="?lang=en" id="btn-lang-en" class="px-2.5 py-1 rounded-full transition-all hover:text-primary">EN</a>
       </div>
 
       <!-- Icon Profile -->
