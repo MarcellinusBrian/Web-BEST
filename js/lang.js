@@ -183,7 +183,8 @@ const translations = {
       breadcrumb_home: "Beranda",
       breadcrumb_current: "Lacak Pengiriman",
       tag: "Lacak Kargo Real-Time",
-      title: "Lacak Posisi Kargo Anda",
+      title: "Lacak Posisi Kargo Anda - PT Berkat Subuh Transpor",
+      description: "Lacak status pengiriman kargo dan kontainer Anda secara real-time di PT Berkat Subuh Transpor.",
       desc: "Masukkan Nomor Resi / AWB / Booking Number untuk memantau status muatan.",
       placeholder_awb: "Masukkan No. AWB / Booking No...",
       btn_check: "Cek Status",
@@ -206,6 +207,8 @@ const translations = {
       error_helpline: "Bantuan Tim Operasional",
     },
     projects_page: {
+      title: "Proyek Kami - PT Berkat Subuh Transpor",
+      description: "Portofolio dan rekam jejak sukses proyek pengiriman kargo dan distribusi armada PT Berkat Subuh Transpor.",
       breadcrumb_home: "Beranda",
       breadcrumb_current: "Proyek",
       page_title: "Pengalaman Proyek & Rekam Jejak Terbukti",
@@ -247,6 +250,67 @@ const translations = {
       cta_title: "Punya Kargo Khusus atau Proyek Logistik Skala Besar?",
       cta_desc: "Tim ahli kami siap merancang skema & penanganan logistik khusus untuk bisnis Anda.",
       cta_btn: "Konsultasi Proyek via WhatsApp",
+    },
+    index: {
+      title: "PT Berkat Subuh Transpor - Layanan Logistik & Kontainer",
+      description: "PT Berkat Subuh Transpor melayani pengiriman kontainer, sewa reefer container, dan transportasi logistik terpercaya di Indonesia.",
+    },
+    rates: {
+      title: "Daftar Tarif & Estimasi Pengiriman - PT Berkat Subuh Transpor",
+      description: "Cek estimasi tarif pengiriman kargo dan biaya sewa kontainer transparan serta kompetitif di PT Berkat Subuh Transpor.",
+
+      breadcrumb_home: "Beranda",
+      breadcrumb_current: "Katalog Tarif",
+      page_title: "Daftar Tarif Indikatif & SLA",
+      page_desc: "Estimasi tarif pengiriman kargo darat, laut, dan udara yang transparan untuk perencanaan logistik bisnis Anda.",
+
+      lbl_origin: "Asal (Origin)",
+      ph_origin: "Pilih kota asal...",
+      lbl_destination: "Tujuan (Destination)",
+      ph_destination: "Pilih kota tujuan...",
+      btn_search: "Cari Tarif",
+
+      tab_all: "Semua Moda",
+      tab_sea: "Sea Freight (Laut)",
+      tab_air: "Air Cargo (Udara)",
+      tab_land: "Sewa Truk (Charter)",
+
+      table_title: "Rute Populer & Estimasi Tarif",
+      last_update: "Update Terakhir: 2026",
+      th_route: "Rute Pengiriman",
+      th_mode: "Moda / Layanan",
+      th_min_charge: "Min. Charge",
+      th_sla: "Estimasi SLA",
+      th_indicative_rate: "Tarif Indikatif",
+      th_action: "Aksi",
+
+      unit_cbm_ton: "per CBM / Ton",
+      unit_kg: "per Kg",
+      unit_trip: "per Charter Trip",
+      start_from: "Mulai",
+      custom_quote: "Custom Quote",
+      contact_sales_sub: "Hubungi Sales",
+      btn_order: "Pesan",
+      btn_ask_sales: "Tanya Sales",
+
+      days_10_14: "10 - 14 Hari",
+      days_5_7: "5 - 7 Hari",
+      days_1_2: "1 - 2 Hari",
+      days_2_3: "2 - 3 Hari",
+
+      terms_title: "Syarat & Ketentuan Tarif (Disclaimer)",
+      terms_item1:
+        "Tarif di atas bersifat <strong>indikatif (patokan dasar)</strong> dan dapat berubah sesuai dengan kenaikan biaya bahan bakar / fluktuasi maskapai & pelayaran.",
+      terms_item2:
+        'Perhitungan berat kargo menggunakan asas berat aktual (Kg) atau berat volume <code class="bg-surface px-1 rounded">(P x L x T / 4000)</code> mengambil mana yang lebih besar.',
+      terms_item3:
+        "Untuk pengiriman skala besar di atas 1 Ton atau sewa Full Container (FCL), dapatkan <strong>Special Corporate Rate</strong> dengan menghubungi tim sales kami.",
+
+      sidebar_tag: "B2B Helpdesk",
+      sidebar_title: "Tidak Menemukan Rute Anda?",
+      sidebar_desc: "Kami melayani pengiriman ke seluruh pelosok Nusantara & Internasional. Dapatkan penawaran harga resmi (RFQ) khusus kargo Anda.",
+      btn_wa_consult: "Konsultasi via WhatsApp",
+      btn_fill_form: "Isi Form Penawaran",
     },
   },
   en: {
@@ -433,7 +497,8 @@ const translations = {
       breadcrumb_home: "Home",
       breadcrumb_current: "Shipment Tracking",
       tag: "Real-Time Cargo Tracking",
-      title: "Track Your Cargo Position",
+      title: "Track Your Cargo Position - PT Berkat Subuh Transpor",
+      description: "Track your cargo and container shipment status in real-time at PT Berkat Subuh Transpor.",
       desc: "Enter your Receipt Number / AWB / Booking Number to monitor your cargo status.",
       placeholder_awb: "Enter AWB No. / Booking No...",
       btn_check: "Check Status",
@@ -456,6 +521,8 @@ const translations = {
       error_helpline: "Operational Team Helpline",
     },
     projects_page: {
+      title: "Our Projects - PT Berkat Subuh Transpor",
+      description: "Portfolio and proven track record of successful cargo shipping and fleet distribution projects by PT Berkat Subuh Transpor.",
       breadcrumb_home: "Home",
       breadcrumb_current: "Projects",
       page_title: "Project Experience & Proven Track Record",
@@ -498,6 +565,65 @@ const translations = {
       cta_desc: "Our expert team is ready to plan a customized shipping scheme for your business.",
       cta_btn: "Project Consultation via WhatsApp",
     },
+    index: {
+      title: "PT Berkat Subuh Transpor - Logistics & Container Services",
+      description: "PT Berkat Subuh Transpor provides reliable container shipping, reefer container rental, and land transport services in Indonesia.",
+    },
+    rates: {
+      title: "Publish Rates & Shipping Estimate - PT Berkat Subuh Transpor",
+      description: "Check transparent and competitive freight shipping rate estimates and container rental costs at PT Berkat Subuh Transpor.",
+
+      breadcrumb_home: "Home",
+      breadcrumb_current: "Publish Rates",
+      page_title: "Indicative Rates & SLA List",
+      page_desc: "Transparent freight shipping rate estimates for land, sea, and air logistics planning for your business.",
+
+      lbl_origin: "Origin",
+      ph_origin: "Select origin city...",
+      lbl_destination: "Destination",
+      ph_destination: "Select destination city...",
+      btn_search: "Search Rates",
+
+      tab_all: "All Modes",
+      tab_sea: "Sea Freight",
+      tab_air: "Air Cargo",
+      tab_land: "Truck Rental (Charter)",
+
+      table_title: "Popular Routes & Estimated Rates",
+      last_update: "Last Updated: 2026",
+      th_route: "Shipping Route",
+      th_mode: "Mode / Service",
+      th_min_charge: "Min. Charge",
+      th_sla: "Estimated SLA",
+      th_indicative_rate: "Indicative Rate",
+      th_action: "Action",
+
+      unit_cbm_ton: "per CBM / Ton",
+      unit_kg: "per Kg",
+      unit_trip: "per Charter Trip",
+      start_from: "Starting from",
+      custom_quote: "Custom Quote",
+      contact_sales_sub: "Contact Sales",
+      btn_order: "Order",
+      btn_ask_sales: "Ask Sales",
+
+      days_10_14: "10 - 14 Days",
+      days_5_7: "5 - 7 Days",
+      days_1_2: "1 - 2 Days",
+      days_2_3: "2 - 3 Days",
+
+      terms_title: "Rates Terms & Conditions (Disclaimer)",
+      terms_item1: "Rates above are <strong>indicative (base estimate)</strong> and subject to change based on fuel surcharge increases or carrier fluctuations.",
+      terms_item2:
+        'Cargo weight calculation uses actual weight (Kg) or volumetric weight <code class="bg-surface px-1 rounded">(L x W x H / 4000)</code>, whichever is greater.',
+      terms_item3: "For large-scale shipments above 1 Ton or Full Container Load (FCL) rentals, get a <strong>Special Corporate Rate</strong> by contacting our sales team.",
+
+      sidebar_tag: "B2B Helpdesk",
+      sidebar_title: "Can't Find Your Route?",
+      sidebar_desc: "We deliver across the archipelago and internationally. Get an official custom quote (RFQ) for your cargo.",
+      btn_wa_consult: "Consult via WhatsApp",
+      btn_fill_form: "Fill Quote Form",
+    },
   },
 };
 
@@ -505,10 +631,125 @@ function getNestedTranslation(obj, path) {
   return path.split(".").reduce((prev, curr) => (prev ? prev[curr] : null), obj);
 }
 
+function getActiveLanguage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get("lang");
+
+  if (langParam === "id" || langParam === "en") {
+    return langParam;
+  }
+  return localStorage.getItem("preferred_lang") || "id";
+}
+
+function getPageKey() {
+  let path = window.location.pathname.split("/").pop();
+  if (!path || path === "index.html" || path === "") {
+    return "index";
+  }
+  return path.replace(".html", "").replaceAll("-", "_");
+}
+
+function updateInternalLinks(lang) {
+  document.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (
+      !href ||
+      href.startsWith("http") ||
+      href.startsWith("https") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("#") ||
+      href.startsWith("javascript:") ||
+      link.id === "btn-lang-id" ||
+      link.id === "btn-lang-en"
+    ) {
+      return;
+    }
+    const [pathAndQuery, hash] = href.split("#");
+    const [pathOnly, queryString] = pathAndQuery.split("?");
+    const params = new URLSearchParams(queryString || "");
+
+    if (lang === "en") {
+      params.set("lang", "en");
+    } else {
+      params.delete("lang"); // Biar default ke ID
+    }
+
+    const queryStr = params.toString() ? `?${params.toString()}` : "";
+    const hashStr = hash !== undefined ? `#${hash}` : "";
+    link.setAttribute("href", `${pathOnly}${queryStr}${hashStr}`);
+  });
+}
+
+// 1. PERBAIKAN: Parameter `lang` ditambahkan di sini
+function syncUrlAddressBar(lang) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentLangParam = urlParams.get("lang");
+
+  if (lang === "en" && currentLangParam !== "en") {
+    urlParams.set("lang", "en");
+    const newQuery = urlParams.toString() ? `?${urlParams.toString()}` : "";
+    const newUrl = `${window.location.pathname}${newQuery}${window.location.hash}`;
+    window.history.replaceState({}, document.title, newUrl);
+  } else if (lang === "id" && currentLangParam !== null) {
+    urlParams.delete("lang");
+    const newQuery = urlParams.toString() ? `?${urlParams.toString()}` : "";
+    const newUrl = `${window.location.pathname}${newQuery}${window.location.hash}`;
+    window.history.replaceState({}, document.title, newUrl);
+  }
+}
+
+// 2. Event listener switcher
+function setupSwitcherListeners() {
+  const btnId = document.getElementById("btn-lang-id");
+  const btnEn = document.getElementById("btn-lang-en");
+
+  if (btnId && !btnId.dataset.listenerAttached) {
+    btnId.dataset.listenerAttached = "true";
+    btnId.addEventListener("click", (e) => {
+      e.preventDefault();
+      setLanguage("id");
+    });
+  }
+
+  if (btnEn && !btnEn.dataset.listenerAttached) {
+    btnEn.dataset.listenerAttached = "true";
+    btnEn.addEventListener("click", (e) => {
+      e.preventDefault();
+      setLanguage("en");
+    });
+  }
+}
+
 function setLanguage(lang) {
   localStorage.setItem("preferred_lang", lang);
 
-  // Update teks elemen yang memiliki atribut data-i18n
+  // 3. PERBAIKAN: Panggil syncUrlAddressBar agar URL di address bar sinkron
+  syncUrlAddressBar(lang);
+
+  // Buat SEO
+  document.documentElement.lang = lang;
+
+  // Cek ketersediaan variabel translations
+  if (typeof translations === "undefined") {
+    return;
+  }
+
+  const pageKey = getPageKey();
+  if (translations[lang] && translations[lang][pageKey]) {
+    const pageSEO = translations[lang][pageKey];
+
+    if (pageSEO.title) {
+      document.title = pageSEO.title;
+    }
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && pageSEO.description) {
+      metaDesc.setAttribute("content", pageSEO.description);
+    }
+  }
+
+  // Update teks elemen atribut data-i18n
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
     const text = getNestedTranslation(translations[lang], key);
@@ -526,7 +767,9 @@ function setLanguage(lang) {
     }
   });
 
-  // Highlight tombol switcher bahasa yang aktif
+  updateInternalLinks(lang);
+
+  // Highlight & pasang listener pada tombol switcher
   const btnId = document.getElementById("btn-lang-id");
   const btnEn = document.getElementById("btn-lang-en");
 
@@ -538,44 +781,26 @@ function setLanguage(lang) {
       btnEn.className = "px-2.5 py-1 rounded-full transition-all bg-primary text-on-primary shadow-sm";
       btnId.className = "px-2.5 py-1 rounded-full transition-all hover:text-primary text-on-surface-variant";
     }
+
+    // 4. PERBAIKAN: Pasang event listener switcher di sini
+    setupSwitcherListeners();
   }
 }
 
 // Jalankan otomatis saat DOM siap
-// document.addEventListener("DOMContentLoaded", () => {
-//   const savedLang = localStorage.getItem("preferred_lang") || "en";
-//   setLanguage(savedLang);
-
-//   const observer = new MutationObserver(() => {
-//     if (document.getElementById("btn-lang-id")) {
-//       setLanguage(localStorage.getItem("preferred_lang") || "en");
-//       observer.disconnect();
-//     }
-//   });
-
-//   const headerPlaceholder = document.getElementById("header-placeholder");
-//   if (headerPlaceholder) {
-//     observer.observe(headerPlaceholder, { childList: true, subtree: true });
-//   }
-// });
-
-// Jalankan otomatis saat DOM siap
 document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("preferred_lang") || "en";
-  setLanguage(savedLang);
+  const currentLang = getActiveLanguage();
+  setLanguage(currentLang);
 
   const headerPlaceholder = document.getElementById("header-placeholder");
   const footerPlaceholder = document.getElementById("footer-placeholder");
 
   // Pantau jika header & footer dimasukkan secara dinamis oleh components.js
   const observer = new MutationObserver(() => {
-    // Stop pemantau sementara agar perubahan teks dari setLanguage TIDAK memicu loop
     observer.disconnect();
 
-    // Terapkan bahasa
-    setLanguage(localStorage.getItem("preferred_lang") || "en");
+    setLanguage(getActiveLanguage());
 
-    // Mulaikan pemantau lagi untuk menangkap komponen berikutnya yang selesai di-load
     if (headerPlaceholder) observer.observe(headerPlaceholder, { childList: true, subtree: true });
     if (footerPlaceholder) observer.observe(footerPlaceholder, { childList: true, subtree: true });
   });
