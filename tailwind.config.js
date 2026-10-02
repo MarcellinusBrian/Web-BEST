@@ -64,6 +64,3 @@ module.exports = {
   },
   plugins: [],
 };
-// bagian .gitignore itu kasih message nya apa yang bagus buat commit?
-// terus ada perubahan soal input.css dan style.css itu juga kasin message yang bagus buat commit apa ya? sebelumnya cuman ada  style.css tapi sekarang ada input.css juga, jadi commit message nya apa yang bagus?
-// bagian package-lock.json dan package.json itu juga baru ditambahkan jadi commit message nya apa yang bagus?
