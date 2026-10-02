@@ -1,0 +1,24 @@
+{
+  "name": "web-best",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcellinusBrian/Web-BEST.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcellinusBrian/Web-BEST/issues"
+  },
+  "homepage": "https://github.com/MarcellinusBrian/Web-BEST#readme",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
