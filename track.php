@@ -130,7 +130,6 @@ curl_setopt_array($ch, array(
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST           => true,
     CURLOPT_POSTFIELDS     => $payload,
-    // Penyamaran User-Agent Browser Chrome
     CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     CURLOPT_HTTPHEADER     => array(
         'Content-Type: application/json',
@@ -163,7 +162,7 @@ if ($curlError) {
 if ($httpCode === 200 && $response) {
     $trimmedResponse = trim($response);
 
-    // Kasus A: Jika API Pusat mengembalikan XML (diawali karakter '<')
+    // Jika API Pusat mengembalikan XML (diawali karakter '<')
     if (substr($trimmedResponse, 0, 1) === '<') {
         $xml = simplexml_load_string($trimmedResponse);
         if ($xml !== false) {
@@ -189,7 +188,7 @@ if ($httpCode === 200 && $response) {
         }
     }
 
-    // Kasus B: Jika API Pusat mengembalikan JSON murni
+    // Jika API Pusat mengembalikan JSON murni
     $decodedResponse = json_decode($trimmedResponse, true);
     if (json_last_error() === JSON_ERROR_NONE) {
         set_response_code(200);
