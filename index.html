@@ -15,8 +15,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <link href="css/style.css" rel="stylesheet" />
-
     <!-- Google Fonts & Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet" />
@@ -412,33 +410,39 @@
               </p>
             </div>
 
-            <!-- 4 Category Filter Tabs -->
-            <div class="flex overflow-x-auto gap-xs pb-xs border-b border-outline-variant/30 scrollbar-hide" id="network-tabs">
+            4 Category Filter Tabs
+            <!-- <div class="flex overflow-x-auto gap-xs pb-xs border-b border-outline-variant/30 scrollbar-hide" id="network-tabs"> -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-xs border-b border-outline-variant/30" id="network-tabs">
               <button
                 onclick="switchNetworkTab('sea-dom')"
                 id="tab-sea-dom"
-                class="network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all border-b-2 border-primary text-primary bg-surface-container-lowest shadow-sm">
-                <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">sailing</span> <span data-i18n="network.tab_sea_dom">Sea Cargo Domestic</span>
+                class="network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all border-b-2 border-primary text-primary bg-surface-container-lowest shadow-sm">
+                <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">sailing</span>
+                <span data-i18n="network.tab_sea_dom">Sea Cargo Domestic</span>
               </button>
+
               <button
                 onclick="switchNetworkTab('air-dom')"
                 id="tab-air-dom"
-                class="network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all text-on-surface-variant hover:text-primary">
+                class="network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all text-on-surface-variant hover:text-primary border-b-2 border-outline-variant/20">
                 <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">flight_takeoff</span>
                 <span data-i18n="network.tab_air_dom">Air Cargo Domestic</span>
               </button>
+
               <button
                 onclick="switchNetworkTab('sea-int')"
                 id="tab-sea-int"
-                class="network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all text-on-surface-variant hover:text-primary">
+                class="network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all text-on-surface-variant hover:text-primary border-b-2 border-outline-variant/20">
                 <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">directions_boat</span>
                 <span data-i18n="network.tab_sea_int">Sea Cargo International</span>
               </button>
+
               <button
                 onclick="switchNetworkTab('air-int')"
                 id="tab-air-int"
-                class="network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all text-on-surface-variant hover:text-primary">
-                <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">public</span> <span data-i18n="network.tab_air_int">Air Cargo International</span>
+                class="network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all text-on-surface-variant hover:text-primary border-b-2 border-outline-variant/20">
+                <span class="material-symbols-outlined text-[16px] align-text-bottom mr-1">public</span>
+                <span data-i18n="network.tab_air_int">Air Cargo International</span>
               </button>
             </div>
 
@@ -1042,7 +1046,7 @@
 
         document.querySelectorAll(".network-tab-btn").forEach((btn) => {
           btn.className =
-            "network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all text-on-surface-variant hover:text-primary";
+            "network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all text-on-surface-variant hover:text-primary border-b-2 border-outline-variant/20";
         });
 
         const activeContent = document.getElementById("content-" + tabId);
@@ -1054,7 +1058,7 @@
         const activeBtn = document.getElementById("tab-" + tabId);
         if (activeBtn) {
           activeBtn.className =
-            "network-tab-btn px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold whitespace-nowrap transition-all border-b-2 border-primary text-primary bg-surface-container-lowest shadow-sm";
+            "network-tab-btn w-full flex items-center justify-center px-md py-sm rounded-t-lg font-label-md text-xs uppercase tracking-wider font-bold transition-all border-b-2 border-primary text-primary bg-surface-container-lowest shadow-sm";
         }
       }
 
