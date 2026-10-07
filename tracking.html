@@ -266,11 +266,8 @@
         submitBtn.disabled = true;
 
         try {
-          const targetApiUrl = "http://59.153.83.135/api/best/HAWBStatus";
-          const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(targetApiUrl);
-
-          // UNTUK TES DI LOKAL PC, gunakan track.php
-          // const response = await fetch("track.php", {
+          // Panggil backend PHP proxy
+          // const response = await fetch("./track.php", {
           //   method: "POST",
           //   headers: {
           //     "Content-Type": "application/json",
@@ -279,7 +276,17 @@
           // });
 
           // UNTUK DEMO DI VERCEL
-          const response = await fetch("/api/track", {
+          // const response = await fetch("/api/track", {
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({ HAWBNo: awbKey }),
+          // });
+
+          const VERCEL_API_URL = "https://web-bestranspor.vercel.app/api/track";
+
+          const response = await fetch(VERCEL_API_URL, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -290,7 +297,15 @@
           const data = await response.json();
           console.log("Respon Data dari API:", data);
 
-          // Jika data kosong atau bukan array
+          if (!response.ok || data.error || data.debug_error) {
+            console.error("Detail Error API:", data);
+
+            resultCard.classList.add("hidden");
+            errorCard.classList.remove("hidden");
+            errorCard.classList.add("flex");
+            return;
+          }
+
           if (!data || !Array.isArray(data) || data.length === 0) {
             resultCard.classList.add("hidden");
             errorCard.classList.remove("hidden");
@@ -298,16 +313,14 @@
             return;
           }
 
-          // Kalo data didapat, tampilkan di UI
           processApiResponse(data);
         } catch (error) {
-          console.error("Error saat panggil API:", error);
-          alert("Gagal terhubung ke API. Buka F12 Console untuk detail error.");
+          console.error("Error saat panggil API / Network Error:", error);
+          alert("Gagal terhubung ke server. Buka F12 Console untuk detail error.");
           resultCard.classList.add("hidden");
           errorCard.classList.remove("hidden");
           errorCard.classList.add("flex");
         } finally {
-          // KEMBALIKAN TOMBOL KE SEMULA
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
         }
@@ -331,20 +344,15 @@
         errorCard.classList.remove("flex");
         resultCard.classList.remove("hidden");
 
-        // Ambil status terbaru (elemen terakhir dari array API)
-        const firstData = apiResponse[0];
+        // Ambil status terbaru
         const latestData = apiResponse[apiResponse.length - 1];
 
         // Update Header Status & Resi
-        document.getElementById("result-status-title").innerText = latestData.StatusName;
-        // document.getElementById("meta-awb").innerText = latestData.HAWB;
-
-        // Sederhanakan Informasi Card Rincian
-        document.getElementById("meta-awb").innerText = latestData.HAWB;
+        document.getElementById("result-status-title").innerText = latestData.StatusName || "Status Pengiriman";
+        document.getElementById("meta-awb").innerText = latestData.HAWB || "-";
         document.getElementById("meta-remark").innerText = latestData.Remark || "-";
-        document.getElementById("meta-last-update").innerText = latestData.Statusdate;
+        document.getElementById("meta-last-update").innerText = latestData.Statusdate || "-";
 
-        // Update WhatsApp CS Link
         document.getElementById("btn-wa-cs").href = `https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
 
         // Stepper Progress
@@ -352,7 +360,7 @@
         const stepInfo = getStepLevel(statusCode);
         document.getElementById("progress-line-fill").style.width = stepInfo.percent;
 
-        // Update Badge Status (Pojok Kanan Header)
+        // Update Badge Status
         const badgeContainer = document.getElementById("result-badge-container");
         if (badgeContainer) {
           if (stepInfo.step === 4) {
@@ -380,36 +388,29 @@
           const dotStyle = isLatest ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
 
           const rowHtml = `
-        <div class="flex items-start gap-md relative group">
-          <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
-            <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
-            <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
-          </div>
+            <div class="flex items-start gap-md relative group">
+              <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
+                <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
+                <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
+              </div>
 
-          <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
-            ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
-            <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
-              ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+              <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
+                ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
+                <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
+                  ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+                </div>
+              </div>
+
+              <div class="flex-1 pb-lg pt-0.5">
+                <p class="${textStyle} leading-relaxed">
+                  <span class="uppercase font-bold">[${item.StatusName || "STATUS"}]</span> - ${item.Remark || "Tidak ada catatan"}
+                </p>
+              </div>
             </div>
-          </div>
-
-          <div class="flex-1 pb-lg pt-0.5">
-            <p class="${textStyle} leading-relaxed">
-              <span class="uppercase font-bold">[${item.StatusName}]</span> - ${item.Remark || "Tidak ada catatan"}
-            </p>
-          </div>
-        </div>
-      `;
+          `;
           container.insertAdjacentHTML("beforeend", rowHtml);
         });
       }
-
-      // HANDLER SEARCH FORM
-      // function handleSearch(e) {
-      //   if (e) e.preventDefault();
-      //   const inputVal = document.getElementById("awb-input").value.trim().toUpperCase();
-      //   if (inputVal) loadTrackingData(inputVal);
-      // }
 
       const awbInput = document.getElementById("awb-input");
       const clearBtn = document.getElementById("clear-awb-btn");
@@ -428,7 +429,6 @@
 
       if (awbInput) {
         awbInput.addEventListener("input", function () {
-          // Hanya menyisakan Huruf (a-z, A-Z), Angka (0-9), dan Tanda Hubung (-)
           this.value = this.value.replace(/[^a-zA-Z0-9-]/g, "").toUpperCase();
           toggleClearBtn();
         });
@@ -457,13 +457,9 @@
         if (awbInput) {
           awbInput.value = "";
           toggleClearBtn();
-          awbInput.focus(); // Fokuskan kembali kursor ke input
+          awbInput.focus();
         }
       }
-      // function setSampleAwb(awb) {
-      //   document.getElementById("awb-input").value = awb;
-      //   loadTrackingData(awb);
-      // }
 
       function setSampleAwb(awb) {
         if (awbInput) {
@@ -473,7 +469,6 @@
         }
       }
 
-      // SALIN AWB
       function copyAwb() {
         const awbText = document.getElementById("meta-awb").innerText;
         navigator.clipboard.writeText(awbText);
@@ -481,7 +476,7 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById("awb-input").value = "";
+        if (awbInput) awbInput.value = "";
       });
     </script>
   </body>
