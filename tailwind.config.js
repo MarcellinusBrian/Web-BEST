@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // Menentukan file apa saja yang dipindai class Tailwind-nya
-  content: ["./*.{html,inc,php}", "./js/**/*.js"],
+  content: ["./**/*.{html,inc,php}", "./js/**/*.js"],
   darkMode: "class",
   theme: {
     extend: {
