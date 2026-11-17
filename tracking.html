@@ -59,7 +59,7 @@
                   data-i18n-placeholder="tracking.placeholder_awb"
                   placeholder="Masukkan No. AWB / Booking No..."
                   type="text"
-                  maxlength="15"
+                  maxlength="20"
                   autocomplete="off"
                   required />
                 <button
@@ -335,6 +335,82 @@
       }
 
       // FUNGSI MERENDER DATA DARI API KE UI TIMELINE
+      // function processApiResponse(apiResponse) {
+      //   const resultCard = document.getElementById("tracking-result");
+      //   const errorCard = document.getElementById("tracking-error");
+
+      //   errorCard.classList.add("hidden");
+      //   errorCard.classList.remove("flex");
+      //   resultCard.classList.remove("hidden");
+
+      //   // Ambil status terbaru
+      //   const latestData = apiResponse[apiResponse.length - 1];
+
+      //   // Update Header Status & Resi
+      //   document.getElementById("result-status-title").innerText = latestData.StatusName || "Status Pengiriman";
+      //   document.getElementById("meta-awb").innerText = latestData.HAWB || "-";
+      //   document.getElementById("meta-remark").innerText = latestData.Remark || "-";
+      //   document.getElementById("meta-last-update").innerText = latestData.Statusdate || "-";
+
+      //   document.getElementById("btn-wa-cs").href = `https://wa.me/6282171789853?text=Halo%20Admin%2C%20saya%20mau%20tanya%20status%20AWB%20${latestData.HAWB}`;
+
+      //   // Stepper Progress
+      //   const statusCode = latestData.StatusCode || "";
+      //   const stepInfo = getStepLevel(statusCode);
+      //   document.getElementById("progress-line-fill").style.width = stepInfo.percent;
+
+      // Update Badge Status
+      // const badgeContainer = document.getElementById("result-badge-container");
+      // if (badgeContainer) {
+      //   if (stepInfo.step === 4) {
+      //     badgeContainer.innerHTML = `<span class="inline-flex items-center gap-xs bg-[#25D366]/10 text-[#25D366] px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span> DELIVERED</span>`;
+      //   } else {
+      //     badgeContainer.innerHTML = `<span class="inline-flex items-center gap-xs bg-primary/10 text-primary px-md py-xs rounded-full font-label-md text-xs font-bold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> ${latestData.StatusName}</span>`;
+      //   }
+      // }
+
+      // RENDER TIMELINE VERTIKAL (baru ke lama)
+      // const container = document.getElementById("timeline-container");
+      // container.innerHTML = "";
+
+      // const reversedHistory = [...apiResponse].reverse();
+
+      // reversedHistory.forEach((item, index) => {
+      //   const isLatest = index === 0;
+
+      // Format Tanggal
+      //     const dateObj = new Date(item.Statusdate);
+      //     const dateStr = !isNaN(dateObj) ? dateObj.toLocaleDateString("id-ID", { day: "numeric", month: "short" }) : item.Statusdate;
+      //     const timeStr = !isNaN(dateObj) ? dateObj.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }) : "";
+
+      //     const textStyle = isLatest ? "text-primary font-bold text-body-md" : "text-on-surface-variant text-body-sm";
+      //     const dotStyle = isLatest ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
+
+      //     const rowHtml = `
+      //       <div class="flex items-start gap-md relative group">
+      //         <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
+      //           <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
+      //           <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
+      //         </div>
+
+      //         <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
+      //           ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
+      //           <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
+      //             ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+      //           </div>
+      //         </div>
+
+      //         <div class="flex-1 pb-lg pt-0.5">
+      //           <p class="${textStyle} leading-relaxed">
+      //             <span class="uppercase font-bold">[${item.StatusName || "STATUS"}]</span> - ${item.Remark || "Tidak ada catatan"}
+      //           </p>
+      //         </div>
+      //       </div>
+      //     `;
+      //     container.insertAdjacentHTML("beforeend", rowHtml);
+      //   });
+      // }
+
       function processApiResponse(apiResponse) {
         const resultCard = document.getElementById("tracking-result");
         const errorCard = document.getElementById("tracking-error");
@@ -343,8 +419,22 @@
         errorCard.classList.remove("flex");
         resultCard.classList.remove("hidden");
 
-        // Ambil status terbaru
-        const latestData = apiResponse[apiResponse.length - 1];
+        // 1. Urutkan dari terlama ke terbaru berdasarkan Statusdate
+        const sortedData = [...apiResponse].sort((a, b) => new Date(a.Statusdate) - new Date(b.Statusdate));
+
+        // 2. Hapus duplikat (kombinasi StatusCode + StatusName + Remark + Tanggal/Jam sampai menit)
+        const seen = new Set();
+        const uniqueHistory = sortedData.filter((item) => {
+          const cleanDate = (item.Statusdate || "").substring(0, 16); // Ambil YYYY-MM-DD HH:mm (abaikan selisih detik)
+          const uniqueKey = `${item.StatusCode}|${item.StatusName}|${item.Remark}|${cleanDate}`.toLowerCase().trim();
+
+          if (seen.has(uniqueKey)) return false;
+          seen.add(uniqueKey);
+          return true;
+        });
+
+        // Ambil status terbaru dari data yang sudah bersih
+        const latestData = uniqueHistory[uniqueHistory.length - 1];
 
         // Update Header Status & Resi
         document.getElementById("result-status-title").innerText = latestData.StatusName || "Status Pengiriman";
@@ -373,12 +463,11 @@
         const container = document.getElementById("timeline-container");
         container.innerHTML = "";
 
-        const reversedHistory = [...apiResponse].reverse();
+        const reversedHistory = [...uniqueHistory].reverse();
 
         reversedHistory.forEach((item, index) => {
           const isLatest = index === 0;
 
-          // Format Tanggal
           const dateObj = new Date(item.Statusdate);
           const dateStr = !isNaN(dateObj) ? dateObj.toLocaleDateString("id-ID", { day: "numeric", month: "short" }) : item.Statusdate;
           const timeStr = !isNaN(dateObj) ? dateObj.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }) : "";
@@ -387,26 +476,26 @@
           const dotStyle = isLatest ? "bg-primary text-on-primary ring-4 ring-primary/20 scale-110" : "bg-outline-variant/60 text-transparent";
 
           const rowHtml = `
-            <div class="flex items-start gap-md relative group">
-              <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
-                <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
-                <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
-              </div>
+      <div class="flex items-start gap-md relative group">
+        <div class="w-20 md:w-24 flex flex-col text-right pt-0.5 flex-shrink-0">
+          <span class="font-data-mono text-xs ${isLatest ? "text-primary font-bold" : "text-on-surface-variant"}">${dateStr}</span>
+          <span class="font-data-mono text-[11px] text-on-surface-variant/70">${timeStr}</span>
+        </div>
 
-              <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
-                ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
-                <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
-                  ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
-                </div>
-              </div>
+        <div class="relative flex flex-col items-center flex-shrink-0 min-h-[64px]">
+          ${index !== reversedHistory.length - 1 ? '<div class="absolute top-3 bottom-0 w-0.5 bg-outline-variant/30 left-1/2 -translate-x-1/2"></div>' : ""}
+          <div class="relative z-10 w-3.5 h-3.5 rounded-full ${dotStyle} transition-all mt-1 flex items-center justify-center">
+            ${isLatest ? '<span class="material-symbols-outlined text-[10px]">check</span>' : ""}
+          </div>
+        </div>
 
-              <div class="flex-1 pb-lg pt-0.5">
-                <p class="${textStyle} leading-relaxed">
-                  <span class="uppercase font-bold">[${item.StatusName || "STATUS"}]</span> - ${item.Remark || "Tidak ada catatan"}
-                </p>
-              </div>
-            </div>
-          `;
+        <div class="flex-1 pb-lg pt-0.5">
+          <p class="${textStyle} leading-relaxed">
+            <span class="uppercase font-bold">[${item.StatusName || "STATUS"}]</span> - ${item.Remark || "Tidak ada catatan"}
+          </p>
+        </div>
+      </div>
+    `;
           container.insertAdjacentHTML("beforeend", rowHtml);
         });
       }

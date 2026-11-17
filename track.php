@@ -162,7 +162,7 @@ if ($curlError) {
 if ($httpCode === 200 && $response) {
     $trimmedResponse = trim($response);
 
-    // Jika API Pusat mengembalikan XML (diawali karakter '<')
+    // Jika API mengembalikan XML (diawali karakter '<')
     if (substr($trimmedResponse, 0, 1) === '<') {
         $xml = simplexml_load_string($trimmedResponse);
         if ($xml !== false) {
