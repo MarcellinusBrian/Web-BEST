@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
   HAWBNo = String(HAWBNo).trim().toUpperCase();
 
-  if (HAWBNo.length > 15) {
+  if (HAWBNo.length > 20) {
     return res.status(400).json({ error: "Format nomor HAWB terlalu panjang." });
   }
 
