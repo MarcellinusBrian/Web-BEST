@@ -101,10 +101,10 @@ if (empty($hawbNo)) {
     exit;
 }
 
-if (strlen($hawbNo) > 15) {
+if (strlen($hawbNo) > 20) {
     set_response_code(400);
     echo json_encode(array(
-        'debug_error' => 'Format nomor AWB terlalu panjang (>15 karakter).',
+        'debug_error' => 'Format nomor AWB terlalu panjang (>20 karakter).',
         'hawb_len'    => strlen($hawbNo)
     ));
     exit;
